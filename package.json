@@ -1,0 +1,31 @@
+{
+  "name": "hn-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:app": "webpack",
+    "build:server": "babel src/app -d lib/app && babel src/server -d lib/server",
+    "prebuild": "rm -rf ./build ./lib",
+    "build": "npm run build:server && npm run build:app",
+    "start": "npm run build && node ./lib/server/index.js",
+    "debug": "npm run build && node --inspect ./lib/server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
+    "ecstatic": "^3.0.0",
+    "express": "^4.15.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
