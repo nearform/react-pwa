@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build:app": "webpack",
-    "build:server": "babel src/app -d lib/app && babel src/server -d lib/server",
+    "build:server": "babel src -d lib --ignore src/client",
+    "watch:app": "webpack --watch",
+    "watch:server": "nodemon --watch src --ignore src/client --exec 'npm run build:server && node ./lib/server/index.js'",
     "prebuild": "rm -rf ./build ./lib",
+    "prewatch": "npm run prebuild",
     "build": "npm run build:server && npm run build:app",
-    "start": "npm run build && node ./lib/server/index.js",
+    "watch": "npm run watch:app & npm run watch:server",
+    "start": "node ./lib/server/index.js",
     "debug": "npm run build && node --inspect ./lib/server/index.js"
   },
   "keywords": [],
@@ -20,6 +24,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.17.1",
     "webpack": "^3.5.5"
   },
   "dependencies": {
