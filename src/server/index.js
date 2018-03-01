@@ -5,7 +5,6 @@ const ecstatic = require('ecstatic');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const App = require('../app');
 const appShellHandler = require('./app-shell-handler');
 
 const app = express();

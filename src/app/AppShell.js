@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function AppShell() {
   return (
     <div>
       hello world
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-module.exports = App;
+module.exports = AppShell;

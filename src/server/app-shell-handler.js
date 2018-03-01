@@ -1,11 +1,11 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const App = require('../app');
+const AppShell = require('../app/AppShell');
 
 module.exports = function renderAppShell(req, res) {
   const initialState = {};
-  const html = ReactDOMServer.renderToString(<App />);
+  const html = ReactDOMServer.renderToString(<AppShell />);
 
   res.send(`
     <!doctype html>
