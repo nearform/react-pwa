@@ -1,3 +1,4 @@
+const util = require('util');
 const path = require('path');
 const express = require('express');
 const { createServer } = require('http');
@@ -16,10 +17,18 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '../../build')));
 app.get('/', appShellHandler);
 app.get('/app-shell', appShellHandler);
-app.listen(3000, (err) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log('\n\n server started on port 3000');
-});
+
+function init() {
+  let server;
+  return Promise.resolve(app)
+    .then(app => {
+      server = app.listen(3000, (err) => {
+        if (err) throw err;
+      })
+    })
+    .then(() => ({ app, server }))
+}
+
+module.exports = {
+  init
+};
