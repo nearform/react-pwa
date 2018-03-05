@@ -15,7 +15,14 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(path.join(__dirname, '../../build')));
+
+// TODO reuse routes.js paths? depends on the server framework being used
 app.get('/', appShellHandler);
+app.get('/newest', appShellHandler);
+app.get('/newcomments', appShellHandler);
+app.get('/show', appShellHandler);
+app.get('/ask', appShellHandler);
+app.get('/jobs', appShellHandler);
 app.get('/app-shell', appShellHandler);
 
 function init() {
