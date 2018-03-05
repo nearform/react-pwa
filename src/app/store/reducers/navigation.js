@@ -1,6 +1,5 @@
-const INITIAL_STATE = {};
+const INITIAL_STATE = {}
 
-
-module.exports = function(state = INITIAL_STATE, action) {
-  return state;
-};
+module.exports = function (state = INITIAL_STATE, action) {
+  return state
+}

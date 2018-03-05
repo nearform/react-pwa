@@ -1,22 +1,21 @@
-const path = require('path');
- const webpack = require('webpack');
+const path = require('path')
 
 const PATHS = {
   BUILD: path.resolve(__dirname, 'build'),
   SRC: path.resolve(__dirname, 'src')
-};
+}
 
- module.exports = {
-   entry: {
-     'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
-   },
-   module: {
+module.exports = {
+  entry: {
+    'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
+  },
+  module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader'
         }
       }
     ]
@@ -27,4 +26,4 @@ const PATHS = {
     publicPath: '/',
     path: PATHS.BUILD
   }
- };
+}

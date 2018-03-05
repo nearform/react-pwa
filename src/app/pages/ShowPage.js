@@ -1,9 +1,9 @@
-const React = require('react');
+const React = require('react')
 
-module.exports = function ShowPage() {
+module.exports = function ShowPage () {
   return (
     <div>
       <div>show</div>
     </div>
-  );
+  )
 }

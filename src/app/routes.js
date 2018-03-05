@@ -29,4 +29,4 @@ module.exports = [
     exact: true,
     component: require('./pages/JobsPage')
   }
-];
+]

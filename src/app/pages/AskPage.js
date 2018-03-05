@@ -1,9 +1,9 @@
-const React = require('react');
+const React = require('react')
 
-module.exports = function AskPage() {
+module.exports = function AskPage () {
   return (
     <div>
       <div>Ask</div>
     </div>
-  );
+  )
 }
