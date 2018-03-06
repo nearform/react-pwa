@@ -17,3 +17,4 @@ const store = configureStore({
 const container = document.getElementById('app-root')
 
 render(<AppShell history={history} store={store} />, container)
+// delete initialState
