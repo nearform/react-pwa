@@ -25,6 +25,7 @@ module.exports = function renderAppShell (req, res) {
       <!doctype html>
       <html>
         <head>
+          <link rel="stylesheet" href="/public/css/app-shell.css">
           <link rel="preload" href="/public/js/app-shell.js" as="script">
         </head>
         <body>
