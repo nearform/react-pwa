@@ -8,8 +8,6 @@ const { configureStore } = require('../app/store')
 const appRoutes = require('../app/routes')
 
 module.exports = function renderAppShell (req, res) {
-  console.log('\n\n\n req.url:', req.url)
-
   const store = configureStore()
   const { route, match } = matchRoutes(appRoutes, req.url)[0]
 
@@ -35,5 +33,12 @@ module.exports = function renderAppShell (req, res) {
         </body>
       </html>
     `)
-  }).catch(err => res.send(err))
+  }).catch(error => {
+    console.error(error)
+    res.json({
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    })
+  })
 }

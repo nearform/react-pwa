@@ -1,5 +1,4 @@
 const React = require('react')
-const { connect } = require('react-redux')
 
 function StoriesList (props) {
   const { stories } = props
@@ -7,8 +6,8 @@ function StoriesList (props) {
   return (
     <div className='stories-list-component'>
       <ul>
-        {stories.map(story => (
-          <li className='stories-list-component__item'>
+        {stories.filter(Boolean).map(story => (
+          <li className='stories-list-component__item' key={story.id}>
             <span>{story.score}</span>
             <span><a href={story.url}>{story.title}</a></span>
             <br />
@@ -19,10 +18,4 @@ function StoriesList (props) {
     </div>
   )
 }
-
-function mstp (state) {
-  console.log('\n\n\n\n mstp state:', state)
-  return state.stories
-}
-
-module.exports = connect(mstp)(StoriesList)
+module.exports = StoriesList

@@ -36,7 +36,7 @@ app.get('/api/stories', (request, response) => {
     return response.json(askStories)
   }
 
-  if (filter === 'job') {
+  if (filter === 'jobs') {
     return response.json(jobStories)
   }
 

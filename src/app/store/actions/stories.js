@@ -1,3 +1,4 @@
+const qs = require('qs')
 const axios = require('axios')
 
 const HOST = process.NODE_ENV === 'production'
@@ -15,14 +16,26 @@ const updateStories = (stories) => ({
 })
 
 const fetchStories = (args) => (dispatch, getState) => {
+  const { sort, filter } = args || {}
+
   dispatch({
-    type: ACTION_TYPES.FETCH_STORIES
+    type: ACTION_TYPES.FETCH_STORIES,
+    sort,
+    filter
   })
 
-  return axios.get(`${HOST}/api/stories`)
+  const params = qs.stringify({
+    sort,
+    filter
+  })
+
+  return axios.get(`${HOST}/api/stories?${params}`)
     .then(response => dispatch(updateStories(response.data)))
     .then(() => getState())
 }
+
+// more actions for each fetch
+// more reducers to set 'filter' and sort properties to the store
 
 module.exports = {
   ACTION_TYPES,

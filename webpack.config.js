@@ -6,6 +6,7 @@ const PATHS = {
 }
 
 module.exports = {
+  devtool: '#cheap-module-source-map',
   entry: {
     'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
   },

@@ -1,12 +1,12 @@
 const React = require('react')
 
-const StoriesList = require('../components/StoriesList')
+const TopStories = require('../containers/TopStories')
 
 module.exports = function HomePage () {
   return (
     <div>
       <div>homepage</div>
-      <StoriesList />
+      <TopStories />
     </div>
   )
 }
