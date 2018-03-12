@@ -6,12 +6,14 @@ const { createMemoryHistory } = require('history')
 const AppShell = require('../app/AppShell')
 const { configureStore } = require('../app/store')
 const appRoutes = require('../app/routes')
+const { fetchPageData } = require('../app/store/actions/page-loader')
 
 module.exports = function renderAppShell (req, res) {
   const store = configureStore()
   const { route, match } = matchRoutes(appRoutes, req.url)[0]
 
-  route.fetchData({ match, dispatch: store.dispatch }).then(initialState => {
+  store.dispatch(fetchPageData({ route, match })).then(() => {
+    const initialState = store.getState()
     const history = createMemoryHistory({
       initialEntries: [req.url]
     })
@@ -23,13 +25,13 @@ module.exports = function renderAppShell (req, res) {
       <!doctype html>
       <html>
         <head>
-          <link rel="stylesheet" href="/public/css/app-shell.css">
-          <link rel="preload" href="/public/js/app-shell.js" as="script">
+          <link rel="stylesheet" href="/css/app-shell.css">
+          <link rel="preload" href="/js/app-shell.js" as="script">
         </head>
         <body>
           <div id="app-root">${html}</div>
           <script>window.__INITIAL_STATE__= ${JSON.stringify(initialState)}</script>
-          <script defer src="/public/js/app-shell.js"></script>
+          <script defer src="/js/app-shell.js"></script>
         </body>
       </html>
     `)

@@ -1,40 +1,46 @@
-const { fetchStories } = require('./store/actions/stories')
+const { fetchStories } = require('./helpers/stories')
 
 module.exports = [
+  {
+    path: '/app-shell',
+    exact: true,
+    component: require('./pages/LoadingPage'),
+    fetcher: () => Promise.resolve({ data: {} })
+  },
   {
     path: '/',
     exact: true,
     component: require('./pages/HomePage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ sort: 'rank' }))
+    fetcher: () => fetchStories({ sort: 'rank' })
   },
   {
     path: '/newest',
     exact: true,
     component: require('./pages/NewestPage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ sort: 'newest' }))
+    fetcher: () => fetchStories({ sort: 'newest' })
   },
   {
     path: '/newcomments',
     exact: true,
     component: require('./pages/CommentsPage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ filter: 'comments' }))
+    fetcher: () => fetchStories({ filter: 'comments' })
   },
   {
     path: '/show',
     exact: true,
     component: require('./pages/ShowPage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ filter: 'show' }))
+    fetcher: () => fetchStories({ filter: 'show' })
   },
   {
     path: '/ask',
     exact: true,
     component: require('./pages/AskPage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ filter: 'ask' }))
+    fetcher: () => fetchStories({ filter: 'ask' })
   },
   {
     path: '/jobs',
     exact: true,
     component: require('./pages/JobsPage'),
-    fetchData: ({ dispatch }) => dispatch(fetchStories({ filter: 'jobs' }))
+    fetcher: () => fetchStories({ filter: 'jobs' })
   }
 ]

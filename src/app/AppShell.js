@@ -8,19 +8,35 @@ const routes = require('./routes')
 const Navigation = require('./components/Navigation')
 const PageLoader = require('./containers/PageLoader')
 
-// old way: {renderRoutes(routes)}
+class AppShell extends React.Component {
+  componentDidMount () {
+    if (!navigator || !navigator.serviceWorker) {
+      // service worker not supported
+      return
+    }
 
-function AppShell ({ store, history }) {
-  return (
-    <ReduxProvider store={store}>
-      <ConnectedRouter history={history}>
-        <div className='app-shell-component'>
-          <Navigation />
-          <PageLoader routes={routes} />
-        </div>
-      </ConnectedRouter>
-    </ReduxProvider>
-  )
+    window.requestIdleCallback(() => {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(function (err) {
+          console.log('ServiceWorker registration failed: ', err)
+        })
+    })
+  }
+
+  render () {
+    const { store, history } = this.props
+
+    return (
+      <ReduxProvider store={store}>
+        <ConnectedRouter history={history}>
+          <div className='app-shell-component'>
+            <Navigation />
+            <PageLoader routes={routes} />
+          </div>
+        </ConnectedRouter>
+      </ReduxProvider>
+    )
+  }
 }
 
 module.exports = AppShell

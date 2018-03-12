@@ -15,7 +15,9 @@ app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
   next()
 })
-app.use(express.static(path.join(__dirname, '../../build')))
+app.use(express.static(path.join(__dirname, '../../build/public')))
+// host sw.js
+app.use(express.static(path.join(__dirname, '../../build/public/js')))
 
 // TODO reuse routes.js paths? depends on the server framework being used
 app.get('/', appShellHandler)
@@ -48,9 +50,6 @@ app.get('/api/stories', (request, response) => {
     return response.json(topStories)
   }
 })
-
-app.get('/api/topstories')
-app.get('/api/newstories')
 
 function init () {
   let server

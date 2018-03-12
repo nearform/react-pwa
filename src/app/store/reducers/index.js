@@ -2,6 +2,6 @@ const { routerReducer } = require('react-router-redux')
 
 module.exports = {
   navigation: require('./navigation'),
-  stories: require('./stories'),
+  pageLoader: require('./page-loader'),
   router: routerReducer
 }

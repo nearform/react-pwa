@@ -2,10 +2,14 @@ const React = require('react')
 const { Component } = React
 
 const { matchRoutes, renderRoutes } = require('react-router-config')
+const { fetchPageData } = require('../store/actions/page-loader')
+
+const LoadingPage = require('../pages/LoadingPage')
 
 class PageLoader extends Component {
   componentDidMount () {
     if (this.props.errorOccured || this.props.isStoreValid) {
+      console.log('\n\n\n SSR - no need to refetch')
       // SSR error - no need to refetch
       // SSR and store is valid - the router url matches the context.url
       return
@@ -14,6 +18,7 @@ class PageLoader extends Component {
     // store is not valid
     // eg app-shell has been returned from request
     // it's context.url will be /app-shell
+    console.log('\n\n\n Appshell - need to fetch')
     this._navigatedTo(this.props.location)
   }
 
@@ -74,15 +79,22 @@ class PageLoader extends Component {
 
   _fetchData (matchedRoutes, dispatch) {
     const promises = matchedRoutes.map(({ route, match }) => (
-      route.fetchData
-        ? route.fetchData({ match, dispatch })
+      route.fetcher
+        ? dispatch(fetchPageData({ route, match }))
         : Promise.resolve())
     )
     return Promise.all(promises)
   }
 
   render () {
-    const { routes, isOffline, errorOccured, OfflinePage, ErrorPage } = this.props
+    const {
+      routes,
+      isStoreValid,
+      isOffline,
+      errorOccured,
+      OfflinePage,
+      ErrorPage
+    } = this.props
 
     if (isOffline) {
       return OfflinePage
@@ -92,6 +104,11 @@ class PageLoader extends Component {
       return ErrorPage
     }
 
+    if (!isStoreValid) {
+      // TODO reuse loading page
+      return <LoadingPage />
+    }
+
     return renderRoutes(routes)
   }
 }
@@ -99,15 +116,19 @@ class PageLoader extends Component {
 // extension point - creating a container
 const { connect } = require('react-redux')
 
-function mstp (state) {
+function mstp (state, ownProps) {
   const { location } = state.router
-  const { isFetching } = state.stories
+  const { isFetching, renderedRoute } = state.pageLoader
+
+  const { routes } = ownProps
+  const { route: matchRouted } = matchRoutes(routes, location.pathname)[0]
+  const isStoreValid = matchRouted.path === renderedRoute.path
 
   return {
-    // routes,
     isFetching,
     location,
-    isStoreValid: true, // todo check if really needed
+    renderedRoute,
+    isStoreValid,
     isOffline: false,
     errorOccured: false,
     OfflinePage: () => <span>offline</span>,
