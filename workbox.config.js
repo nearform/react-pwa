@@ -25,7 +25,14 @@ module.exports = {
     ]
   },
   navigateFallback: '/app-shell/',
-  // navigateFallbackWhitelist: [],
+  navigateFallbackWhitelist: [
+    /^\/$/,
+    /^\/newest/,
+    /^\/newcomments/,
+    /^\/show/,
+    /^\/ask/,
+    /^\/jobs/
+  ],
   runtimeCaching: [
     // cache dynamic images - if applicable
     {

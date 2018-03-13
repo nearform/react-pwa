@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const appShellHandler = require('./app-shell-handler')
+const appManifest = require('../app/manifest.json')
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.get('/show', appShellHandler)
 app.get('/ask', appShellHandler)
 app.get('/jobs', appShellHandler)
 app.get('/app-shell', appShellHandler)
+app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
   const { sort = 'rank', filter } = request.query || {}
 

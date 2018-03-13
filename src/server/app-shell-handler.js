@@ -25,8 +25,11 @@ module.exports = function renderAppShell (req, res) {
       <!doctype html>
       <html>
         <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="theme-color" content="#ff6600">
           <link rel="stylesheet" href="/css/app-shell.css">
           <link rel="preload" href="/js/app-shell.js" as="script">
+          <link rel="manifest" href="/manifest.json">
         </head>
         <body>
           <div id="app-root">${html}</div>
