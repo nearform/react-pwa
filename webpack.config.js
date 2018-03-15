@@ -1,13 +1,27 @@
 const path = require('path')
 const webpack = require('webpack')
+const merge = require('webpack-merge')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const PATHS = {
   BUILD: path.resolve(__dirname, 'build'),
   SRC: path.resolve(__dirname, 'src')
 }
 
-module.exports = {
-  devtool: '#cheap-module-source-map',
+const devConfig = {
+  devtool: '#cheap-module-source-map' // inline-source-map?
+}
+
+const productionConfig = {
+  devtool: 'source-map',
+  plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true
+    })
+  ]
+}
+
+const commonConfig = {
   entry: {
     'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
   },
@@ -37,4 +51,10 @@ module.exports = {
     publicPath: '/',
     path: PATHS.BUILD
   }
+}
+
+module.exports = () => {
+  return process.env.NODE_ENV === 'production'
+    ? merge(commonConfig, productionConfig)
+    : merge(commonConfig, devConfig)
 }
