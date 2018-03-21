@@ -16,7 +16,9 @@ app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
   next()
 })
-app.use(express.static(path.join(__dirname, '../../build/public')))
+app.use(express.static(path.join(__dirname, '../../build/public'), {
+  maxAge: '1d'
+}))
 // host sw.js
 app.use(express.static(path.join(__dirname, '../../build/public/js')))
 
