@@ -39,7 +39,13 @@ This will build the project and serve it locally at `http://localhost:3000`
 
 ## Frameworks and libraries used
 
-...
+* [Node.js](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Babel](https://babeljs.io/)
+* [Node-Sass](https://github.com/sass/node-sass) 
+* [WebPack](https://webpack.js.org/)
+* [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
 ## Development
 
@@ -67,6 +73,8 @@ The Node server runs on port `3000` by default. Depending on the route being req
 
 Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler'. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state.
 
+The server uses Node for both serving static assets (from the `build` folder) and server-side rendering. This means the app works in situations where JavaScript may not be available. This could be search engine crawlers or even just situations where JavaScript fails or is blocked by a network.
+
 This static HTML response includes a reference to the `app-shell.js` file. This is the client-side application which then detects and handles the data fetching for subsequent route changes.
 
 ##### Manifest.json
@@ -75,25 +83,21 @@ The static HTML includes a reference to the file `manifest.json`. This is a sett
 
 #### src/client
 
-...
+The `client` folder contains images, styles and JavaScript for the React client. Styling is handled using Sass and there are some icons in the `images` folder.
+
+The `js` folder contains two files, `sw.js` that sets up a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) and `app-shell.js` that renders the React app.
+
+The service worker is used to cache API responses so that should the internet connection be disrupted, any previously requested data will be served locally. 
+
+The `app-shell.js` file renders the "App Shell" component, which houses the route information and any local data, passing it along to child components for display. These child components live in the `app` folder.
 
 #### src/app
 
-...
+The main part of the React app is in this folder, including `components` (the navigation and stories list), `containers` (components that handle fetching data and passing it through components), redux actions and reducers, and more.
+
+... Todo: More detail on the data fetching, when it goes to the API vs local etc...
 
 
-
-
-
-### Server-side rendering
-
-The server uses Node for both serving static assets (from the `build` folder) and server-side rendering. This means the app works in situations where JavaScript may not be available. This could be search engine crawlers or even just situations where JavaScript fails or is blocked by a network.
-
-... More on how server side rendering works ...
-
-### Client-side rendering
-
-...
 
 ## FAQs
 
