@@ -26,7 +26,6 @@
     "lighthouse": "npm run build && node ./scripts/lighthouse.js",
     "deploy": "now --public -e NODE_ENV=production",
     "deploy:alias": "now alias `pbpaste` hackernewspwa.com"
-
   },
   "keywords": [],
   "author": "",
