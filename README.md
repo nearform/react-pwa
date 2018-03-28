@@ -59,17 +59,31 @@ The scripts folder contains a helper script `lighthouse.js` that can used when p
 
 The majority of the project's source files are found here. They are separated into `app`, `client` and `server`.
 
-#### src/app
+Starting with the simplest...
 
-...
+#### src/server
+
+The Node server runs on port `3000` by default. Depending on the route being requested it will either return a rendered page or else act as an API to the React `client`.
+
+Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler'. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state.
+
+This static HTML response includes a reference to the `app-shell.js` file. This is the client-side application which then detects and handles the data fetching for subsequent route changes.
+
+##### Manifest.json
+
+The static HTML includes a reference to the file `manifest.json`. This is a settings file that tells the browser to treat the website as an application with a default start page, name, orientation and icon.
 
 #### src/client
 
 ...
 
-#### src/server
+#### src/app
 
 ...
+
+
+
+
 
 ### Server-side rendering
 
