@@ -65,17 +65,21 @@ The scripts folder contains a helper script `lighthouse.js` that can used when p
 
 The majority of the project's source files are found here. They are separated into `app`, `client` and `server`.
 
-Starting with the simplest...
-
 #### src/server
 
 The Node server runs on port `3000` by default. Depending on the route being requested it will either return a rendered page or else act as an API to the React `client`.
 
-Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler'. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state.
+Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler'. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state. 
 
 The server uses Node for both serving static assets (from the `build` folder) and server-side rendering. This means the app works in situations where JavaScript may not be available. This could be search engine crawlers or even just situations where JavaScript fails or is blocked by a network.
 
 This static HTML response includes a reference to the `app-shell.js` file. This is the client-side application which then detects and handles the data fetching for subsequent route changes.
+
+To bootstrap the app on the client side, the server applies `__INITIAL_STATE__` to the local `window` object. When the client takes over it then uses this stringified state object to decide whether to re-render the page.
+
+This initial state is used with `client/js/app-shell` which passes this data to `initialState` within the `configureStore` method. When the serverside rendering has set the initial state, this data [rehydrates](https://reactjs.org/docs/react-dom.html#hydrate) the `client` part of the app so that it can then continue on the client side.
+
+If you are not using serverside rendering on your project, the `componentDidMount` method in `app/containers/PageLoader` falls back to fetching data as needed on the client side. 
 
 ##### Manifest.json
 
@@ -83,29 +87,47 @@ The static HTML includes a reference to the file `manifest.json`. This is a sett
 
 #### src/client
 
-The `client` folder contains images, styles and JavaScript for the React client. Styling is handled using Sass and there are some icons in the `images` folder.
+The `client` folder contains static images, styles and JavaScript for the React client. Styling is handled using Sass and there are some icons in the `images` folder.
 
 The `js` folder contains two files, `sw.js` that sets up a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) and `app-shell.js` that renders the React app.
 
 The service worker is used to cache API responses so that should the internet connection be disrupted, any previously requested data will be served locally. 
 
-The `app-shell.js` file renders the "App Shell" component, which houses the route information and any local data, passing it along to child components for display. These child components live in the `app` folder.
+The `app-shell.js` file renders the "App Shell" component, which houses the route information and any local data, passing it along to child components for display.
+
+These child components live in the `app` folder.
 
 #### src/app
 
 The main part of the React app is in this folder, including `components` (the navigation and stories list), `containers` (components that handle fetching data and passing it through components), redux actions and reducers, and more.
 
-... Todo: More detail on the data fetching, when it goes to the API vs local etc...
+##### Pages
 
+Within the context of the app, each page is represented by it's own `pages/[page]` file. This helps in debugging, in terms of isolating issues that might be happening within one section of the site, and can be useful when defining rules for [code splitting](https://reactjs.org/docs/code-splitting.html). 
 
+##### PageLoader.js
+
+Within the app's `containers` most of the data fetching and handling occurs within `PageLoader`. 
+
+Redux is not required, but is used to make API data available throughout the application. Your app may use an alternative approach. In this case, the `_fetchData` method makes use of [React router's `matchRoutes` API](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-config/README.md).
+
+The routes are defined within `app/routes` as a series of objects for each route. When this is passed to the router, it checks this against the current URL path and uses the `fetcher` method within the object as the means of fetching the data.
+
+This `fetcher` method can be whatever you need it to be, as long as it returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). For example, this would work (though returns only an empty object for the page data):
+
+    fetcher: () => Promise.resolve({ data: {} })
+
+This `fetcher` method is used within the Redux action `fetchPageData` (found in `src/app/store/actions/page-loader`). This method resolves the `route.fetcher` promise and then returns a second action, `updatePageData` that updates the data available within the components.
+
+The `connect` method from `React-redux` is then used to connect this data to the view so that when the data updates, the view re-renders with the updated data.
+
+This process runs either server-side or on the client-side.
 
 ## FAQs
 
-...
+* What do people stuggle with when setting their app up as a polymorphic single page application eh?
 
-
-## App Shell (React)
-
+... do to do to do ...
 
 ## Reporting issues
 
@@ -122,7 +144,6 @@ A perfect bug report would have the following:
 3. A simple repeatable test case for us to run. Please try to run through it 2-3 times to ensure it is completely repeatable.
 
 We would like to avoid issues that require a follow up questions to identify the bug. These follow ups are difficult to do unless we have a repeatable test case.
-
 
 # Contributor Covenant Code of Conduct
 
@@ -170,7 +191,6 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage], versi
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
-
 
 # License
 
