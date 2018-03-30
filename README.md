@@ -125,9 +125,9 @@ This process runs either server-side or on the client-side.
 
 ## FAQs
 
-* What do people stuggle with when setting their app up as a polymorphic single page application eh?
+* I'm getting an error relating to my data store / `Provider`
 
-... do to do to do ...
+You need to make sure the store is being passed into your application, currently in the `app/AppShell.js` file. This is where any Redux or other data store is applied using a `Provider` component.
 
 ## Reporting issues
 
