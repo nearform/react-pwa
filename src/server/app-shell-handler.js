@@ -30,6 +30,7 @@ module.exports = function renderAppShell (req, res) {
           <link rel="stylesheet" href="/css/app-shell.css">
           <link rel="preload" href="/js/app-shell.js" as="script">
           <link rel="manifest" href="/manifest.json">
+          <link rel="shortcut icon" href="/images/favicon.ico">
         </head>
         <body>
           <div id="app-root">${html}</div>
