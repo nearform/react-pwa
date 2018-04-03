@@ -22,6 +22,9 @@ const productionConfig = {
 }
 
 const commonConfig = {
+  mode: process.env.NODE_ENV === 'production'
+    ? 'production'
+    : 'development',
   entry: {
     'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
   },
