@@ -2,6 +2,7 @@ const React = require('react')
 const { ConnectedRouter } = require('react-router-redux')
 const { Provider: ReduxProvider } = require('react-redux')
 const { PageLoader } = require('react-page-loader-redux')
+const LoadingIndicator = require('./containers/LoadingIndicator').default
 
 // app-shell things
 const routes = require('./routes')
@@ -32,6 +33,7 @@ class AppShell extends React.Component {
         <ConnectedRouter history={history}>
           <div className='app-shell-component'>
             <Navigation />
+            <LoadingIndicator />
             <PageLoader
               routes={routes}
               ErrorPage={ErrorPage}
