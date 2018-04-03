@@ -27,9 +27,10 @@ app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
 
-  const { sort = 'rank', filter } = request.query || {}
+  const { sort = 'rank', filter, offset = 0 } = request.query || {}
   const API_URL = 'https://www.graphqlhub.com/graphql/'
-  let queryType, offset = 0
+
+  let queryType
 
   switch(filter) {
     case 'show':
