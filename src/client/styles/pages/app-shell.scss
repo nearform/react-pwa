@@ -2,12 +2,38 @@ body {
   color: #828282;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 .navigation-component {
+  align-items: center;
   background-color: #fe6501;
+  display: flex;
+  padding: 2px;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      padding: 2px 4px;
+      font-weight: 700;
+    }
+  }
+
+  &-nav {
+    color: #000;
+    margin-left: 8px;
+  }
 }
 
 .app-shell-component {
-
+  background: rgb(246, 246, 239);
 }
