@@ -5,11 +5,11 @@ const Link = require('./Link')
 module.exports = function Navigation () {
   return (
     <div className='navigation-component'>
-      <Link to='/' className='navigation-component-logo'>
+      <Link to='/' className='navigation-component__logo'>
         <Logo />
-        <span className='navigation-component-logo-text'>Hacker News</span>
+        <span className='navigation-component__text'>Hacker News</span>
       </Link>
-      <nav className='navigation-component-nav'>
+      <nav className='navigation-component__nav'>
         <Link to='/newest'>new</Link> |
         <Link to='/newcomments'> comments</Link> |
         <Link to='/show'> show</Link> |

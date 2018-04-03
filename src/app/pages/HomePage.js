@@ -4,8 +4,7 @@ const TopStories = require('../containers/TopStories')
 
 module.exports = function HomePage () {
   return (
-    <div>
-      <div>homepage</div>
+    <div className='page-content'>
       <TopStories />
     </div>
   )

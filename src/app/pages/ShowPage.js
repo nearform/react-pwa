@@ -4,8 +4,8 @@ const ShowStories = require('../containers/ShowStories')
 
 module.exports = function ShowPage () {
   return (
-    <div>
-      <div>show</div>
+    <div className='page-content'>
+      <h1 className='page-title'>show</h1>
       <ShowStories />
     </div>
   )

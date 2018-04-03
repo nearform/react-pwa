@@ -2,6 +2,6 @@ const React = require('react')
 
 module.exports = function ErrorPage () {
   return (
-    <div>Woops, something went wrong</div>
+    <h1 className='page-title'>Woops, something went wrong</h1>
   )
 }
