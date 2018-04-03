@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const appShellHandler = require('./app-shell-handler')
 const appManifest = require('../app/manifest.json')
+const axios = require('axios')
 
 const app = express()
 
@@ -27,41 +28,59 @@ app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
 
   const { sort = 'rank', filter } = request.query || {}
-
-  let section
+  const API_URL = 'https://www.graphqlhub.com/graphql/'
+  let queryType, offset = 0
 
   switch(filter) {
     case 'show':
-      section = 'showstories'
+      queryType = 'showStories'
       break
     case 'ask':
-      section = 'askstories'
+      queryType = 'askStories'
       break
     case 'jobs': 
-      section = 'jobstories'
+      queryType = 'jobStories'
       break
     case 'rank': 
-      section = 'newstories'
+      queryType = 'newStories'
       break
     case 'new': 
-      section = 'newstories'
+      queryType = 'newStories'
       break
     case 'best':
     default:
-      section = 'topstories'
+      queryType = 'topStories'
   }
 
-  console.log('Filter is: ', filter)
+  let query = `
+    query {
+      hn {
+        ${queryType}(limit: 30, offset: ${offset}) {
+          by {
+            id
+          }
+          dead
+          deleted
+          id
+          kids {
+            id
+          }
+          score
+          text
+          title
+          type
+          url
+        }
+      }
+    }`
 
+  let payload = {
+    query
+  }
 
-  // let url = `${API_URL}${section}.json`
-
-  // // Hit the API
-  // console.log('Hitting API: ', url);
-  // axios.get(url).then((result) => {
-  //   console.log('Got result: ', result.data);
-  //   response.send(result.data)
-  // })
+  axios.post(API_URL, payload).then((result) => {
+    response.send(result.data.data.hn[queryType])
+  })
 
 })
 
