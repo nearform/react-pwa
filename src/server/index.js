@@ -5,13 +5,6 @@ const appManifest = require('../app/manifest.json')
 
 const app = express()
 
-// temporary fixture data
-const newStories = require('../../fixtures/new-stories')
-const topStories = require('../../fixtures/top-stories')
-const showStories = require('../../fixtures/show-stories')
-const askStories = require('../../fixtures/ask-stories')
-const jobStories = require('../../fixtures/job-stories')
-
 app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
   next()
@@ -32,27 +25,44 @@ app.get('/jobs', appShellHandler)
 app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
+
   const { sort = 'rank', filter } = request.query || {}
 
-  if (filter === 'show') {
-    return response.json(showStories)
+  let section
+
+  switch(filter) {
+    case 'show':
+      section = 'showstories'
+      break
+    case 'ask':
+      section = 'askstories'
+      break
+    case 'jobs': 
+      section = 'jobstories'
+      break
+    case 'rank': 
+      section = 'newstories'
+      break
+    case 'new': 
+      section = 'newstories'
+      break
+    case 'best':
+    default:
+      section = 'topstories'
   }
 
-  if (filter === 'ask') {
-    return response.json(askStories)
-  }
+  console.log('Filter is: ', filter)
 
-  if (filter === 'jobs') {
-    return response.json(jobStories)
-  }
 
-  if (sort === 'rank') {
-    return response.json(newStories)
-  }
+  // let url = `${API_URL}${section}.json`
 
-  if (sort === 'newest') {
-    return response.json(topStories)
-  }
+  // // Hit the API
+  // console.log('Hitting API: ', url);
+  // axios.get(url).then((result) => {
+  //   console.log('Got result: ', result.data);
+  //   response.send(result.data)
+  // })
+
 })
 
 function init () {
