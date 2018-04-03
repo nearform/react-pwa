@@ -2,11 +2,11 @@ const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const { matchRoutes } = require('react-router-config')
 const { createMemoryHistory } = require('history')
+const { actions: { fetchPageData } } = require('react-page-loader-redux')
 
 const AppShell = require('../app/AppShell')
 const { configureStore } = require('../app/store')
 const appRoutes = require('../app/routes')
-const { fetchPageData } = require('../app/store/actions/page-loader')
 
 module.exports = function renderAppShell (req, res) {
   const store = configureStore()
