@@ -5,6 +5,7 @@ const appManifest = require('../app/manifest.json')
 const axios = require('axios')
 
 const app = express()
+const API_URL = 'https://www.graphqlhub.com/graphql/'
 
 app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
@@ -28,8 +29,6 @@ app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
 
   const { sort = 'rank', filter, offset = 0 } = request.query || {}
-  const API_URL = 'https://www.graphqlhub.com/graphql/'
-
   let queryType
 
   switch(filter) {
@@ -75,7 +74,7 @@ app.get('/api/stories', (request, response) => {
       }
     }`
 
-  let payload = {
+  const payload = {
     query
   }
 
