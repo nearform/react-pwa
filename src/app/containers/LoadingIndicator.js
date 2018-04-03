@@ -1,5 +1,5 @@
-import React from 'react'
-import { connect } from 'react-redux'
+const React = require('react')
+const { connect } = require('react-redux')
 
 const LoadingIndicator = (props) => {
   if (!props.isFetching) return null
