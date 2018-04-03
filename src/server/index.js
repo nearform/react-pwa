@@ -2,15 +2,10 @@ const path = require('path')
 const express = require('express')
 const appShellHandler = require('./app-shell-handler')
 const appManifest = require('../app/manifest.json')
+const axios = require('axios')
 
 const app = express()
-
-// temporary fixture data
-const newStories = require('../../fixtures/new-stories')
-const topStories = require('../../fixtures/top-stories')
-const showStories = require('../../fixtures/show-stories')
-const askStories = require('../../fixtures/ask-stories')
-const jobStories = require('../../fixtures/job-stories')
+const API_URL = 'https://www.graphqlhub.com/graphql/'
 
 app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
@@ -32,27 +27,61 @@ app.get('/jobs', appShellHandler)
 app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
-  const { sort = 'rank', filter } = request.query || {}
 
-  if (filter === 'show') {
-    return response.json(showStories)
+  const { sort = 'rank', filter, offset = 0 } = request.query || {}
+  let queryType
+
+  switch(filter) {
+    case 'show':
+      queryType = 'showStories'
+      break
+    case 'ask':
+      queryType = 'askStories'
+      break
+    case 'jobs': 
+      queryType = 'jobStories'
+      break
+    case 'rank': 
+      queryType = 'newStories'
+      break
+    case 'new': 
+      queryType = 'newStories'
+      break
+    case 'best':
+    default:
+      queryType = 'topStories'
   }
 
-  if (filter === 'ask') {
-    return response.json(askStories)
+  let query = `
+    query {
+      hn {
+        ${queryType}(limit: 30, offset: ${offset}) {
+          by {
+            id
+          }
+          dead
+          deleted
+          id
+          kids {
+            id
+          }
+          score
+          text
+          title
+          type
+          url
+        }
+      }
+    }`
+
+  const payload = {
+    query
   }
 
-  if (filter === 'jobs') {
-    return response.json(jobStories)
-  }
+  axios.post(API_URL, payload).then((result) => {
+    response.send(result.data.data.hn[queryType])
+  })
 
-  if (sort === 'rank') {
-    return response.json(newStories)
-  }
-
-  if (sort === 'newest') {
-    return response.json(topStories)
-  }
 })
 
 function init () {

@@ -11,13 +11,13 @@ module.exports = [
     path: '/',
     exact: true,
     component: require('./pages/HomePage'),
-    fetcher: () => fetchStories({ sort: 'rank' })
+    fetcher: () => fetchStories({ filter: 'top' })
   },
   {
     path: '/newest',
     exact: true,
     component: require('./pages/NewestPage'),
-    fetcher: () => fetchStories({ sort: 'newest' })
+    fetcher: () => fetchStories({ filter: 'new' })
   },
   {
     path: '/newcomments',
