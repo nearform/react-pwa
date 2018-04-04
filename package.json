@@ -24,7 +24,9 @@
     "debug": "npm run build && node --inspect ./lib/index.js",
     "lighthouse:visual": "lighthouse http://localhost:3000/ --view",
     "lighthouse": "npm run build && node ./scripts/lighthouse.js",
-    "deploy": "now --public -e NODE_ENV=production",
+    "now-build": "NODE_ENV=production npm run build",
+    "now-start": "NODE_ENV=production npm start",
+    "deploy": "now --public",
     "deploy:alias": "now alias `pbpaste` hackernewspwa.com"
   },
   "keywords": [],
