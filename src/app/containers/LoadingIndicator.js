@@ -4,14 +4,10 @@ const { connect } = require('react-redux')
 const updateBodyClass = isFetching => {
   if (typeof document === 'undefined') return
   if (isFetching) {
-    document.body.classList.add('js-loading')
+    document.body.classList.add('is-loading')
   } else {
-    document.body.classList.remove('js-loading')
-    document.body.classList.add('js-finished-loading')
+    document.body.classList.remove('is-loading')
   }
-  setTimeout(() => {
-    document.body.classList.remove('js-finished-loading')
-  }, 200)
 }
 
 const LoadingIndicator = props => {

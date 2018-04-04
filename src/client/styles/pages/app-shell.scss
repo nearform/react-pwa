@@ -18,8 +18,8 @@ a {
 
 .page-title {
   font-size: 10pt;
-  padding-left: 8px;
   margin: 0;
+  padding-left: 8px;
 }
 
 .navigation-component {
@@ -38,8 +38,8 @@ a {
   }
 
   &__text {
-    padding: 2px 4px;
     font-weight: 700;
+    padding: 2px 4px;
   }
 
   &__nav {
@@ -54,11 +54,11 @@ a {
 }
 
 .page-content {
-  padding: 6px 0;
   opacity: 1;
-  transition: all .2s ease-out;
+  padding: 6px 0;
+  transition: opacity .2s ease-out;
 
-  .js-loading & {
+  .is-loading & {
     opacity: 0;
   }
 }
@@ -85,16 +85,16 @@ a {
 }
 
 .more-link {
-  padding: 0 0 0 30px;
   margin-bottom: 6px;
+  padding: 0 0 0 30px;
 }
 
 .loading-indicator {
   animation: fade-in .2s .2s ease-out forwards;
+  left: 50%;
   opacity: 0;
   position: absolute;
   top: 40px;
-  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -104,6 +104,7 @@ a {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
