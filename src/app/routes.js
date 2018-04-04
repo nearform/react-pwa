@@ -17,7 +17,7 @@ module.exports = [
     path: '/page/:page',
     exact: true,
     component: require('./pages/HomePage'),
-    fetcher: () => fetchStories({ filter: 'top' })
+    fetcher: ({match}) => fetchStories({ filter: 'top', page: match.params.page })
   },
   {
     path: '/newest',
