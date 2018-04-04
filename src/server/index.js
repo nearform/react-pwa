@@ -28,7 +28,7 @@ app.get('/jobs/:page?/:pageNumber?', appShellHandler)
 app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
-  const { sort = 'rank', filter, page } = request.query || {}
+  const { filter, page } = request.query || {}
   let queryType
   let offset = page > 1 ? (page - 1) * 30 : 0
 

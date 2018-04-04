@@ -18,7 +18,7 @@ const LoadingIndicator = props => {
   updateBodyClass(props.isFetching)
   if (!props.isFetching) return null
   return (
-    <div className="loading-indicator">Loading</div>
+    <div className='loading-indicator'>Loading</div>
   )
 }
 

@@ -78,5 +78,5 @@ module.exports = [
     exact: true,
     component: require('./pages/JobsPage'),
     fetcher: ({match}) => fetchStories({ filter: 'jobs', page: match.params.page })
-  },
+  }
 ]
