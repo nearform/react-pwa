@@ -55,6 +55,13 @@ a {
 
 .page-content {
   padding: 6px 0;
+  opacity: 1;
+  transition: all .2s ease-out;
+
+  .js-finished-loading & {
+    animation: fade-in .2s ease-out forwards;
+    opacity: 0;
+  }
 }
 
 .stories-list-component {
@@ -75,5 +82,29 @@ a {
         text-decoration: underline;
       }
     }
+  }
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Animation */
+
+.js-loading {
+  .page-content {
+    opacity: 0;
+  }
+}
+
+@keyframesa fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
