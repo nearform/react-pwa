@@ -1,21 +1,30 @@
 const React = require('react')
+const More = require('../containers/More')
+const { withRouter } = require('react-router')
 
-function StoriesList (props) {
-  const { stories } = props
+const calculateStartingNumber = (pathname) => {
+  let currentPage = parseInt(pathname.split('page/')[1])
+  if (!Number.isInteger(currentPage)) return 1
+  return ((currentPage - 1) * 30 + 1)
+}
 
+const StoriesList = props => {
+  const { stories, location } = props
   return (
-    <div className='stories-list-component'>
-      <ul>
+    <React.Fragment>
+      <ol className='stories-list-component' start={calculateStartingNumber(location.pathname)}>
         {stories.filter(Boolean).map(story => (
           <li className='stories-list-component__item' key={story.id}>
-            <span>{story.score}</span>
             <span><a href={story.url}>{story.title}</a></span>
             <br />
-            <span>by {story.by.id}</span>
+            <span className='stories-list-component__byline'>
+              {story.score} points by {story.by.id}
+            </span>
           </li>
         ))}
-      </ul>
-    </div>
+      </ol>
+      <More />
+    </React.Fragment>
   )
 }
-module.exports = StoriesList
+module.exports = withRouter(StoriesList)

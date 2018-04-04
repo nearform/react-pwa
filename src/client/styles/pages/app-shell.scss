@@ -2,12 +2,110 @@ body {
   color: #828282;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+
+  &:visited {
+    color: #828282;
+  }
+}
+
+.page-title {
+  font-size: 10pt;
+  margin: 0;
+  padding-left: 8px;
 }
 
 .navigation-component {
+  align-items: center;
   background-color: #fe6501;
+  display: flex;
+  padding: 2px;
+
+  a {
+    color: #000;
+  }
+
+  &__logo {
+    align-items: center;
+    display: flex;
+  }
+
+  &__text {
+    font-weight: 700;
+    padding: 2px 4px;
+  }
+
+  &__nav {
+    color: #000;
+    margin-left: 8px;
+  }
 }
 
 .app-shell-component {
+  background: rgb(246, 246, 239);
+  border-bottom: 2px solid #fe6501;
+}
 
+.page-content {
+  opacity: 1;
+  padding: 6px 0;
+  transition: opacity .2s ease-out;
+
+  .is-loading & {
+    opacity: 0;
+  }
+}
+
+.stories-list-component {
+  margin: 0 0 0 6px;
+  padding: 0 0 0 24px;
+
+  &__item {
+    line-height: 10pt;
+    margin: 6px 0;
+  }
+
+  &__byline {
+    color: #828282;
+    font-size: 7pt;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.more-link {
+  margin-bottom: 6px;
+  padding: 0 0 0 30px;
+}
+
+.loading-indicator {
+  animation: fade-in .2s .2s ease-out forwards;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  transform: translateX(-50%);
+}
+
+/* Animation */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -14,33 +14,69 @@ module.exports = [
     fetcher: () => fetchStories({ filter: 'top' })
   },
   {
+    path: '/page/:page',
+    exact: true,
+    component: require('./pages/HomePage'),
+    fetcher: ({match}) => fetchStories({ filter: 'top', page: match.params.page })
+  },
+  {
     path: '/newest',
     exact: true,
     component: require('./pages/NewestPage'),
     fetcher: () => fetchStories({ filter: 'new' })
   },
   {
-    path: '/newcomments',
+    path: '/newest/page/:page?',
     exact: true,
+    component: require('./pages/NewestPage'),
+    fetcher: ({match}) => fetchStories({ filter: 'new', page: match.params.page })
+  },
+  {
+    path: '/newcomments',
+    exact: false,
     component: require('./pages/CommentsPage'),
     fetcher: () => fetchStories({ filter: 'comments' })
   },
   {
-    path: '/show',
+    path: '/newcomments/page/:page?',
     exact: true,
+    component: require('./pages/CommentsPage'),
+    fetcher: ({match}) => fetchStories({ filter: 'comments', page: match.params.page })
+  },
+  {
+    path: '/show',
+    exact: false,
     component: require('./pages/ShowPage'),
     fetcher: () => fetchStories({ filter: 'show' })
   },
   {
-    path: '/ask',
+    path: '/show/page/:page?',
     exact: true,
+    component: require('./pages/ShowPage'),
+    fetcher: ({match}) => fetchStories({ filter: 'show', page: match.params.page })
+  },
+  {
+    path: '/ask',
+    exact: false,
     component: require('./pages/AskPage'),
     fetcher: () => fetchStories({ filter: 'ask' })
   },
   {
-    path: '/jobs',
+    path: '/ask/page/:page?',
     exact: true,
+    component: require('./pages/AskPage'),
+    fetcher: ({match}) => fetchStories({ filter: 'ask', page: match.params.page })
+  },
+  {
+    path: '/jobs',
+    exact: false,
     component: require('./pages/JobsPage'),
     fetcher: () => fetchStories({ filter: 'jobs' })
+  },
+  {
+    path: '/jobs/page/:page?',
+    exact: true,
+    component: require('./pages/JobsPage'),
+    fetcher: ({match}) => fetchStories({ filter: 'jobs', page: match.params.page })
   }
 ]

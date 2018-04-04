@@ -6,10 +6,11 @@ const HOST = isBrowser
   ? ''
   : process.env.NOW_URL || 'http://localhost:3000'
 
-function fetchStories ({ sort, filter } = {}) {
+function fetchStories ({ sort, filter, page } = {}) {
   const params = qs.stringify({
     sort,
-    filter
+    filter,
+    page
   })
   return axios.get(`${HOST}/api/stories?${params}`)
 }

@@ -19,16 +19,18 @@ app.use(express.static(path.join(__dirname, '../../build/public/js')))
 
 // TODO reuse routes.js paths? depends on the server framework being used
 app.get('/', appShellHandler)
-app.get('/newest', appShellHandler)
-app.get('/newcomments', appShellHandler)
-app.get('/show', appShellHandler)
-app.get('/ask', appShellHandler)
-app.get('/jobs', appShellHandler)
+app.get('/page/:pageNumber?', appShellHandler)
+app.get('/newest/:page?/:pageNumber?', appShellHandler)
+app.get('/newcomments/:page?/:pageNumber?', appShellHandler)
+app.get('/show/:page?/:pageNumber?', appShellHandler)
+app.get('/ask/:page?/:pageNumber?', appShellHandler)
+app.get('/jobs/:page?/:pageNumber?', appShellHandler)
 app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
-  const { filter, offset = 0 } = request.query || {}
+  const { filter, page } = request.query || {}
   let queryType
+  let offset = page > 1 ? (page - 1) * 30 : 0
 
   switch (filter) {
     case 'show':

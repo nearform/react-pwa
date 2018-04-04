@@ -1,10 +1,20 @@
 const React = require('react')
 const { connect } = require('react-redux')
 
-const LoadingIndicator = (props) => {
+const updateBodyClass = isFetching => {
+  if (typeof document === 'undefined') return
+  if (isFetching) {
+    document.body.classList.add('is-loading')
+  } else {
+    document.body.classList.remove('is-loading')
+  }
+}
+
+const LoadingIndicator = props => {
+  updateBodyClass(props.isFetching)
   if (!props.isFetching) return null
   return (
-    <div>Loading</div>
+    <div className='loading-indicator'>Loading</div>
   )
 }
 

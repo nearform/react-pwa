@@ -1,12 +1,15 @@
 const React = require('react')
-
+const Logo = require('./Logo')
 const Link = require('./Link')
 
 module.exports = function Navigation () {
   return (
     <div className='navigation-component'>
-      <Link to='/'>Hacker News</Link>
-      <nav>
+      <Link to='/' className='navigation-component__logo'>
+        <Logo />
+        <span className='navigation-component__text'>Hacker News</span>
+      </Link>
+      <nav className='navigation-component__nav'>
         <Link to='/newest'>new</Link> |
         <Link to='/newcomments'> comments</Link> |
         <Link to='/show'> show</Link> |
