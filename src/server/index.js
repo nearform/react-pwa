@@ -27,24 +27,23 @@ app.get('/jobs', appShellHandler)
 app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
-
-  const { sort = 'rank', filter, offset = 0 } = request.query || {}
+  const { filter, offset = 0 } = request.query || {}
   let queryType
 
-  switch(filter) {
+  switch (filter) {
     case 'show':
       queryType = 'showStories'
       break
     case 'ask':
       queryType = 'askStories'
       break
-    case 'jobs': 
+    case 'jobs':
       queryType = 'jobStories'
       break
-    case 'rank': 
+    case 'rank':
       queryType = 'newStories'
       break
-    case 'new': 
+    case 'new':
       queryType = 'newStories'
       break
     case 'best':
@@ -81,7 +80,6 @@ app.get('/api/stories', (request, response) => {
   axios.post(API_URL, payload).then((result) => {
     response.send(result.data.data.hn[queryType])
   })
-
 })
 
 function init () {
