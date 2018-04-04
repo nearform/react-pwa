@@ -58,15 +58,14 @@ a {
   opacity: 1;
   transition: all .2s ease-out;
 
-  .js-finished-loading & {
-    animation: fade-in .2s ease-out forwards;
+  .js-loading & {
     opacity: 0;
   }
 }
 
 .stories-list-component {
-  margin: 0;
-  padding: 0 0 0 27px;
+  margin: 0 0 0 6px;
+  padding: 0 0 0 24px;
 
   &__item {
     line-height: 10pt;
@@ -86,21 +85,17 @@ a {
 }
 
 .loading-indicator {
+  animation: fade-in .2s .2s ease-out forwards;
+  opacity: 0;
   position: absolute;
-  top: 50%;
+  top: 40px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
 /* Animation */
 
-.js-loading {
-  .page-content {
-    opacity: 0;
-  }
-}
-
-@keyframesa fade-in {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
