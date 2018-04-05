@@ -38,7 +38,7 @@ app.get('/api/stories', (request, response) => {
   return graphQLResponse(filter, page, response)
 })
 
-const sanitizeItemContent = (items) => {
+function sanitizeItemContent (items) {
   return items.map(({content, ...rest}) => {
     let cleanContent = sanitizeHtml(content)
     return {
