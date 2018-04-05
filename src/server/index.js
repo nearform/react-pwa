@@ -3,9 +3,10 @@ const express = require('express')
 const appShellHandler = require('./app-shell-handler')
 const appManifest = require('../app/manifest.json')
 const axios = require('axios')
+const Parser = require('rss-parser')
+const sanitizeHtml = require('sanitize-html')
 
 const app = express()
-const API_URL = 'https://www.graphqlhub.com/graphql/'
 
 app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
@@ -29,8 +30,39 @@ app.get('/app-shell', appShellHandler)
 app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
   const { filter, page } = request.query || {}
+
+  if (filter === 'comments') {
+    return RSSResponse(page, response)
+  }
+
+  return graphQLResponse(filter, page, response)
+})
+
+function sanitizeItemContent (items) {
+  return items.map(({content, ...rest}) => {
+    let cleanContent = sanitizeHtml(content)
+    return {
+      content: cleanContent,
+      ...rest
+    }
+  })
+}
+
+function RSSResponse (page, response) {
+  const RSS_URL = 'https://hnrss.org/newcomments?count=100'
+  const parser = new Parser()
+  parser.parseURL(RSS_URL)
+    .then(feed => {
+      let startingItem = page ? (page - 1) * 30 : 0
+      let currentItems = feed.items.slice(startingItem, startingItem + 30)
+      response.send(sanitizeItemContent(currentItems))
+    })
+}
+
+function graphQLResponse (filter, page, response) {
+  const API_URL = 'https://www.graphqlhub.com/graphql/'
+  const offset = page > 1 ? (page - 1) * 30 : 0
   let queryType
-  let offset = page > 1 ? (page - 1) * 30 : 0
 
   switch (filter) {
     case 'show':
@@ -53,7 +85,7 @@ app.get('/api/stories', (request, response) => {
       queryType = 'topStories'
   }
 
-  let query = `
+  const query = `
     query {
       hn {
         ${queryType}(limit: 30, offset: ${offset}) {
@@ -82,7 +114,7 @@ app.get('/api/stories', (request, response) => {
   axios.post(API_URL, payload).then((result) => {
     response.send(result.data.data.hn[queryType])
   })
-})
+}
 
 function init () {
   let server
