@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     path: '/newcomments',
-    exact: false,
+    exact: true,
     component: require('./pages/CommentsPage'),
     fetcher: () => fetchStories({ filter: 'comments' })
   },
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     path: '/show',
-    exact: false,
+    exact: true,
     component: require('./pages/ShowPage'),
     fetcher: () => fetchStories({ filter: 'show' })
   },
@@ -57,7 +57,7 @@ module.exports = [
   },
   {
     path: '/ask',
-    exact: false,
+    exact: true,
     component: require('./pages/AskPage'),
     fetcher: () => fetchStories({ filter: 'ask' })
   },
@@ -69,7 +69,7 @@ module.exports = [
   },
   {
     path: '/jobs',
-    exact: false,
+    exact: true,
     component: require('./pages/JobsPage'),
     fetcher: () => fetchStories({ filter: 'jobs' })
   },

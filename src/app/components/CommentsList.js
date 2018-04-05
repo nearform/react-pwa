@@ -1,5 +1,6 @@
 const React = require('react')
 const { withRouter } = require('react-router')
+const More = require('../containers/More')
 const TimeAgo = require('react-timeago').default
 const sanitizeHtml = require('sanitize-html')
 
@@ -28,6 +29,7 @@ const CommentsList = props => {
           </li>
         ))}
       </ul>
+      <More />
     </React.Fragment>
   )
 }
