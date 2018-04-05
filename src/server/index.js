@@ -4,6 +4,7 @@ const appShellHandler = require('./app-shell-handler')
 const appManifest = require('../app/manifest.json')
 const axios = require('axios')
 const Parser = require('rss-parser')
+const sanitizeHtml = require('sanitize-html')
 
 const app = express()
 
@@ -37,6 +38,16 @@ app.get('/api/stories', (request, response) => {
   return graphQLResponse(filter, page, response)
 })
 
+const sanitizeItemContent = (items) => {
+  return items.map(({content, ...rest}) => {
+    let cleanContent = sanitizeHtml(content)
+    return {
+      content: cleanContent,
+      ...rest
+    }
+  })
+}
+
 function RSSResponse (page, response) {
   const RSS_URL = 'https://hnrss.org/newcomments?count=100'
   const parser = new Parser()
@@ -44,7 +55,7 @@ function RSSResponse (page, response) {
     .then(feed => {
       let startingItem = page ? (page - 1) * 30 : 0
       let currentItems = feed.items.slice(startingItem, startingItem + 30)
-      response.send(currentItems)
+      response.send(sanitizeItemContent(currentItems))
     })
 }
 
