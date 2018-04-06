@@ -3,6 +3,7 @@ const ReactDOMServer = require('react-dom/server')
 const { matchRoutes } = require('react-router-config')
 const { createMemoryHistory } = require('history')
 const { actions: { fetchPageData } } = require('react-page-loader-redux')
+const serialize = require('serialize-javascript')
 
 const AppShell = require('../app/AppShell')
 const { configureStore } = require('../app/store')
@@ -34,7 +35,7 @@ module.exports = function renderAppShell (req, res) {
         </head>
         <body>
           <div id="app-root">${html}</div>
-          <script>window.__INITIAL_STATE__= ${JSON.stringify(initialState)}</script>
+          <script>window.__INITIAL_STATE__= ${serialize(initialState)}</script>
           <script defer src="/js/app-shell.js"></script>
         </body>
       </html>
