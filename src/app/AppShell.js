@@ -6,7 +6,7 @@ const LoadingIndicator = require('./containers/LoadingIndicator').default
 
 // app-shell things
 const routes = require('./routes')
-const Navigation = require('./components/Navigation')
+const Navigation = require('./containers/Navigation')
 const ErrorPage = require('./pages/ErrorPage')
 const OfflinePage = require('./pages/OfflinePage')
 
