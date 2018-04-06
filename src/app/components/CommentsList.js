@@ -4,7 +4,7 @@ const More = require('../containers/More')
 const TimeAgo = require('react-timeago').default
 
 const getTitle = (title) => {
-  return title.split('in')[1].split('"')[1]
+  return title.split('in "')[1].replace(/"/g, '')
 }
 
 const CommentsList = props => {
