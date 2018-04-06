@@ -2,9 +2,14 @@ body {
   color: #828282;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
-  margin-left: auto;
-  margin-right: auto;
-  width: 85%;
+  margin: 0;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    margin: 8px auto;
+    width: 85%;
+  }
+
 }
 
 a {
@@ -35,6 +40,7 @@ a {
   &__logo {
     align-items: center;
     display: flex;
+    flex-shrink: 0;
   }
 
   &__text {
@@ -44,7 +50,12 @@ a {
 
   &__nav {
     color: #000;
+    font-size: 9pt;
     margin-left: 8px;
+    
+    @media (min-width: 500px) {
+      font-size: 10pt;
+    }
 
     .is-active {
       color: #fff;
@@ -59,7 +70,7 @@ a {
 
 .page-content {
   opacity: 1;
-  padding: 6px 0;
+  padding: 6px 6px 6px 0;
   transition: opacity .2s ease-out;
 
   .is-loading & {
@@ -72,7 +83,7 @@ a {
   padding: 0 0 0 24px;
 
   &__item {
-    line-height: 10pt;
+    line-height: 11pt;
     margin: 6px 0;
   }
 
