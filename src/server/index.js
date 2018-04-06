@@ -54,8 +54,10 @@ function RSSResponse (page, response) {
   parser.parseURL(RSS_URL)
     .then(feed => {
       let startingItem = page ? (page - 1) * 30 : 0
-      let currentItems = feed.items.slice(startingItem, startingItem + 30)
-      response.send(sanitizeItemContent(currentItems))
+      const items = feed.items
+        .filter(item => item.title)
+        .slice(startingItem, startingItem + 30)
+      response.send(sanitizeItemContent(items))
     })
 }
 

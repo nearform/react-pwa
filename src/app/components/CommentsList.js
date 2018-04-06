@@ -4,6 +4,7 @@ const More = require('../containers/More')
 const TimeAgo = require('react-timeago').default
 
 const getTitle = (title) => {
+  if (!title) return
   return title.split('in "')[1].replace(/"/g, '')
 }
 
