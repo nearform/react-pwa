@@ -11,7 +11,7 @@ RUN yarn install --silent
 COPY . .
 
 # Build the app
-yarn build
+RUN yarn build
 
 # Expose the port the app listens on
 EXPOSE 3000
