@@ -40,6 +40,7 @@ jobs:
 
       # Push the built containers to AWS ECR
       - run: |
+          eval $(aws ecr get-login --no-include-email --region us-east-1)
           docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
 
 workflows:
