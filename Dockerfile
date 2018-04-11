@@ -10,6 +10,9 @@ RUN yarn install --silent
 # Bundle app source
 COPY . .
 
+# Build the app
+yarn build
+
 # Expose the port the app listens on
 EXPOSE 3000
 

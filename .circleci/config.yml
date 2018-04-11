@@ -39,12 +39,6 @@ jobs:
             unzip awscli-bundle.zip
             sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
-      # Clean up local install before building the container
-      - run:
-          name: Cleanup local yarn artifacts
-          command: |
-            rm -rf node_modules build 2>&1 > /dev/null
-
       # Build the Docker container
       - run:
           name: Build the Docker container
