@@ -29,6 +29,18 @@ jobs:
       # Run tests
       #- run: yarn test
 
+  build-docker:
+    machine: true
+    steps:
       # Build the Docker container
       - run: |
           docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
+
+workflows:
+  version: 2
+  install-build-deploy:
+    jobs:
+      - build
+      - build-docker:
+          requires:
+            - build
