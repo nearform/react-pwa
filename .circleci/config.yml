@@ -20,10 +20,15 @@ jobs:
 
       - run: yarn install
 
+      # Update cache
       - save_cache:
           paths:
             - node_modules
           key: react-pwa-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # Run tests
       #- run: yarn test
+
+      # Build the Docker container
+      - run: |
+          docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
