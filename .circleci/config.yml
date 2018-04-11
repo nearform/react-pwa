@@ -38,6 +38,10 @@ jobs:
       - run: |
           docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
 
+      # Push the built containers to AWS ECR
+      - run: |
+          docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+
 workflows:
   version: 2
   install-build-deploy:
