@@ -4,6 +4,7 @@ package-lock.json
 build
 lib
 .npm
+.yarnclean
 
 # Lock files
 package-lock.json
