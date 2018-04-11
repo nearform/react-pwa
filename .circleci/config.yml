@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker
 
       # Download and cache dependencies
       - restore_cache:
@@ -29,26 +30,35 @@ jobs:
       # Run tests
       #- run: yarn test
 
-  build-deploy:
-    machine: true
-    steps:
-      - checkout
-
       # Build the Docker container
       - run: |
-          docker build -t react-pwa:latest .
+          docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
 
       # Push the built containers to AWS ECR
       - run: |
           eval $(aws ecr get-login --no-include-email --region us-east-1)
-          docker tag react-pwa:latest 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
           docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
 
-workflows:
-  version: 2
-  install-build-deploy:
-    jobs:
-      - build
-      - build-deploy:
-          requires:
-            - build
+#  build-deploy:
+#    machine: true
+#    steps:
+#      - checkout
+#
+#      # Build the Docker container
+#      - run: |
+#          docker build -t react-pwa:latest .
+#
+#      # Push the built containers to AWS ECR
+#      - run: |
+#          eval $(aws ecr get-login --no-include-email --region us-east-1)
+#          docker tag react-pwa:latest 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+#          docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+
+#workflows:
+#  version: 2
+#  install-build-deploy:
+#    jobs:
+#      - build
+#      - build-deploy:
+#          requires:
+#            - build
