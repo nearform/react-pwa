@@ -57,4 +57,4 @@ jobs:
       - run:
           name: Trigger a ECS deploy
           command: |
-            aws ecs update-service --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
+            aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
