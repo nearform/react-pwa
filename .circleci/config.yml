@@ -51,3 +51,10 @@ jobs:
           command: |
             eval $(aws ecr get-login --no-include-email --region us-east-1)
             docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+
+      # Trigger a AWS ECS service update that will force the cluster to
+      # re-pull the Docker container(s), to get the 'latest' tagged version
+      - run:
+          name: Trigger a ECS deploy
+          command: |
+            aws ecs update-service --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
