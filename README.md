@@ -129,6 +129,26 @@ This process runs either server-side or on the client-side.
 
 You need to make sure the store is being passed into your application, currently in the `app/AppShell.js` file. This is where any Redux or other data store is applied using a `Provider` component.
 
+## Infra
+
+### CI / CD
+This repo has its own CircleCI project attached to it: https://circleci.com/gh/nearform/react-pwa
+
+Whenever a new commit is pushed into master, a new CircleCI build will be triggered and that build will follow the steps defined in `.circleci/config.yml`:
+- it will set up its own environment, including the Docker daemon and required containers
+- install the npm modules required by the app to make sure there aren't any dependency issues
+- run tests (there are none written now unfortunately)
+- build a Docker container based on the included `Dockerfile`
+- push that container to the container registry hosted by AWS (ECR)
+- trigger a deploy. This means forcing an update on the ECS service and cluster hosting the application (see below). This will force the service and cluster to re-download the Docker container defined in the ECS task (the one tagged with `latest` and that has been pushed to the registry by the above step)
+
+### Hosting
+This app is hosted on a AWS ECS Fargate cluster. This basically let's you define a task (what container to run) and a cluster to run it on, just like the clasic ECS cluster. The difference is that you do not need to define and manage EC2 instances in the cluster, it is all abstracted for you. You just need to define the resources (CPU, memory) you need and that's it.
+
+On top of that, there is a ECS service defined, that puts together what load balancer, what cluster and task to use.
+
+The whole thing is exposed to the Internet by using an AWS Application load balancer. It does the SSL termination using our wildcard nearform.com certificate and relays the requests to the application container running on Fargate
+
 ## Reporting issues
 
 Please take a second to read over this before opening an issue. Providing complete information upfront will help us address any issue (and ship new features!) faster.
