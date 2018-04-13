@@ -1,5 +1,5 @@
 # React PWA
-# test
+
 This project is an example of how a Progressive Web Application can be structured, using React and Node. It takes the form of a Hackernews clone, in the form of a PWA.
 
 ## Project goals
