@@ -119,7 +119,18 @@ function graphQLResponse (filter, page, response) {
       response.send(result.data.data.hn[queryType])
     })
     .catch(error => {
-      console.log(error)
+      if (error.response) {
+        response.statusCode(error.response.status)
+        response.send(error.response.data)
+      } else if (error.request) {
+        console.log('Error request: ', error.request)
+        response.statusCode(400)
+        response.send(error.request)
+      } else {
+        console.log('Error', error.message)
+        response.send(error.message)
+      }
+      console.log(error.config)
     })
 }
 
