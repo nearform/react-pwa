@@ -113,9 +113,14 @@ function graphQLResponse (filter, page, response) {
     query
   }
 
-  axios.post(API_URL, payload).then((result) => {
-    response.send(result.data.data.hn[queryType])
-  })
+  axios
+    .post(API_URL, payload)
+    .then((result) => {
+      response.send(result.data.data.hn[queryType])
+    })
+    .catch(error => {
+      console.log(error)
+    })
 }
 
 function init () {
