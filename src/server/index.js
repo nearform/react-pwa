@@ -119,22 +119,22 @@ function graphQLResponse (filter, page, response) {
       response.send(result.data.data.hn[queryType])
     })
     .catch(error => {
-      let statusCode = 500
+      error.statusCode = error.statusCode || 500
 
       if (error.response) {
         // axios error - the true source of the error
         console.log('API Error:', JSON.stringify(error.response.data))
-        statusCode = error.response.status
+        error.statusCode = error.response.status
       }
 
-      response.status(statusCode)
+      response.status(error.statusCode)
 
       // return json error
       return response.json({
-        statusCode,
         name: error.name,
         message: error.message,
-        stack: error.stack
+        stack: error.stack,
+        statusCode: error.statusCode
       })
     })
 }

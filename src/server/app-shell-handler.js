@@ -20,6 +20,7 @@ module.exports = async function appShellHandler (req, res) {
     // so when referenced below it will be populated
     const html = await store.dispatch(fetchPageData({ route, match }))
       .catch(error => {
+        error.statusCode = error.statusCode || 500
         console.log('appShellHandler::fetchPageData error:')
         console.error(error)
         // error could be a axios object, strip it back to plain error
@@ -27,7 +28,7 @@ module.exports = async function appShellHandler (req, res) {
           name: error.name,
           message: error.message,
           stack: error.stack,
-          statusCode: error.statusCode || 500
+          statusCode: error.statusCode
         }
         res.status(errObj.statusCode)
         store.dispatch(handleError(errObj))
