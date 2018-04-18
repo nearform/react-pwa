@@ -113,9 +113,30 @@ function graphQLResponse (filter, page, response) {
     query
   }
 
-  axios.post(API_URL, payload).then((result) => {
-    response.send(result.data.data.hn[queryType])
-  })
+  axios
+    .post(API_URL, payload)
+    .then((result) => {
+      response.send(result.data.data.hn[queryType])
+    })
+    .catch(error => {
+      error.statusCode = error.statusCode || 500
+
+      if (error.response) {
+        // axios error - the true source of the error
+        console.log('API Error:', JSON.stringify(error.response.data))
+        error.statusCode = error.response.status
+      }
+
+      response.status(error.statusCode)
+
+      // return json error
+      return response.json({
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+        statusCode: error.statusCode
+      })
+    })
 }
 
 function init () {
