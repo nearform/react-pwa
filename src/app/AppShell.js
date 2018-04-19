@@ -17,7 +17,9 @@ class AppShell extends React.Component {
       return
     }
 
-    window.requestIdleCallback(() => {
+    const ric = window.requestIdleCallback || setTimeout
+
+    ric(() => {
       navigator.serviceWorker.register('/sw.js')
         .catch(function (err) {
           console.log('ServiceWorker registration failed: ', err)
