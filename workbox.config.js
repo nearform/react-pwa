@@ -5,7 +5,7 @@ module.exports = {
   swDest: 'build/public/js/sw.js',
   globDirectory: 'build/public/',
   globPatterns: [
-    '**/*app-shell.{js,css}'
+    '**/*app-shell.{js}'
     // TODO precache app-shell images
   ],
   globIgnores: [],
@@ -20,8 +20,7 @@ module.exports = {
     // kept up to date; any time any of the dependency files/patterns
     // listed gets updated, the SW will automatically update the cache.
     '/app-shell/': [
-      'js/*app-shell.js',
-      'css/*app-shell.css'
+      'js/*app-shell.js'
     ]
   },
   navigateFallback: '/app-shell/',

@@ -1,11 +1,12 @@
 const React = require('react')
 
 const JobStories = require('../containers/JobStories')
+const { pageTitleClassName, pageContentClassName } = require('../styles/common')
 
 module.exports = function JobsPage () {
   return (
-    <div className='page-content'>
-      <h1 className='page-title'>jobs</h1>
+    <div className={pageContentClassName}>
+      <h1 className={pageTitleClassName}>jobs</h1>
       <JobStories />
     </div>
   )
