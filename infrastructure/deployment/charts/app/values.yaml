@@ -4,7 +4,7 @@ deploymentName: pathfinders
 
 service:
   externalPort: 80
-  clusterType: NodePort
+  clusterType: ClusterIP
 
 image: react-pwa
 imageTag: 0.1.0
