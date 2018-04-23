@@ -1,0 +1,35 @@
+---
+imgrepo: localhost:5000/
+deploymentName: pathfinders
+
+service:
+  externalPort: 80
+  clusterType: NodePort
+
+image: react-pwa
+imageTag: 0.1.0
+imagePullPolicy: IfNotPresent
+
+app:
+  internalPort: 3000
+  replicas: 3
+
+router:
+  basicauth: false
+  image:
+    repository: nginx
+    tag: 1
+    pullPolicy: Always
+
+ingress:
+  enabled: true
+  hosts:
+  - hackernews.nearform.net
+  annotations:
+    kubernetes.io/tls-acme: 'false'
+    # kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /
+  # tls:
+  #- hosts:
+  #  - solardemo.nearform.net
+  #  secretName: dgs-tls

@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+spec:
+  replicas: {{ .Values.app.replicas }}
+  template:
+    metadata:
+      labels:
+        chart: {{ template "fullname" . }}
+        tier: app
+    spec:
+      containers:
+      - name: react-pwa
+        image: "{{ .Values.imgrepo }}{{ .Values.image }}:{{ .Values.imageTag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports:
+        - containerPort: {{ .Values.app.internalPort}}
+        env:
+        - name  : NODE_ENV
+          value : production
+
+      volumes:
+        - name: host-sp
+          hostPath:
+            # this file contains the cluster service-principal, it exists on every node by default
+            path: /etc/kubernetes/azure.json
+            type: File

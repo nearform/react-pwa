@@ -1,0 +1,35 @@
+{{- $servicePort := .Values.service.externalPort -}}
+{{- $fullname := include "fullname" . -}}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "fullname" . }}-ingress
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+  annotations:
+    {{- range $key, $value := .Values.ingress.annotations }}
+      {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  rules:
+    {{- range $host := .Values.ingress.hosts }}
+    - host: {{ $host }}
+      http:
+        paths:
+          - path: /city
+            backend:
+              serviceName: {{ $fullname }}-api-svc
+              servicePort: {{ $servicePort }}
+          - path: /solar
+            backend:
+              serviceName: {{ $fullname }}-solar-svc
+              servicePort: {{ $servicePort }}
+
+    {{- end -}}
+  {{- if .Values.ingress.tls }}
+  tls:
+{{ toYaml .Values.ingress.tls | indent 4 }}
+  {{- end -}}
