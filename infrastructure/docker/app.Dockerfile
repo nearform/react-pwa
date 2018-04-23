@@ -1,4 +1,4 @@
-FROM stefanscherer/node-windows
+FROM node:9.10-alpine
 
 # Create app directory
 WORKDIR /opt/app-root/src
