@@ -1,5 +1,5 @@
 ---
-imgrepo: localhost:5000/
+imgrepo: pathfinders.azurecr.io/
 deploymentName: pathfinders
 
 service:
