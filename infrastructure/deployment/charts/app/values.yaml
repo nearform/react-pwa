@@ -8,7 +8,7 @@ service:
 
 image: react-pwa
 imageTag: 0.1.0
-imagePullPolicy: IfNotPresent
+imagePullPolicy: Always
 
 app:
   internalPort: 3000

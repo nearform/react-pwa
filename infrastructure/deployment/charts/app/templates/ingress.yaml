@@ -19,13 +19,9 @@ spec:
     - host: {{ $host }}
       http:
         paths:
-          - path: /city
+          - path: /
             backend:
-              serviceName: {{ $fullname }}-api-svc
-              servicePort: {{ $servicePort }}
-          - path: /solar
-            backend:
-              serviceName: {{ $fullname }}-solar-svc
+              serviceName: {{ $fullname }}-svc
               servicePort: {{ $servicePort }}
 
     {{- end -}}
