@@ -31,5 +31,5 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /
   tls:
   - hosts:
-   - solardemo.nearform.net
-   secretName: dgs-tls
+    - solardemo.nearform.net
+  secretName: dgs-tls
