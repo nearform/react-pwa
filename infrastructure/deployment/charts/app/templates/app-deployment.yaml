@@ -18,6 +18,8 @@ spec:
       - name: react-pwa
         image: "{{ .Values.imgrepo }}{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        imagePullSecrets:
+        - name: acr-auth
         ports:
         - containerPort: {{ .Values.app.internalPort}}
         env:
