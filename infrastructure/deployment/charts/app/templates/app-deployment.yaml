@@ -15,7 +15,7 @@ spec:
         tier: app
     spec:
       imagePullSecrets:
-      - name: acr-auth
+      - name: acr-auth2
       containers:
       - name: react-pwa
         image: "{{ .Values.imgrepo }}{{ .Values.image }}:{{ .Values.imageTag }}"
