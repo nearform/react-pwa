@@ -1,5 +1,5 @@
 ---
-imgrepo: pathfinders.azurecr.io/
+imgrepo: pathfinders.azurecr.io/nearform
 deploymentName: pathfinders
 
 service:
