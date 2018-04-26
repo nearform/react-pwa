@@ -24,7 +24,7 @@ router:
 ingress:
   enabled: true
   hosts:
-  - react-pwa.westeurope.cloudapp.azure.com
+  - hackernews.nearform.net
   annotations:
     kubernetes.io/tls-acme: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /
