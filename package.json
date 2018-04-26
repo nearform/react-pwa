@@ -17,7 +17,7 @@
     "build:sw": "workbox generateSW workbox.config.js",
     "watch:css": "npm run build:css && node-sass src/client/styles/pages -wro build/public/css;",
     "watch:app": "webpack --watch",
-    "watch:server": "nodemon --watch src --ignore src/client --exec 'npm run build:server && node ./lib/index.js'",
+    "watch:server": "nodemon --watch src --ignore src/client --exec 'npm run build:server && node --inspect ./lib/index.js'",
     "prebuild": "rm -rf ./build ./lib",
     "prewatch": "npm run prebuild",
     "build": "npm run build:server && npm run build:app && npm run build:css && npm run build:images && npm run build:sw",
@@ -55,8 +55,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.44",
-    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "cross-fetch": "^2.1.0",
     "ecstatic": "^3.0.0",
     "express": "^4.15.4",
     "history": "^4.7.2",
