@@ -24,12 +24,12 @@
     "lighthouse": "npm run build && node ./scripts/lighthouse.js",
     "now-build": "NODE_ENV=production npm run build",
     "now-start": "NODE_ENV=production npm start",
-    "deploy": "now --public",
-    "deploy:alias": "now alias `pbpaste` hackernewspwa.com"
+    "deploy": "npx now --public",
+    "deploy:alias": "npx now alias `pbpaste` hackernewspwa.com"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
