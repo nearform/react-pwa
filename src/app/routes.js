@@ -5,7 +5,7 @@ module.exports = [
     path: '/app-shell',
     exact: true,
     component: require('./pages/LoadingPage'),
-    fetcher: () => Promise.resolve({ data: {} })
+    fetcher: async () => ({ data: {} })
   },
   {
     path: '/',

@@ -133,16 +133,11 @@ async function graphQLResponse (filter, page, response) {
   }
 }
 
-function init () {
-  let server
-  return Promise
-    .resolve(app)
-    .then(app => {
-      server = app.listen(3000, err => {
-        if (err) throw err
-      })
-    })
-    .then(() => ({ app, server }))
+async function init () {
+  const port = 3000
+  const listener = new Promise((resolve, reject) => app.listen(port, err => err ? reject(err) : resolve(app)))
+  const server = await listener
+  return { app, server, port }
 }
 
 module.exports = { init }
