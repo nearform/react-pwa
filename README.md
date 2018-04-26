@@ -1,4 +1,4 @@
-# React PWA
+gi# React PWA
 
 This project is an example of how a Progressive Web Application can be structured, using React and Node. It takes the form of a Hackernews clone, in the form of a PWA.
 
@@ -43,7 +43,7 @@ This will build the project and serve it locally at `http://localhost:3000`
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [Babel](https://babeljs.io/)
-* [Node-Sass](https://github.com/sass/node-sass)
+* [Typestyle](https://github.com/typestyle/typestyle)
 * [WebPack](https://webpack.js.org/)
 * [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
@@ -69,7 +69,7 @@ The majority of the project's source files are found here. They are separated in
 
 The Node server runs on port `3000` by default. Depending on the route being requested it will either return a rendered page or else act as an API to the React `client`.
 
-Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler`. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state.
+Server Side Rendering is handled by the `renderAppShell` method in `server/app-shell-handler'. This works by generating the React application on the server side into the variable `html`, which is then inserted into the response along with the application's initial state.
 
 The server uses Node for both serving static assets (from the `build` folder) and server-side rendering. This means the app works in situations where JavaScript may not be available. This could be search engine crawlers or even just situations where JavaScript fails or is blocked by a network.
 
@@ -87,7 +87,7 @@ The static HTML includes a reference to the file `manifest.json`. This is a sett
 
 #### src/client
 
-The `client` folder contains static images, styles and JavaScript for the React client. Styling is handled using Sass and there are some icons in the `images` folder.
+The `client` folder contains static images, styles and JavaScript for the React client. Styling is handled using TypeStyle and there are some icons in the `images` folder.
 
 The `js` folder contains two files, `sw.js` that sets up a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) and `app-shell.js` that renders the React app.
 
