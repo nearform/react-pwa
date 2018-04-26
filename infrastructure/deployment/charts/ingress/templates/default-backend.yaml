@@ -45,7 +45,7 @@ metadata:
     k8s-app: default-http-backend
 spec:
   ports:
-  - port: 7000
+  - port: 80
     targetPort: 8080
   selector:
     k8s-app: default-http-backend
