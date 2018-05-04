@@ -25,10 +25,7 @@ spec:
         env:
         - name  : NODE_ENV
           value : production
-
-      volumes:
-        - name: host-sp
-          hostPath:
-            # this file contains the cluster service-principal, it exists on every node by default
-            path: /etc/kubernetes/azure.json
-            type: File
+        {{- if .Values.app.volumes }}
+        volumes:
+      {{ toYaml .Values.app.volumes | indent 4 }}
+        {{- end -}}

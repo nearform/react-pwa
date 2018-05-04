@@ -1,0 +1,23 @@
+---
+imgrepo: 
+deploymentName: pathfinders
+
+service:
+  externalPort: 80
+  clusterType: ClusterIP
+
+image: react-pwa
+imageTag: latest
+imagePullPolicy: IfNotPresent
+
+app:
+  internalPort: 3000
+  replicas: 3
+
+ingress:
+  enabled: true
+  hosts:
+  - hn.nearform.local
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /

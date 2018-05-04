@@ -13,6 +13,13 @@ imagePullPolicy: Always
 app:
   internalPort: 3000
   replicas: 3
+  volumes:
+    - name: host-sp
+      hostPath:
+        # this file contains the cluster service-principal, it exists on every node by default
+        path: /etc/kubernetes/azure.json
+        type: File
+
 
 ingress:
   enabled: true
