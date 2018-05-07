@@ -1,8 +1,7 @@
-const React = require('react')
+import React from 'react'
+import { pageContentClassName } from '../styles/common'
 
-const { pageContentClassName } = require('../styles/common')
-
-module.exports = function LoadingPage () {
+export function LoadingPage () {
   return (
     <div className={pageContentClassName}>
       <div>Loading...</div>

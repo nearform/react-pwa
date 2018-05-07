@@ -1,9 +1,9 @@
-const React = require('react')
-const More = require('../containers/More')
-const { withRouter } = require('react-router')
-const { px } = require('csx')
-const { style } = require('typestyle')
-const { debugClassName } = require('../styles/common')
+import { px } from 'csx'
+import React from 'react'
+import { withRouter } from 'react-router'
+import { style } from 'typestyle'
+import { More } from '../containers/More'
+import { debugClassName } from '../styles/common'
 
 const calculateStartingNumber = (pathname) => {
   let currentPage = parseInt(pathname.split('page/')[1])
@@ -40,7 +40,7 @@ const storiesListByLineClassName = style(
   }
 )
 
-const StoriesList = props => {
+export function StoriesListComponent (props) {
   const { stories, location } = props
   return (
     <React.Fragment>
@@ -59,4 +59,5 @@ const StoriesList = props => {
     </React.Fragment>
   )
 }
-module.exports = withRouter(StoriesList)
+
+export const StoriesList = withRouter(StoriesListComponent)

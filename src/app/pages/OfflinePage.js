@@ -1,8 +1,7 @@
-const React = require('react')
+import React from 'react'
+import { pageTitleClassName } from '../styles/common'
 
-const { pageTitleClassName } = require('../styles/common')
-
-module.exports = function OfflinePage () {
+export function OfflinePage () {
   return (
     <h1 className={pageTitleClassName}>Looks like you are offline</h1>
   )

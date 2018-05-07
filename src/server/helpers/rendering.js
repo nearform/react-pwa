@@ -4,7 +4,7 @@ const { px, percent } = require('csx')
 const { createTypeStyle, getStyles, media } = require('typestyle')
 const serialize = require('serialize-javascript')
 
-const AppShell = require('../../app/AppShell')
+const { AppShell } = require('../../app/AppShell')
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 

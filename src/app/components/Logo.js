@@ -1,4 +1,4 @@
-const React = require('react')
+import React from 'react'
 
 const imageBg = 'data:image/gif;base64,R0lGODlhEgASAKIAAP/jyvihV/aKLfmxc/////9mAAAAAAAAACH5BAAAAAAALAAAAAASABIAAAMpWLrc/jDKOQkRy8pBhuKeRAAKQFBBxwVUYY5twXVxodV3nLd77f9ASQIAOw=='
 
@@ -10,10 +10,9 @@ const logoStyle = {
   height: '18px',
   width: '18px'
 }
-const Logo = props => {
+
+export function Logo (props) {
   return (
     <div style={logoStyle} />
   )
 }
-
-module.exports = Logo

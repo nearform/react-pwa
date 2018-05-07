@@ -1,8 +1,7 @@
-const React = require('react')
+import React from 'react'
+import { pageTitleClassName } from '../styles/common'
 
-const { pageTitleClassName } = require('../styles/common')
-
-module.exports = function ErrorPage () {
+export function ErrorPage () {
   return (
     <h1 className={pageTitleClassName}>Woops, something went wrong</h1>
   )

@@ -1,7 +1,7 @@
-const { routerReducer } = require('react-router-redux')
-const { reducer: pageLoaderReducer } = require('react-page-loader-redux')
+import { reducer as pageLoaderReducer } from 'react-page-loader-redux'
+import { routerReducer } from 'react-router-redux'
 
-module.exports = {
+export const reducers = {
   navigation: require('./navigation'),
   pageLoader: pageLoaderReducer,
   router: routerReducer

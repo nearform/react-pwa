@@ -1,9 +1,8 @@
-const React = require('react')
+import React from 'react'
+import { JobStories } from '../containers/JobStories'
+import { pageContentClassName, pageTitleClassName } from '../styles/common'
 
-const JobStories = require('../containers/JobStories')
-const { pageTitleClassName, pageContentClassName } = require('../styles/common')
-
-module.exports = function JobsPage () {
+export function JobsPage () {
   return (
     <div className={pageContentClassName}>
       <h1 className={pageTitleClassName}>jobs</h1>

@@ -1,10 +1,11 @@
-const React = require('react')
-const { hydrate } = require('react-dom')
-const { createBrowserHistory } = require('history')
-const { routerMiddleware } = require('react-router-redux')
+import { createBrowserHistory } from 'history'
+import React from 'react'
+import { hydrate } from 'react-dom'
+import { routerMiddleware } from 'react-router-redux'
+import { AppShell } from '../../app/AppShell'
+import { configureStore } from '../../app/store'
 
-const { configureStore } = require('../../app/store')
-const AppShell = require('../../app/AppShell')
+window.process = {env: process.env} // This is to make sure process.env is available when loaded from SW
 
 const history = createBrowserHistory()
 const store = configureStore({

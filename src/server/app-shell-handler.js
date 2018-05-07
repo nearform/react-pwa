@@ -5,11 +5,12 @@ const {
 } = require('react-page-loader-redux')
 
 const { configureStore } = require('../app/store')
-const appRoutes = require('../app/routes')
+const { routes: appRoutes } = require('../app/routes')
 const { renderAppShell } = require('./helpers/rendering')
 
 module.exports = async function appShellHandler (req, res) {
   const store = configureStore()
+
   const { route, match } = matchRoutes(appRoutes, req.url)[0]
   const history = createMemoryHistory({
     initialEntries: [req.url]

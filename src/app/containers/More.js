@@ -1,9 +1,9 @@
-const React = require('react')
-const Link = require('../components/Link')
-const { withRouter } = require('react-router')
-const { px } = require('csx')
-const { style } = require('typestyle')
-const { debugClassName } = require('../styles/common')
+import { px } from 'csx'
+import React from 'react'
+import { withRouter } from 'react-router'
+import { style } from 'typestyle'
+import { Link } from '../components/Link'
+import { debugClassName } from '../styles/common'
 
 const buildLink = pathname => {
   let pathParts = pathname.split('/')
@@ -21,7 +21,7 @@ const moreLinkClassName = style(
   }
 )
 
-const More = props => {
+export function MoreComponent (props) {
   let link = buildLink(props.location.pathname)
   return (
     <p className={moreLinkClassName}>
@@ -30,4 +30,4 @@ const More = props => {
   )
 }
 
-module.exports = withRouter(More)
+export const More = withRouter(MoreComponent)

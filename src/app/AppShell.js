@@ -1,17 +1,16 @@
-const React = require('react')
-const { ConnectedRouter } = require('react-router-redux')
-const { Provider: ReduxProvider } = require('react-redux')
-const { PageLoader } = require('react-page-loader-redux')
-const LoadingIndicator = require('./containers/LoadingIndicator').default
-const { px, rgb } = require('csx')
-const { style } = require('typestyle')
-const { debugClassName } = require('./styles/common')
-
+import { px, rgb } from 'csx'
+import React from 'react'
+import { PageLoader } from 'react-page-loader-redux'
+import { Provider as ReduxProvider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import { style } from 'typestyle'
+import { LoadingIndicator } from './containers/LoadingIndicator'
+import { Navigation } from './containers/Navigation'
+import { ErrorPage } from './pages/ErrorPage'
+import { OfflinePage } from './pages/OfflinePage'
 // app-shell things
-const routes = require('./routes')
-const Navigation = require('./containers/Navigation')
-const ErrorPage = require('./pages/ErrorPage')
-const OfflinePage = require('./pages/OfflinePage')
+import { routes } from './routes'
+import { debugClassName } from './styles/common'
 
 const appShellClassName = style(
   debugClassName('app'),
@@ -21,7 +20,7 @@ const appShellClassName = style(
   }
 )
 
-class AppShell extends React.Component {
+export class AppShell extends React.Component {
   componentDidMount () {
     if (!navigator || !navigator.serviceWorker) {
       // service worker not supported
@@ -58,5 +57,3 @@ class AppShell extends React.Component {
     )
   }
 }
-
-module.exports = AppShell

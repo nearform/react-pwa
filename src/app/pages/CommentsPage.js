@@ -1,8 +1,8 @@
-const React = require('react')
-const Comments = require('../containers/Comments')
-const { pageTitleClassName, pageContentClassName } = require('../styles/common')
+import React from 'react'
+import { Comments } from '../containers/Comments'
+import { pageContentClassName, pageTitleClassName } from '../styles/common'
 
-module.exports = function CommentsPage () {
+export function CommentsPage () {
   return (
     <div className={pageContentClassName}>
       <h1 className={pageTitleClassName}>Comments</h1>

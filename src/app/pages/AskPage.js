@@ -1,9 +1,8 @@
-const React = require('react')
+import React from 'react'
+import { AskStories } from '../containers/AskStories'
+import { pageContentClassName, pageTitleClassName } from '../styles/common'
 
-const AskStories = require('../containers/AskStories')
-const { pageTitleClassName, pageContentClassName } = require('../styles/common')
-
-module.exports = function AskPage () {
+export function AskPage () {
   return (
     <div className={pageContentClassName}>
       <h1 className={pageTitleClassName}>Ask</h1>

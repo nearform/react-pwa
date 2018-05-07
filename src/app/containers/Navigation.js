@@ -1,11 +1,10 @@
-const React = require('react')
-const { px } = require('csx')
-const { style, media } = require('typestyle')
-const { debugClassName } = require('../styles/common')
-
-const Logo = require('../components/Logo')
-const Link = require('../components/Link')
-const { withRouter } = require('react-router')
+import { px } from 'csx'
+import React from 'react'
+import { withRouter } from 'react-router'
+import { media, style } from 'typestyle'
+import { Link } from '../components/Link'
+import { Logo } from '../components/Logo'
+import { debugClassName } from '../styles/common'
 
 const navigationClassName = style(
   debugClassName('navigation'),
@@ -58,7 +57,7 @@ const navigationActiveClassName = style(
 
 const isActive = (slug, {location}) => location.pathname.match(slug) ? navigationActiveClassName : null
 
-const Navigation = (props) => {
+const NavigationComponent = (props) => {
   return (
     <div className={navigationClassName}>
       <Link to='/' className={navigationLogoClassName}>
@@ -76,4 +75,4 @@ const Navigation = (props) => {
   )
 }
 
-module.exports = withRouter(Navigation)
+export const Navigation = withRouter(NavigationComponent)

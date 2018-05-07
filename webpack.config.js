@@ -34,7 +34,16 @@ const commonConfig = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', {modules: false}],
+              '@babel/preset-react'
+            ],
+            'plugins': [
+              '@babel/plugin-proposal-object-rest-spread'
+            ]
+          }
         }
       }
     ]
@@ -42,7 +51,7 @@ const commonConfig = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
         NOW: JSON.stringify(process.env.NOW),
         NOW_URL: JSON.stringify(process.env.NOW_URL)
       }

@@ -1,9 +1,8 @@
-const React = require('react')
-const { connect } = require('react-redux')
-const { px, percent } = require('csx')
-const { style, keyframes } = require('typestyle')
-
-const { pageContentClassName, debugClassName } = require('../../app/styles/common')
+import { percent, px } from 'csx'
+import React from 'react'
+import { connect } from 'react-redux'
+import { keyframes, style } from 'typestyle'
+import { debugClassName, pageContentClassName } from '../../app/styles/common'
 
 const loadingIndicatorAnimation = keyframes({
   from: {opacity: 0},
@@ -40,7 +39,7 @@ const updateBodyClass = isFetching => {
   }
 }
 
-const LoadingIndicator = props => {
+const LoadingIndicatorComponent = props => {
   updateBodyClass(props.isFetching)
   if (!props.isFetching) return null
   return (
@@ -52,4 +51,4 @@ const mstp = (state) => {
   return { isFetching: state.pageLoader.isFetching }
 }
 
-export default connect(mstp)(LoadingIndicator)
+export const LoadingIndicator = connect(mstp)(LoadingIndicatorComponent)

@@ -1,11 +1,10 @@
-const React = require('react')
-const { withRouter } = require('react-router')
-const { px } = require('csx')
-const { style } = require('typestyle')
-const { debugClassName } = require('../styles/common')
-
-const More = require('../containers/More')
-const TimeAgo = require('react-timeago').default
+import { px } from 'csx'
+import React from 'react'
+import { withRouter } from 'react-router'
+import TimeAgo from 'react-timeago'
+import { style } from 'typestyle'
+import { More } from '../containers/More'
+import { debugClassName } from '../styles/common'
 
 const getTitle = (title) => {
   if (!title) return
@@ -54,13 +53,13 @@ const commentsListContentClassName = style(
   }
 )
 
-const CommentsList = props => {
+export function CommentsListComponent (props) {
   const { comments } = props
   return (
     <React.Fragment>
       <ul className={commentsListClassName}>
-        {comments.map(comment => (
-          <li className={commentsListItemClassName} key={comment.isoDate}>
+        {comments.map((comment, index) => (
+          <li className={commentsListItemClassName} key={`${comment.isoDate}-${index}`}>
             <span className={commentsListTitleClassName}>
               {comment.creator}
               {' '} <TimeAgo date={comment.isoDate} />
@@ -73,4 +72,5 @@ const CommentsList = props => {
     </React.Fragment>
   )
 }
-module.exports = withRouter(CommentsList)
+
+export const CommentsList = withRouter(CommentsListComponent)
