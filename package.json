@@ -71,5 +71,6 @@
     "sanitize-html": "^1.18.2",
     "serialize-javascript": "^1.4.0",
     "typestyle": "^1.7.2"
-  }
+  },
+  "sideEffects": false
 }
