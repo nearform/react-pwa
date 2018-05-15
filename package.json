@@ -14,7 +14,7 @@
     "build:images": "cp -r src/client/images build/public",
     "build:css": "node-sass src/client/styles/pages -o build/public/css --output-style compressed",
     "build:app": "webpack",
-    "build:server": "babel src -d lib --copy-files --ignore src/client",
+    "build:server": "babel src -d lib --copy-files --ignore src/client --source-maps",
     "build:sw": "workbox generateSW workbox.config.js",
     "watch:css": "npm run build:css && node-sass src/client/styles/pages -wro build/public/css;",
     "watch:app": "webpack --watch",
