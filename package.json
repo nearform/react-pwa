@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "browserslist": "npx browserslist",
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "lint": "npm run lint:js && npm run lint:css",
