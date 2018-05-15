@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "analyze": "npx source-map-explorer build/public/js/app-shell.*",
     "browserslist": "npx browserslist",
     "precommit": "npm run lint",
     "prepush": "npm run test",
