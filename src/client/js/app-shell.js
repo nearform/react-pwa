@@ -1,11 +1,10 @@
-require('babel-polyfill')
-const React = require('react')
-const { hydrate } = require('react-dom')
-const { createBrowserHistory } = require('history')
-const { routerMiddleware } = require('react-router-redux')
+import React from 'react'
+import { hydrate } from 'react-dom'
+import { createBrowserHistory } from 'history'
+import { routerMiddleware } from 'react-router-redux'
 
-const { configureStore } = require('../../app/store')
-const AppShell = require('../../app/AppShell')
+import configureStore from '../../app/store'
+import AppShell from '../../app/AppShell'
 
 const history = createBrowserHistory()
 const store = configureStore({

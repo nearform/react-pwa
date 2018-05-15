@@ -1,10 +1,12 @@
-require('@babel/polyfill')
+import '@babel/polyfill'
+import fetch from 'cross-fetch'
+import init from './server'
 
-const server = require('./server')
+global.fetch = fetch;
 
-;(async () => {
+(async () => {
   try {
-    const {port} = await server.init()
+    const {port} = await init()
     console.log(`\n\n Server started on port ${port}`)
   } catch (err) {
     console.error('Server init issue:', err)

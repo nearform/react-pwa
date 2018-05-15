@@ -1,6 +1,6 @@
-const React = require('react')
-const More = require('../containers/More')
-const { withRouter } = require('react-router')
+import React from 'react'
+import More from '../containers/More'
+import { withRouter } from 'react-router'
 
 const calculateStartingNumber = (pathname) => {
   let currentPage = parseInt(pathname.split('page/')[1])
@@ -27,4 +27,4 @@ const StoriesList = props => {
     </React.Fragment>
   )
 }
-module.exports = withRouter(StoriesList)
+export default withRouter(StoriesList)

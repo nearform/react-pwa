@@ -1,8 +1,8 @@
-const React = require('react')
+import React from 'react'
 
-const AskStories = require('../containers/AskStories')
+import AskStories from '../containers/AskStories'
 
-module.exports = function AskPage () {
+export default function AskPage () {
   return (
     <div className='page-content'>
       <h1 className='page-title'>Ask</h1>

@@ -1,8 +1,8 @@
-const React = require('react')
+import React from 'react'
 
-const JobStories = require('../containers/JobStories')
+import JobStories from '../containers/JobStories'
 
-module.exports = function JobsPage () {
+export default function JobsPage () {
   return (
     <div className='page-content'>
       <h1 className='page-title'>jobs</h1>

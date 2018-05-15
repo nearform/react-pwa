@@ -1,10 +1,10 @@
-const React = require('react')
-const ReactDOMServer = require('react-dom/server')
-const serialize = require('serialize-javascript')
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import serialize from 'serialize-javascript'
 
-const AppShell = require('../../app/AppShell')
+import AppShell from '../../app/AppShell'
 
-function renderAppShell ({ store, history }) {
+export default function renderAppShell ({ store, history }) {
   const initialState = store.getState()
   const html = ReactDOMServer.renderToString(
     <AppShell store={store} history={history} />
@@ -28,8 +28,4 @@ function renderAppShell ({ store, history }) {
       </body>
     </html>
   `)
-}
-
-module.exports = {
-  renderAppShell
 }

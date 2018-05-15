@@ -40,6 +40,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
     "@babel/preset-react": "^7.0.0-beta.42",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^8.0.0-beta.2",
     "husky": "^0.14.3",
     "lighthouse": "^2.9.1",
@@ -75,5 +76,9 @@
     "rss-parser": "^3.1.2",
     "sanitize-html": "^1.18.2",
     "serialize-javascript": "^1.4.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": ["node", "es6", "browser"]
   }
 }

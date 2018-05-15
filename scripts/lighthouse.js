@@ -1,6 +1,5 @@
 require('@babel/polyfill')
-const server = require('../lib/server')
-
+const init = require('../lib/server').default
 const lighthouse = require('lighthouse')
 const chromeLauncher = require('chrome-launcher')
 
@@ -21,7 +20,7 @@ const opts = {
 
 ;(async () => {
   try {
-    const { port } = await server.init()
+    const { server, port } = await init()
     console.log(`\n\n Server started on port `, port)
 
     const results = await launchChromeAndRunLighthouse(`http://127.0.0.1:${port}/`, opts)

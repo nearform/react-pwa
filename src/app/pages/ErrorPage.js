@@ -1,6 +1,6 @@
-const React = require('react')
+import React from 'react'
 
-module.exports = function ErrorPage () {
+export default function ErrorPage () {
   return (
     <h1 className='page-title'>Woops, something went wrong</h1>
   )

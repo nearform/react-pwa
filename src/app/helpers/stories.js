@@ -1,12 +1,11 @@
-const qs = require('qs')
-const fetch = require('cross-fetch')
+import qs from 'qs'
 
 const isBrowser = typeof window !== 'undefined'
 const HOST = isBrowser
   ? ''
   : process.env.NOW_URL || 'http://localhost:3000'
 
-async function fetchStories ({ sort, filter, page } = {}) {
+export async function fetchStories ({ sort, filter, page } = {}) {
   const params = qs.stringify({
     sort,
     filter,
@@ -18,8 +17,4 @@ async function fetchStories ({ sort, filter, page } = {}) {
     throw data
   }
   return {data}
-}
-
-module.exports = {
-  fetchStories
 }

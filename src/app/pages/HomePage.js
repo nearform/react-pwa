@@ -1,8 +1,8 @@
-const React = require('react')
+import React from 'react'
 
-const TopStories = require('../containers/TopStories')
+import TopStories from '../containers/TopStories'
 
-module.exports = function HomePage () {
+export default function HomePage () {
   return (
     <div className='page-content'>
       <TopStories />

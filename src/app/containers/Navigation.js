@@ -1,7 +1,7 @@
-const React = require('react')
-const Logo = require('../components/Logo')
-const Link = require('../components/Link')
-const { withRouter } = require('react-router')
+import React from 'react'
+import Logo from '../components/Logo'
+import Link from '../components/Link'
+import { withRouter } from 'react-router'
 
 const isActive = (slug, { location }) => {
   if (location.pathname.match(slug)) {
@@ -27,4 +27,4 @@ const Navigation = (props) => {
   )
 }
 
-module.exports = withRouter(Navigation)
+export default withRouter(Navigation)

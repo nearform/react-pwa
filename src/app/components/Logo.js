@@ -1,4 +1,4 @@
-const React = require('react')
+import React from 'react'
 
 const imageBg = 'data:image/gif;base64,R0lGODlhEgASAKIAAP/jyvihV/aKLfmxc/////9mAAAAAAAAACH5BAAAAAAALAAAAAASABIAAAMpWLrc/jDKOQkRy8pBhuKeRAAKQFBBxwVUYY5twXVxodV3nLd77f9ASQIAOw=='
 
@@ -16,4 +16,4 @@ const Logo = props => {
   )
 }
 
-module.exports = Logo
+export default Logo

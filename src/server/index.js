@@ -1,10 +1,9 @@
-const path = require('path')
-const express = require('express')
-const appShellHandler = require('./app-shell-handler')
-const appManifest = require('../app/manifest.json')
-const fetch = require('cross-fetch')
-const Parser = require('rss-parser')
-const sanitizeHtml = require('sanitize-html')
+import path from 'path'
+import express from 'express'
+import appShellHandler from './app-shell-handler'
+import appManifest from '../app/manifest.json'
+import Parser from 'rss-parser'
+import sanitizeHtml from 'sanitize-html'
 
 const app = express()
 
@@ -133,11 +132,9 @@ async function graphQLResponse (filter, page, response) {
   }
 }
 
-async function init () {
+export default async function init () {
   const port = 3000
   const listener = new Promise((resolve, reject) => app.listen(port, err => err ? reject(err) : resolve(app)))
   const server = await listener
   return { app, server, port }
 }
-
-module.exports = { init }

@@ -1,6 +1,6 @@
-const React = require('react')
-const { Link: RRLink } = require('react-router-dom')
+import React from 'react'
+import { Link as RRLink } from 'react-router-dom'
 
-module.exports = function Link (props) {
+export default function Link (props) {
   return <RRLink {...props} />
 }
