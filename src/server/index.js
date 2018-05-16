@@ -114,6 +114,11 @@ async function graphQLResponse (filter, page, response) {
       },
       body: payload
     })
+
+    if (!res.ok) {
+      const text = await res.text()
+      throw new Error(`Server error:\n${text}`)
+    }
     const result = await res.json()
 
     response.send(result.data.hn[queryType])
