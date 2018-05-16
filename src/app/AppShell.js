@@ -1,16 +1,16 @@
-const React = require('react')
-const { ConnectedRouter } = require('react-router-redux')
-const { Provider: ReduxProvider } = require('react-redux')
-const { PageLoader } = require('react-page-loader-redux')
-const LoadingIndicator = require('./containers/LoadingIndicator').default
+import React from 'react'
+import { ConnectedRouter } from 'react-router-redux'
+import { Provider as ReduxProvider } from 'react-redux'
+import { PageLoader } from 'react-page-loader-redux'
+import LoadingIndicator from './containers/LoadingIndicator'
 
 // app-shell things
-const routes = require('./routes')
-const Navigation = require('./containers/Navigation')
-const ErrorPage = require('./pages/ErrorPage')
-const OfflinePage = require('./pages/OfflinePage')
+import routes from './routes'
+import Navigation from './containers/Navigation'
+import ErrorPage from './pages/ErrorPage'
+import OfflinePage from './pages/OfflinePage'
 
-class AppShell extends React.Component {
+export default class AppShell extends React.Component {
   componentDidMount () {
     if (!navigator || !navigator.serviceWorker) {
       // service worker not supported
@@ -47,5 +47,3 @@ class AppShell extends React.Component {
     )
   }
 }
-
-module.exports = AppShell

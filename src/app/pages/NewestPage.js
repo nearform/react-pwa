@@ -1,8 +1,8 @@
-const React = require('react')
+import React from 'react'
 
-const NewStories = require('../containers/NewStories')
+import NewStories from '../containers/NewStories'
 
-module.exports = function NewestPage () {
+export default function NewestPage () {
   return (
     <div className='page-content'>
       <h1 className='page-title'>newest</h1>

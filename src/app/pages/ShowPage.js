@@ -1,8 +1,8 @@
-const React = require('react')
+import React from 'react'
 
-const ShowStories = require('../containers/ShowStories')
+import ShowStories from '../containers/ShowStories'
 
-module.exports = function ShowPage () {
+export default function ShowPage () {
   return (
     <div className='page-content'>
       <h1 className='page-title'>show</h1>

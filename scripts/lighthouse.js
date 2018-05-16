@@ -1,5 +1,5 @@
-const server = require('../lib/server')
-
+require('@babel/polyfill')
+const init = require('../lib/server').default
 const lighthouse = require('lighthouse')
 const chromeLauncher = require('chrome-launcher')
 
@@ -18,16 +18,16 @@ const opts = {
   chromeFlags: ['--show-paint-rects']
 }
 
-server.init()
-  .then(({ app, server }) => {
-    console.log('\n\n server started on port 3000')
-    launchChromeAndRunLighthouse('http://localhost:3000/', opts).then(results => {
-      console.log(results)
-      server.close()
-      process.exit()
-    })
-  })
-  .catch(err => {
-    console.error(err)
-    process.exit(1)
-  })
+;(async () => {
+  try {
+    const { server, port } = await init()
+    console.log(`\n\n Server started on port `, port)
+
+    const results = await launchChromeAndRunLighthouse(`http://127.0.0.1:${port}/`, opts)
+    console.log(results)
+    server.close()
+  } catch (err) {
+    console.error('Server init or Lighthouse issue:', err)
+    throw err
+  }
+})()

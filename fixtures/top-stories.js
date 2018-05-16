@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     'id': '16491655',
     'deleted': null,

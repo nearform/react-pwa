@@ -1,6 +1,6 @@
-const { connect } = require('react-redux')
+import { connect } from 'react-redux'
 
-const CommentsList = require('../components/CommentsList')
+import CommentsList from '../components/CommentsList'
 
 function mstp (state) {
   return {
@@ -8,4 +8,4 @@ function mstp (state) {
   }
 }
 
-module.exports = connect(mstp)(CommentsList)
+export default connect(mstp)(CommentsList)

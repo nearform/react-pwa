@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "analyze": "npx source-map-explorer build/public/js/app-shell.*",
+    "browserslist": "npx browserslist",
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "lint": "npm run lint:js && npm run lint:css",
@@ -13,11 +15,11 @@
     "build:images": "cp -r src/client/images build/public",
     "build:css": "node-sass src/client/styles/pages -o build/public/css --output-style compressed",
     "build:app": "webpack",
-    "build:server": "babel src -d lib --copy-files --ignore src/client",
+    "build:server": "babel src -d lib --copy-files --ignore src/client --source-maps",
     "build:sw": "workbox generateSW workbox.config.js",
     "watch:css": "npm run build:css && node-sass src/client/styles/pages -wro build/public/css;",
     "watch:app": "webpack --watch",
-    "watch:server": "nodemon --watch src --ignore src/client --exec 'npm run build:server && node ./lib/index.js'",
+    "watch:server": "nodemon --watch src --ignore src/client --exec 'npm run build:server && node --inspect ./lib/index.js'",
     "prebuild": "rm -rf ./build ./lib",
     "prewatch": "npm run prebuild",
     "build": "npm run build:server && npm run build:app && npm run build:css && npm run build:images && npm run build:sw",
@@ -35,11 +37,13 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.42",
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "@babel/preset-react": "^7.0.0-beta.42",
+    "@babel/cli": "^7.0.0-beta.47",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.47",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^8.0.0-beta.2",
     "husky": "^0.14.3",
     "lighthouse": "^2.9.1",
@@ -48,15 +52,16 @@
     "sass-lint": "^1.12.1",
     "standard": "^11.0.0",
     "uglifyjs-webpack-plugin": "^1.2.3",
+    "upath": "^1.0.5",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
     "webpack-merge": "^4.1.2",
     "workbox-cli": "^3.0.0-beta.2"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.44",
-    "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.0.0-beta.47",
+    "@babel/runtime": "^7.0.0-beta.47",
+    "cross-fetch": "^2.1.0",
     "ecstatic": "^3.0.0",
     "express": "^4.15.4",
     "history": "^4.7.2",
@@ -69,11 +74,19 @@
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "5.0.0-alpha.9",
-    "react-timeago": "^3.4.3",
+    "react-timeago": "^4.1.9",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "rss-parser": "^3.1.2",
     "sanitize-html": "^1.18.2",
     "serialize-javascript": "^1.4.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "node",
+      "es6",
+      "browser"
+    ]
   }
 }

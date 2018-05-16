@@ -1,5 +1,5 @@
 const INITIAL_STATE = {}
 
-module.exports = function (state = INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   return state
 }

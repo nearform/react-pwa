@@ -1,6 +1,6 @@
-const React = require('react')
-const Link = require('../components/Link')
-const { withRouter } = require('react-router')
+import React from 'react'
+import Link from '../components/Link'
+import { withRouter } from 'react-router'
 
 const buildLink = pathname => {
   let pathParts = pathname.split('/')
@@ -19,4 +19,4 @@ const More = props => {
   )
 }
 
-module.exports = withRouter(More)
+export default withRouter(More)

@@ -1,7 +1,7 @@
-const React = require('react')
-const { withRouter } = require('react-router')
-const More = require('../containers/More')
-const TimeAgo = require('react-timeago').default
+import React from 'react'
+import { withRouter } from 'react-router'
+import More from '../containers/More'
+import TimeAgo from 'react-timeago'
 
 const getTitle = (title) => {
   if (!title) return
@@ -27,4 +27,4 @@ const CommentsList = props => {
     </React.Fragment>
   )
 }
-module.exports = withRouter(CommentsList)
+export default withRouter(CommentsList)

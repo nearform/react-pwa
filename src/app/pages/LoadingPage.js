@@ -1,6 +1,6 @@
-const React = require('react')
+import React from 'react'
 
-module.exports = function LoadingPage () {
+export default function LoadingPage () {
   return (
     <div className='page-content'>
       <div>Loading...</div>

@@ -1,21 +1,19 @@
-const { matchRoutes } = require('react-router-config')
-const { createMemoryHistory } = require('history')
-const {
-  actions: { fetchPageData, handleError }
-} = require('react-page-loader-redux')
+import { matchRoutes } from 'react-router-config'
+import { createMemoryHistory } from 'history'
+import { actions } from 'react-page-loader-redux'
 
-const { configureStore } = require('../app/store')
-const appRoutes = require('../app/routes')
-const { renderAppShell } = require('./helpers/rendering')
+import configureStore from '../app/store'
+import appRoutes from '../app/routes'
+import renderAppShell from './helpers/rendering'
 
-module.exports = async function appShellHandler (req, res) {
-  const store = configureStore()
-  const { route, match } = matchRoutes(appRoutes, req.url)[0]
-  const history = createMemoryHistory({
-    initialEntries: [req.url]
-  })
-
+const { fetchPageData, handleError } = actions
+export default async function appShellHandler (req, res) {
   try {
+    const store = configureStore()
+    const { route, match } = matchRoutes(appRoutes, req.url)[0]
+    const history = createMemoryHistory({
+      initialEntries: [req.url]
+    })
     // this modifies the store
     // so when referenced below it will be populated
     const html = await store.dispatch(fetchPageData({ route, match }))
