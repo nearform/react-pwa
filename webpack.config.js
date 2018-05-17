@@ -9,23 +9,39 @@ module.exports = function(environment) {
   const plugins = [new webpack.EnvironmentPlugin({ NODE_ENV: environment })]
 
   // Customize output
-  if (environment === 'production') {
-    plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'disabled', generateStatsFile: true, statsFilename: '../client-bundle-stats.json' }))
+  if (environment === 'production' || process.env.BUILDING) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'disabled',
+        generateStatsFile: true,
+        statsFilename: '../../client-bundle-stats.json'
+      })
+    )
   } else {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false
+      })
+    )
   }
-  plugins.push(new InjectManifest(require('./workbox.config')))
+  plugins.push(
+    new InjectManifest({
+      swSrc: 'src/client/sw.js',
+      swDest: 'sw.js',
+      exclude: [/\.map$/]
+    })
+  )
 
   return {
     entry: [require.resolve('regenerator-runtime/runtime.js'), './src/client/application.jsx'],
     output: {
-      path: resolve(__dirname, 'dist'),
+      path: resolve(__dirname, 'dist/client'),
       filename: 'app.js'
     },
     mode: environment === 'production' ? 'production' : 'development',
     plugins,
     resolve: {
-      extensions: ['.js', '.jsx', '.json']
+      extensions: ['.js', '.jsx']
     },
     module: {
       rules: [
@@ -38,6 +54,21 @@ module.exports = function(environment) {
               presets: [['@babel/preset-env', { modules: false, targets: { browsers: ['last 2 versions', 'IE >= 11'] } }], '@babel/preset-react'],
               plugins: ['@babel/plugin-proposal-object-rest-spread']
             }
+          }
+        },
+        {
+          test: /(manifest\.json)$/,
+          type: 'javascript/auto',
+          use: {
+            loader: 'file-loader',
+            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
+          }
+        },
+        {
+          test: /\.(ico|png)$/,
+          use: {
+            loader: 'file-loader',
+            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
           }
         }
       ]

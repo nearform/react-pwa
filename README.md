@@ -74,6 +74,10 @@ The server uses Fastify for both serving static assets and server-side rendering
 
 To bootstrap the app on the client side, the application re-renders the same server side React code by passing the global `__ssrPreloading` data to the `React.hydrate` call.
 
+##### Using HTTPS locally.
+
+If you want to use HTTP2/HTTPS locally, create a `ssl` folder containing the `certificate.pem` and `private-key.pem` files. The server will automatically pick them up.
+
 ##### Manifest.json
 
 The static HTML includes a reference to the file `manifest.json`. This is a settings file that tells the browser to treat the website as an application with a default start page, name, orientation and icon.
