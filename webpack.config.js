@@ -1,12 +1,37 @@
-const webpack = require('webpack')
+const { EnvironmentPlugin } = require('webpack')
 const { resolve } = require('path')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { InjectManifest } = require('workbox-webpack-plugin')
+const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin')
 
 module.exports = function(environment) {
   if (!environment) environment = process.env.NODE_ENV || 'development'
 
-  const plugins = [new webpack.EnvironmentPlugin({ NODE_ENV: environment })]
+  const version = new Date() // Format: YYYYMMDD.HHmmss
+    .toISOString()
+    .split('.')
+    .shift()
+    .replace(/[-:]/g, '')
+    .replace('T', '.')
+  const plugins = [
+    new EnvironmentPlugin({ NODE_ENV: environment }),
+    new ReplaceInFileWebpackPlugin([
+      {
+        dir: 'dist/client',
+        files: ['sw.js'],
+        rules: [
+          {
+            search: 'VERSION',
+            replace: version
+          },
+          {
+            search: 'SW_DEBUG',
+            replace: environment === 'production' ? 'false' : 'true'
+          }
+        ]
+      }
+    ])
+  ]
 
   // Customize output
   if (environment === 'production' || process.env.BUILDING) {
@@ -33,7 +58,7 @@ module.exports = function(environment) {
   )
 
   return {
-    entry: [require.resolve('regenerator-runtime/runtime.js'), './src/client/application.jsx'],
+    entry: './src/client/application.jsx',
     output: {
       path: resolve(__dirname, 'dist/client'),
       filename: 'app.js'
@@ -51,7 +76,7 @@ module.exports = function(environment) {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: [['@babel/preset-env', { modules: false, targets: { browsers: ['last 2 versions', 'IE >= 11'] } }], '@babel/preset-react'],
+              presets: ['@babel/preset-react'],
               plugins: ['@babel/plugin-proposal-object-rest-spread']
             }
           }
