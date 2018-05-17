@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createTypeStyle, getStyles, media } from 'typestyle'
-import { AppShell } from '../client/js/AppShell'
+import { AppShell } from './js/AppShell'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 
