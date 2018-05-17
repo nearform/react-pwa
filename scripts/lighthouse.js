@@ -1,33 +1,33 @@
-const server = require('../lib/server')
-
 const lighthouse = require('lighthouse')
 const chromeLauncher = require('chrome-launcher')
+const serverFactory = require('../src/server')
 
-function launchChromeAndRunLighthouse (url, opts, config = null) {
-  return chromeLauncher.launch({chromeFlags: opts.chromeFlags}).then(chrome => {
-    opts.port = chrome.port
-    return lighthouse(url, opts, config).then(results => {
-      // The gathered artifacts are typically removed as they can be quite large (~50MB+)
-      delete results.artifacts
-      return chrome.kill().then(() => results)
-    })
-  })
+function unhandledRejectionHandler(error) {
+  console.error(error)
+  process.exit(1)
 }
 
-const opts = {
-  chromeFlags: ['--show-paint-rects']
+async function main() {
+  const opts = {
+    chromeFlags: ['--show-paint-rects', '--headless', '--disable-gpu', '--no-sandbox']
+  }
+
+  // Launch the server
+  const server = await serverFactory()
+
+  // Launch chrome
+  const chrome = await chromeLauncher.launch({ chromeFlags: opts.chromeFlags })
+  opts.port = chrome.port
+
+  // Execute lighthouse
+  const results = await lighthouse('http://localhost:3000/', opts)
+  delete results.artifacts
+
+  // Kill everything
+  await chrome.kill()
+  await server.close()
+  console.log(results)
 }
 
-server.init()
-  .then(({ app, server }) => {
-    console.log('\n\n server started on port 3000')
-    launchChromeAndRunLighthouse('http://localhost:3000/', opts).then(results => {
-      console.log(results)
-      server.close()
-      process.exit()
-    })
-  })
-  .catch(err => {
-    console.error(err)
-    process.exit(1)
-  })
+process.on('unhandledRejection', unhandledRejectionHandler)
+main().catch(unhandledRejectionHandler)
