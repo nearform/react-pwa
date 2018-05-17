@@ -1,4 +1,4 @@
-import { px } from 'csx'
+import { em, rem } from 'csx'
 import { style } from 'typestyle'
 
 export function debugClassName($debugName, force = false) {
@@ -7,13 +7,13 @@ export function debugClassName($debugName, force = false) {
 
 export const pageTitleClassName = style(debugClassName('page-title'), {
   $debugName: 'page-title',
-  fontSize: '12pt',
+  fontSize: em(1.3),
   margin: 0
 })
 
 export const pageContentClassName = style(debugClassName('page-content'), {
   $debugName: 'page-content',
   opacity: 1,
-  padding: px(6),
+  padding: rem(1),
   transition: 'opacity .2s ease-out'
 })

@@ -1,6 +1,6 @@
-import { px } from 'csx'
+import { px, rem } from 'csx'
 import React from 'react'
-import { style } from 'typestyle'
+import { media, style } from 'typestyle'
 import { debugClassName } from '../styles/common'
 import { More } from './More'
 
@@ -10,18 +10,20 @@ const calculateStartingNumber = pathname => {
   return (currentPage - 1) * 30 + 1
 }
 
-const storiesListClassName = style(debugClassName('stories-list'), {
-  padding: `0 0 0 ${px(24)}`
-})
+const storiesListClassName = style(
+  debugClassName('stories-list'),
+  {
+    padding: `0 0 0 ${rem(4.5)}`
+  },
+  media({ maxWidth: px(600) }, { paddingLeft: rem(3.5) })
+)
 
 const storiesListItemClassName = style(debugClassName('stories-list-item'), {
-  lineHeight: '11pt',
-  margin: `${px(6)} 0`
+  margin: `${rem(1)} 0`
 })
 
 const storiesListByLineClassName = style(debugClassName('stories-list-by-line'), {
-  color: '#828282',
-  fontSize: '7pt',
+  color: '#707070',
   $nest: {
     'a:hover': {
       textDecoration: 'underline'

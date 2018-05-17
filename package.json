@@ -31,7 +31,7 @@
     "start": "node src/server",
     "watch": "npm run watch:client & npm run watch:server",
     "watch:client": "webpack --watch",
-    "watch:server": "nodemon -e js,jsx --watch src/server --exec 'node src/server'",
+    "watch:server": "nodemon -e js,jsx --watch src/server src/client --exec 'npm run build:server && node src/server'",
     "now-build": "NODE_ENV=production npm run build",
     "now-start": "NODE_ENV=production npm start"
   },

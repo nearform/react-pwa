@@ -1,4 +1,4 @@
-import { percent, px } from 'csx'
+import { em, px } from 'csx'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -7,33 +7,33 @@ import { AppShell } from './js/AppShell'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 
+globalStyles.cssRule('*', { lineHeight: 1.4 })
+
+// This sets the value of 1rem
+globalStyles.cssRule('html', { fontSize: px(10) })
+
 globalStyles.cssRule(
   'body',
   {
-    color: '#828282',
+    color: '#707070',
     fontFamily: 'Verdana, Geneva, sans-serif',
-    fontSize: '10pt',
-    margin: 0,
-    width: percent(100)
+    fontSize: '12pt'
   },
-  media(
-    { minWidth: px(600) },
-    {
-      margin: `${px(8)} auto`,
-      width: percent(85)
-    }
-  )
+  media({ maxWidth: px(600) }, { fontSize: '10pt' })
 )
 
 globalStyles.cssRule('a', {
   color: '#000000',
   textDecoration: 'none',
   $nest: {
-    '&:visited': {
-      color: '#828282'
+    '&:hover, &:visited': {
+      color: '#707070',
+      transition: 'color .1s ease-out'
     }
   }
 })
+
+globalStyles.cssRule('h4', { fontSize: em(1.1) })
 
 export async function renderPage(request, reply) {
   // Prepare the history

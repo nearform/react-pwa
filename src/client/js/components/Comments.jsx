@@ -1,9 +1,9 @@
-import { px } from 'csx'
+import { rem } from 'csx'
 import React from 'react'
 import TimeAgo from 'react-timeago'
 import { style } from 'typestyle'
 import { debugClassName } from '../styles/common'
-import { More } from './More'
+import { More, moreLinkClassName } from './More'
 
 const getTitle = title => {
   return (title || '')
@@ -14,30 +14,32 @@ const getTitle = title => {
 
 const commentsListClassName = style(debugClassName('comments-list'), {
   listStyle: 'none',
-  margin: `0 0 0 ${px(6)}`,
-  padding: `0 0 0 ${px(2)}`
+  margin: 0,
+  padding: 0,
+  $nest: {
+    [`& + .${moreLinkClassName}`]: {
+      paddingLeft: 0
+    }
+  }
 })
 
 const commentsListItemClassName = style(debugClassName('comments-list-item'), {
   lineHeight: '10pt',
-  margin: `${px(6)} 0`
+  margin: `${rem(2)} 0`
 })
 
 const commentsListTitleClassName = style(debugClassName('comments-list-title'), {
   display: 'block',
-  fontSize: '8pt',
-  padding: `0 0 ${px(6)}`
+  padding: `0 0 ${rem(1)}`
 })
 
 const commentsListContentClassName = style(debugClassName('comments-list-content'), {
   color: '#000',
   display: 'block',
-  fontSize: '9pt',
-  lineHeight: '12pt',
-  padding: `0 0 ${px(6)}`,
+  paddingBottom: rem(1),
   $nest: {
     p: {
-      margin: `${px(4)} 0`
+      margin: `${rem(0.5)} 0`
     }
   }
 })
