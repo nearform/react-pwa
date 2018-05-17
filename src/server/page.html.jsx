@@ -2,7 +2,7 @@ import { em, px } from 'csx'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { createTypeStyle, getStyles, media } from 'typestyle'
+import { createTypeStyle, getStyles } from 'typestyle'
 import { AppShell } from './js/AppShell'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
@@ -12,15 +12,11 @@ globalStyles.cssRule('*', { lineHeight: 1.4 })
 // This sets the value of 1rem
 globalStyles.cssRule('html', { fontSize: px(10) })
 
-globalStyles.cssRule(
-  'body',
-  {
-    color: '#707070',
-    fontFamily: 'Verdana, Geneva, sans-serif',
-    fontSize: '12pt'
-  },
-  media({ maxWidth: px(600) }, { fontSize: '10pt' })
-)
+globalStyles.cssRule('body', {
+  color: '#707070',
+  fontFamily: 'Verdana, Geneva, sans-serif',
+  fontSize: '12pt'
+})
 
 globalStyles.cssRule('a', {
   color: '#000000',

@@ -1,28 +1,32 @@
-import { rem } from 'csx'
+import { px, rem } from 'csx'
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { style } from 'typestyle'
+import { media, style } from 'typestyle'
 import { debugClassName } from '../styles/common'
 import { Logo } from './Logo'
 
-const navigationClassName = style(debugClassName('navigation'), {
-  alignItems: 'center',
-  backgroundColor: '#fe6501',
-  display: 'flex',
-  padding: rem(0.5),
-  $nest: {
-    a: {
-      color: '#000'
-    },
-    'a.active': {
-      fontWeight: 'bold'
-    },
-    'a:hover': {
-      color: '#FFF',
-      transition: 'color .1s ease-out'
+const navigationClassName = style(
+  debugClassName('navigation'),
+  {
+    alignItems: 'center',
+    backgroundColor: '#fe6501',
+    display: 'flex',
+    padding: rem(0.5),
+    $nest: {
+      a: {
+        color: '#000'
+      },
+      'a.active': {
+        fontWeight: 'bold'
+      },
+      'a:hover': {
+        color: '#FFF',
+        transition: 'color .1s ease-out'
+      }
     }
-  }
-})
+  },
+  media({ maxWidth: px(600) }, { fontSize: '10pt' })
+)
 
 const navigationLogoClassName = style(debugClassName('navigation-logo'), {
   alignItems: 'center',
