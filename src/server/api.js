@@ -44,9 +44,9 @@ module.exports = async function(fastify, opts) {
     // Build the query
     const body = {
       query: `
-      query {
+      query apiQuery($limit: Int, $offset: Int) {
         hn {
-          ${queryType}(limit: ${pageSize}, offset: ${offset}) {
+          ${queryType}(limit: $limit, offset: $offset) {
             id
             title
             url
@@ -57,7 +57,11 @@ module.exports = async function(fastify, opts) {
           }
         }
       }
-      `
+      `,
+      variables: {
+        limit: pageSize,
+        offset
+      }
     }
 
     // Perform the request
