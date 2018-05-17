@@ -9,13 +9,13 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package*.json ./
-RUN yarn install --production=false --silent
+RUN npm install --silent
 
 # Bundle app source
 COPY . .
 
 # Build the app
-RUN yarn build
+RUN npm run build
 
 # Expose the port the app listens on
 EXPOSE 3000
