@@ -1,11 +1,14 @@
-import fastify from 'fastify'
-import { existsSync, readFileSync } from 'fs'
-import { resolve } from 'path'
-import { routes } from '../client/routes'
-import { fetchComments, fetchStories } from './api'
-import { renderPage } from './page.html'
-
+const fastify = require('fastify')
+const { existsSync, readFileSync } = require('fs')
 const nodeFetch = require('node-fetch')
+const { resolve } = require('path')
+const { routes } = require('../../dist/server/routes')
+const { renderPage } = require('../../dist/server/page.html')
+
+function unhandledRejectionHandler(error) {
+  console.error(error)
+  process.exit(1)
+}
 
 function detectHttps() {
   const certPath = resolve(process.cwd(), 'ssl/certificate.pem')
@@ -29,11 +32,9 @@ function setupFetch(server) {
   }
 }
 
-function main() {
-  console.log(process.cwd(), resolve(process.cwd(), './dist'))
-
+async function main() {
   // Create the instance
-  const server = fastify({ logger: { prettyPrint: true }, ...detectHttps() })
+  const server = fastify({ logger: { prettyPrint: process.env.NODE_ENV !== 'production' }, ...detectHttps() })
 
   // Add routes
   for (const [path, component] of Object.entries(routes)) {
@@ -49,11 +50,10 @@ function main() {
     }
   }
 
-  server.get('/api/stories', fetchStories)
-  server.get('/api/comments', fetchComments)
+  server.register(require('./api'))
 
   // Add application assets and manifest.json serving
-  server.register(require('fastify-static'), { root: resolve(process.cwd(), 'dist'), prefix: '/' })
+  server.register(require('fastify-static'), { root: resolve(process.cwd(), 'dist/client'), prefix: '/' })
   server.register(require('fastify-compress'))
   server.decorateRequest('apiCache', require('memory-cache'))
 
@@ -61,9 +61,8 @@ function main() {
   setupFetch(server)
 
   // Run the server!
-  server.listen(3000, '0.0.0.0', function(err) {
-    if (err) throw err
-  })
+  await server.listen(3000, '0.0.0.0')
 }
 
-main()
+process.on('unhandledRejection', unhandledRejectionHandler)
+main().catch(unhandledRejectionHandler)
