@@ -2,17 +2,17 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
-general:
-  # Build only for the master branch
-  branches:
-    only:
-     - master
-jobs:
-  build:
-    docker:
-      - image: circleci/node:9.10
 
+defaults: &defaults
+  docker:
+    - image: circleci/node:9.10
+  environment:
+    LIGHTHOUSE_CHROMIUM_PATH: ./scripts/chrome-linux/chrome
+
+version: 2
+jobs:
+  install:
+    <<: *defaults
     steps:
       - checkout
       - setup_remote_docker
@@ -24,17 +24,66 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - react-pwa-dependencies-
 
-      - run: yarn install
+      - run: yarn
+      # Persist the specified paths (build) into the workspace for use
+      - persist_to_workspace:
+          root: .
+          paths: .
 
-      # Update cache
-      - save_cache:
-          paths:
-            - node_modules
-          key: react-pwa-dependencies-{{ checksum "package.json" }}
+  build:
+    <<: *defaults
+    environment:
+      NODE_ENV: production
+    steps:
+      - attach_workspace:
+          at: .
+      # Build/bundle frontend & node code
+      - run: yarn build
+      - persist_to_workspace:
+          root: .
+          paths: .
 
+  # test:
+  #   <<: *defaults
+  #   steps:
+  #     - attach_workspace:
+  #         at: .
+  #     # Run tests
+  #     - run: yarn test
+
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
       # Run tests
-      #- run: yarn test
+      - run: yarn lint
 
+  # Test pwa performances
+  lighthouse:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      # Install latest Chrome
+      - run: bash scripts/download-chrome.sh
+      # Install old version of Chromium to have most of the deps
+      - run: sudo apt update
+      - run: sudo apt install chromium libatk-bridge2.0-0 libgtk-3-0
+      # Run the benchmark
+      - run: yarn lighthouse:script
+      # Create badges and copy all in artifacts
+      - run: yarn lighthouse:badges
+      - store_artifacts:
+          path: .reports
+          destination: badges
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
       # Install AWS's CLI
       - run:
           name: Install AWS CLI
@@ -63,3 +112,29 @@ jobs:
           name: Trigger a ECS deploy
           command: |
             aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
+
+workflows:
+  version: 2
+  build-then-test-and-deploy:
+    jobs:
+      - install
+      # - chrome-download
+      - build:
+          requires:
+            - install
+      # - test:
+      #     requires:
+      #       - install
+      - lint:
+          requires:
+            - install
+      - lighthouse:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - lighthouse
+            # - test
+          filters:
+            branches:
+              only: master

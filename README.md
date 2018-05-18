@@ -1,3 +1,4 @@
+<img src="https://circleci.com/gh/nearform/react-pwa.svg?style=shield&circle-token=:circle-token">
 # React PWA
 
 This project is an example of how a Progressive Web Application can be structured, using React and Node. It takes the form of a Hackernews clone, in the form of a PWA.

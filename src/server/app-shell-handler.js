@@ -1,3 +1,4 @@
+require('@babel/polyfill')
 const { matchRoutes } = require('react-router-config')
 const { createMemoryHistory } = require('history')
 const {
