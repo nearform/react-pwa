@@ -1,4 +1,4 @@
-FROM node:9.10-alpine
+FROM node:10.1-alpine
 
 # Tell node we are running in prod
 ARG NODE_ENV=production
