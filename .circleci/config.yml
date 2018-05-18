@@ -22,15 +22,15 @@ jobs:
           key: react-pwa-dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - build: # builds the application
+      - run: # builds the application
           environment:
             NODE_ENV: production
           name: build
           command: npm-run
-      - lint: # lint the code
+      - run: # lint the code
           name: lint
           command: npm run lint
-      - lighthouse: # Run lighthouse
+      - run: # Run lighthouse
           environment:
             NODE_ENV: production
           name: lighthouse
