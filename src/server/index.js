@@ -66,9 +66,5 @@ async function main() {
   return server
 }
 
-module.exports = main
-
-if (!process.env.LIGHTHOUSE) {
-  process.on('unhandledRejection', unhandledRejectionHandler)
-  main().catch(unhandledRejectionHandler)
-}
+process.on('unhandledRejection', unhandledRejectionHandler)
+main().catch(unhandledRejectionHandler)

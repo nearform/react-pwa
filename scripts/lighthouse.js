@@ -1,6 +1,9 @@
+const { exec } = require('child_process')
 const lighthouse = require('lighthouse')
-const chromeLauncher = require('chrome-launcher')
-const serverFactory = require('../src/server')
+const puppeteer = require('puppeteer')
+const { parse: parseUrl } = require('url')
+const { promisify } = require('util')
+const waitOn = promisify(require('wait-on'))
 
 function unhandledRejectionHandler(error) {
   console.error(error)
@@ -8,25 +11,27 @@ function unhandledRejectionHandler(error) {
 }
 
 async function main() {
-  const opts = {
-    chromeFlags: ['--show-paint-rects', '--headless', '--disable-gpu', '--no-sandbox']
-  }
+  const url = process.argv[2] || 'http://localhost:3000'
+  const parsedUrl = parseUrl(url)
 
-  // Launch the server
-  const server = await serverFactory()
+  // Launch the server and wait for the port to be available
+  const server = exec('npm run start')
+  await waitOn({ resources: [`tcp:${parsedUrl.port}`] })
 
   // Launch chrome
-  const chrome = await chromeLauncher.launch({ chromeFlags: opts.chromeFlags })
-  opts.port = chrome.port
+  const browser = await puppeteer.launch({ headless: process.env.VIEW !== 'true', args: ['--no-sandbox', '--show-paint-rects'] })
 
   // Execute lighthouse
-  const results = await lighthouse('http://localhost:3000/', opts)
+  const results = await lighthouse(url, { port: parseUrl(browser.wsEndpoint()).port, output: 'json' })
+  delete results.report
   delete results.artifacts
 
   // Kill everything
-  await chrome.kill()
-  await server.close()
-  console.log(results)
+  await browser.close()
+  server.kill('SIGTERM')
+
+  // Show results
+  console.log(JSON.stringify(results, null, 2))
 }
 
 process.on('unhandledRejection', unhandledRejectionHandler)
