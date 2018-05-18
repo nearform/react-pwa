@@ -73,6 +73,7 @@ jobs:
       - run: sudo apt install chromium libatk-bridge2.0-0 libgtk-3-0
       # Run the benchmark
       - run: yarn lighthouse:script
+      - run: yarn lighthouse:badges
 
   deploy:
     <<: *defaults
