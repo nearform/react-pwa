@@ -37,6 +37,7 @@ jobs:
           command: npm run lighthouse
       - store_artifacts:
           path: coverage/badges
+          destination: /badges
   # deploy:
   #   requires:
   #     - build
