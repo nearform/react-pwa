@@ -34,7 +34,7 @@ jobs:
           name: Run Lighthouse on the application
           environment:
             NODE_ENV: production
-            command: npm run lighthouse
+          command: npm run lighthouse
       - store_artifacts:
           path: coverage/badges
   # deploy:
