@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.1.0
+      - image: circleci/node:10.1.0-browsers
     steps:
       - checkout # Checkout repository
       - run:
@@ -35,30 +35,30 @@ jobs:
             NODE_ENV: production
           name: lighthouse
           command: npm run lighthouse
-  deploy:
-    requires:
-      - build
-    filters:
-      branches:
-        only: master
-    steps:
-      - run: # Install AWS CLI
-        name: Install AWS CLI
-        command: |
-          sudo apt-get -y install python-dev
-          curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-          unzip awscli-bundle.zip
-          sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-      - run: # Build the Docker container
-          name: Build the Docker container
-          command: |
-            docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
-      - run: # Push the built containers to AWS ECR
-          name: Push the Docker container
-          command: |
-            eval $(aws ecr get-login --no-include-email --region us-east-1)
-            docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
-      - run: # Trigger a AWS ECS service update that will force the cluster to re-pull the Docker container(s), to get the 'latest' tagged version
-          name: Trigger a ECS deploy
-          command: |
-            aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
+  # deploy:
+  #   requires:
+  #     - build
+  #   filters:
+  #     branches:
+  #       only: master
+  #   steps:
+  #     - run: # Install AWS CLI
+  #       name: Install AWS CLI
+  #       command: |
+  #         sudo apt-get -y install python-dev
+  #         curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+  #         unzip awscli-bundle.zip
+  #         sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+  #     - run: # Build the Docker container
+  #         name: Build the Docker container
+  #         command: |
+  #           docker build -t 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest .
+  #     - run: # Push the built containers to AWS ECR
+  #         name: Push the Docker container
+  #         command: |
+  #           eval $(aws ecr get-login --no-include-email --region us-east-1)
+  #           docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+  #     - run: # Trigger a AWS ECS service update that will force the cluster to re-pull the Docker container(s), to get the 'latest' tagged version
+  #         name: Trigger a ECS deploy
+  #         command: |
+  #           aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
