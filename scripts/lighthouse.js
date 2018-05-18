@@ -1,13 +1,34 @@
 const { exec } = require('child_process')
+const { writeFileSync } = require('fs')
 const lighthouse = require('lighthouse')
+const { resolve } = require('path')
 const puppeteer = require('puppeteer')
 const { parse: parseUrl } = require('url')
 const { promisify } = require('util')
 const waitOn = promisify(require('wait-on'))
+const createBadge = require('gh-badges')
 
 function unhandledRejectionHandler(error) {
   console.error(error)
   process.exit(1)
+}
+
+function badgeColor(score) {
+  if (score > 90) return 'green'
+  else if (score > 80) return 'yellow'
+  else if (score > 50) return 'orange'
+
+  return 'red'
+}
+
+async function badge(spec) {
+  return new Promise((resolve, reject) => {
+    createBadge(spec, (svg, err) => {
+      if (err) return reject(err)
+
+      resolve(svg)
+    })
+  })
 }
 
 async function main() {
@@ -22,7 +43,7 @@ async function main() {
   const browser = await puppeteer.launch({ headless: process.env.VIEW !== 'true', args: ['--no-sandbox', '--show-paint-rects'] })
 
   // Execute lighthouse
-  const results = await lighthouse(url, { port: parseUrl(browser.wsEndpoint()).port, output: 'json' })
+  const results = (await lighthouse(url, { port: parseUrl(browser.wsEndpoint()).port, output: 'json' })).lhr
   delete results.report
   delete results.artifacts
 
@@ -30,8 +51,27 @@ async function main() {
   await browser.close()
   server.kill('SIGTERM')
 
-  // Show results
-  console.log(JSON.stringify(results, null, 2))
+  // Gather results and build badges
+  const outputItems = []
+
+  for (const category of Object.values(results.categories)) {
+    const score = Math.ceil(category.score * 100)
+    outputItems.push(`${category.title}: ${score}`)
+
+    const svg = await badge({
+      text: [`Ligthouse ${category.title} Score`, `${score}/100 `],
+      colorscheme: badgeColor(score),
+      template: 'flat'
+    })
+
+    writeFileSync(resolve(process.cwd(), `coverage/badges/lighthouse-${category.id}.svg`), svg, 'utf8')
+  }
+
+  console.log(`======= Lighthouse Score =======\n${outputItems.join('\n')}\n================================`)
+
+  writeFileSync(resolve(process.cwd(), 'coverage/lighthouse.json'), JSON.stringify(results, null, 2), 'utf8')
+
+  process.exit(0) // This is needed on the CI
 }
 
 process.on('unhandledRejection', unhandledRejectionHandler)
