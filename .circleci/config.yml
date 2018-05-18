@@ -11,29 +11,29 @@ jobs:
     steps:
       - checkout # Checkout repository
       - run:
-          name: update-npm
+          name: Update NPM
           command: 'sudo npm install -g npm@latest'
-      - restore_cache: # special step to restore the dependency cache 
+      - restore_cache: # special step to restore the dependency cache
           key: react-pwa-dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: npm-install
+          name: Install Dependencies
           command: npm install
       - save_cache: # special step to save the dependency cache
           key: react-pwa-dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run: # builds the application
+          name: Build the application
           environment:
             NODE_ENV: production
-          name: build
-          command: npm-run
+          command: npm run build
       - run: # lint the code
-          name: lint
+          name: Run code linter
           command: npm run lint
       - run: # Run lighthouse
+          name: Run Lighthouse on the application
           environment:
             NODE_ENV: production
-          name: lighthouse
           command: npm run lighthouse
   # deploy:
   #   requires:
