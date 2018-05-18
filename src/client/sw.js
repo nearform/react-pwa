@@ -1,4 +1,4 @@
-/* global workbox, self */
+/* global workbox, self, SW_DEBUG */
 
 let version = 'VERSION'
 
