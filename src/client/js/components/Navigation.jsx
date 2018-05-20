@@ -11,7 +11,7 @@ const navigationClassName = style(
     alignItems: 'center',
     backgroundColor: '#fe6501',
     display: 'flex',
-    padding: rem(0.5),
+    padding: rem(1),
     $nest: {
       a: {
         color: '#000'
@@ -24,8 +24,7 @@ const navigationClassName = style(
         transition: 'color .1s ease-out'
       }
     }
-  },
-  media({ maxWidth: px(600) }, { fontSize: '10pt' })
+  }
 )
 
 const navigationLogoClassName = style(debugClassName('navigation-logo'), {

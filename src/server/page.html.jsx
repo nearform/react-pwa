@@ -10,12 +10,13 @@ const globalStyles = createTypeStyle() // Instantiate a different typestyle shee
 globalStyles.cssRule('*', { lineHeight: 1.4 })
 
 // This sets the value of 1rem
-globalStyles.cssRule('html', { fontSize: px(10) })
+globalStyles.cssRule('html, body', { fontSize: px(16), padding: 0, margin: 0 })
 
 globalStyles.cssRule('body', {
-  color: '#707070',
+  color: '#828282',
   fontFamily: 'Verdana, Geneva, sans-serif',
-  fontSize: '12pt'
+  fontSize: '12pt',
+  width: '100%'
 })
 
 globalStyles.cssRule('a', {
@@ -23,10 +24,28 @@ globalStyles.cssRule('a', {
   textDecoration: 'none',
   $nest: {
     '&:hover, &:visited': {
-      color: '#707070',
+      color: '#828282',
       transition: 'color .1s ease-out'
     }
   }
+})
+
+globalStyles.cssRule('.background-enter', {
+  transform: 'translate(100%)'
+})
+
+globalStyles.cssRule('.background-enter.background-enter-active', {
+  transform: 'translate(0%)',
+  transition: 'transform 1000ms ease-in-out'
+})
+
+globalStyles.cssRule('.background-exit', {
+  transform: 'translate(0%)'
+})
+
+globalStyles.cssRule('.background-exit.background-exit-active', {
+  transform: 'translate(-100%)',
+  transition: 'transform 1000ms ease-in-out'
 })
 
 globalStyles.cssRule('h4', { fontSize: em(1.1) })

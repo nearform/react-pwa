@@ -11,9 +11,9 @@ export const pageTitleClassName = style(debugClassName('page-title'), {
   margin: 0
 })
 
-export const pageContentClassName = style(debugClassName('page-content'), {
-  $debugName: 'page-content',
-  opacity: 1,
-  padding: rem(1),
-  transition: 'opacity .2s ease-out'
-})
+// export const pageContentClassName = style(debugClassName('page-content'), {
+//   $debugName: 'page-content',
+//   opacity: 1,
+//   padding: rem(1),
+//   transition: 'opacity .2s ease-out'
+// })
