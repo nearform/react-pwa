@@ -36,8 +36,12 @@ async function main() {
   const parsedUrl = parseUrl(url)
 
   // Launch the server and wait for the port to be available
-  const server = exec('npm run start')
-  await waitOn({ resources: [`tcp:${parsedUrl.port}`] })
+  let server = null
+  if (!process.argv[2]) {
+    // No external host, start the server
+    server = exec('npm run start')
+    await waitOn({ resources: [`tcp:${parsedUrl.port}`] })
+  }
 
   // Launch chrome
   const browser = await puppeteer.launch({ headless: process.env.VIEW !== 'true', args: ['--no-sandbox', '--show-paint-rects'] })
@@ -49,7 +53,7 @@ async function main() {
 
   // Kill everything
   await browser.close()
-  server.kill('SIGTERM')
+  if (server) server.kill('SIGTERM')
 
   // Gather results and build badges
   const outputItems = []

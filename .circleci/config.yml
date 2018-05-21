@@ -33,7 +33,7 @@ jobs:
           command: npm run lint
       - run: # run lighthouse - This will also generate badges
           name: Run Lighthouse on the application
-          command: npm run lighthouse
+          command: npm run lighthouse -- https://hackernews.nearform.com/
       - persist_to_workspace:
           root: .
           paths:
