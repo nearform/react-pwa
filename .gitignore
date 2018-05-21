@@ -1,14 +1,15 @@
+# Generic
 .DS_Store
-node_modules
-package-lock.json
+client-bundle-stats.json
+coverage
 dist
 lib
+ssl
+
+# NPM and Yarn
+node_modules
 .npm
 .yarnclean
-
-# Lock files
-package-lock.json
-yarn.lock
 
 # Logs
 logs
@@ -16,6 +17,3 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-client-bundle-stats.json
-ssl

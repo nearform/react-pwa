@@ -25,7 +25,7 @@ module.exports = function(environment) {
             replace: version
           },
           {
-            search: 'SW_DEBUG',
+            search: /SW_DEBUG/,
             replace: environment === 'production' ? 'false' : 'true'
           }
         ]
@@ -39,7 +39,7 @@ module.exports = function(environment) {
       new BundleAnalyzerPlugin({
         analyzerMode: 'disabled',
         generateStatsFile: true,
-        statsFilename: '../../client-bundle-stats.json'
+        statsFilename: '../../coverage/client-bundle-stats.json'
       })
     )
   } else {

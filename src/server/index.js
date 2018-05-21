@@ -62,6 +62,8 @@ async function main() {
 
   // Run the server!
   await server.listen(3000, '0.0.0.0')
+
+  return server
 }
 
 process.on('unhandledRejection', unhandledRejectionHandler)

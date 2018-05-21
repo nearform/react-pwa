@@ -1,5 +1,14 @@
 # React PWA
 
+![Build Status](https://img.shields.io/circleci/project/github/nearform/react-pwa.svg)
+![Performance](https://hackernews.nearform.com/badges/lighthouse-performance.svg)
+![Progressive Web App](https://hackernews.nearform.com/badges/lighthouse-pwa.svg)
+![Accessibility](https://hackernews.nearform.com/badges/lighthouse-accessibility.svg)
+![Best Practices](https://hackernews.nearform.com/badges/lighthouse-best-practices.svg)
+![SSO](https://hackernews.nearform.com/badges/lighthouse-seo.svg)
+
+nf-react-pwa-badges
+
 This project is an example of how a Progressive Web Application can be structured, using React and Node. It takes the form of a Hackernews clone, in the form of a PWA.
 
 ## Project goals
