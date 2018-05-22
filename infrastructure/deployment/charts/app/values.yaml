@@ -1,6 +1,5 @@
 ---
-imgrepo: pathfinders.azurecr.io/nearform/
-deploymentName: pathfinders
+imgrepo:
 
 service:
   externalPort: 80

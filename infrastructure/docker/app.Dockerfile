@@ -1,10 +1,10 @@
-FROM node:9.10-alpine
+FROM nearform/alpine3-s2i-nodejs:10
 
 # Create app directory
 WORKDIR /opt/app-root/src
 
 COPY package*.json ./
-RUN yarn install
+RUN yarn install --production=false
 COPY . .
 
 RUN yarn run build

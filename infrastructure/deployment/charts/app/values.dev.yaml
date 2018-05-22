@@ -1,6 +1,5 @@
 ---
-imgrepo: 
-deploymentName: pathfinders
+imgrepo:
 
 service:
   externalPort: 80
