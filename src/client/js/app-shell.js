@@ -1,5 +1,5 @@
 const React = require('react')
-const { render } = require('react-dom')
+const { hydrate } = require('react-dom')
 const { createBrowserHistory } = require('history')
 const { routerMiddleware } = require('react-router-redux')
 
@@ -16,5 +16,5 @@ const store = configureStore({
 
 const container = document.getElementById('app-root')
 
-render(<AppShell history={history} store={store} />, container)
+hydrate(<AppShell history={history} store={store} />, container)
 // delete initialState
