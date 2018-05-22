@@ -26,7 +26,7 @@ export class RouteWithData extends Route {
       // If no data loaded yet, trigger data loading and show the loading page
       this.loadData()
 
-      return this.renderComponent(this.placeholdersPages.loading)
+      return this.renderComponent(this.props.component, { data: this.state.data })
     }
 
     return this.renderComponent(this.props.component, { data: this.state.data })

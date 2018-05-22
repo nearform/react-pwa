@@ -13,16 +13,20 @@ const buildLink = pathname => {
 }
 
 export const moreLinkClassName = style(debugClassName('more-link'), {
-  marginBottom: rem(1),
-  padding: `0 0 0 ${rem(4.5)}`
+  padding: rem(1),
+  background: '#f9f9f9',
+  textAlign: 'center',
+  gridColumnStart: '1',
+  gridColumnEnd: '4',
+  gridRowStart: '2'
 })
 
 export function More({ location }) {
   let link = buildLink(location.pathname)
 
   return (
-    <p className={moreLinkClassName}>
+    <div className={moreLinkClassName}>
       <NavLink to={link}>Load more</NavLink>
-    </p>
+    </div>
   )
 }

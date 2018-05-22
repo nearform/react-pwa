@@ -31,21 +31,19 @@ globalStyles.cssRule('a', {
 })
 
 globalStyles.cssRule('.background-enter', {
-  transform: 'translate(100%)'
+  
 })
 
 globalStyles.cssRule('.background-enter.background-enter-active', {
-  transform: 'translate(0%)',
-  transition: 'transform 1000ms ease-in-out'
+
 })
 
 globalStyles.cssRule('.background-exit', {
-  transform: 'translate(0%)'
+
 })
 
 globalStyles.cssRule('.background-exit.background-exit-active', {
-  transform: 'translate(-100%)',
-  transition: 'transform 1000ms ease-in-out'
+
 })
 
 globalStyles.cssRule('h4', { fontSize: em(1.1) })

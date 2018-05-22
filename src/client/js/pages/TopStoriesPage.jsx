@@ -6,7 +6,6 @@ import { pageContentClassName, pageTitleClassName } from '../styles/common'
 export function TopStoriesPage(props) {
   return (
     <div className={pageContentClassName}>
-      <h1 className={pageTitleClassName}>top</h1>
       <Stories {...props} />
     </div>
   )

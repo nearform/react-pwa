@@ -16,25 +16,13 @@ export function AppShell({ history, ssrPreloading }) {
     return accu.concat({ path: path || '/', component, ssrPreloading, exact: true }, { path: `${path}/page/:page`, component, ssrPreloading, exact: true })
   }, [])
 
-  console.log(routesConfig)
-
   const Contents = ({location}) => {
     return (
     <>
-      <Navigation />
-      <TransitionGroup>
-        <CSSTransition
-          key={location.key}
-          classNames="background"
-          timeout={1000}
-        >
+      <Navigation location={location} />
           <Switch location={location}>
-            <Route exact path="/" component={OfflinePage} />
-            <Route exact path="/newest" component={LoadingPage} />
-            <Route exact path="/newcomments" component={OfflinePage} />
+            {routesConfig.map((routeProps, i) => <RouteWithData key={i} {...routeProps} />)}
           </Switch>
-        </CSSTransition>
-      </TransitionGroup>
     </>
   )}
 
