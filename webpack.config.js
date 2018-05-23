@@ -1,63 +1,102 @@
-const path = require('path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const { EnvironmentPlugin } = require('webpack')
+const { resolve } = require('path')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { InjectManifest } = require('workbox-webpack-plugin')
+const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin')
 
-const PATHS = {
-  BUILD: path.resolve(__dirname, 'build'),
-  SRC: path.resolve(__dirname, 'src')
-}
+module.exports = function(environment) {
+  if (!environment) environment = process.env.NODE_ENV || 'development'
 
-const devConfig = {
-  devtool: '#cheap-module-source-map' // inline-source-map?
-}
-
-const productionConfig = {
-  devtool: 'source-map',
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true
-    })
-  ]
-}
-
-const commonConfig = {
-  mode: process.env.NODE_ENV === 'production'
-    ? 'production'
-    : 'development',
-  entry: {
-    'app-shell': path.join(PATHS.SRC, 'client/js/app-shell.js')
-  },
-  module: {
-    rules: [
+  const version = new Date() // Format: YYYYMMDD.HHmmss
+    .toISOString()
+    .split('.')
+    .shift()
+    .replace(/[-:]/g, '')
+    .replace('T', '.')
+  const plugins = [
+    new EnvironmentPlugin({ NODE_ENV: environment }),
+    new ReplaceInFileWebpackPlugin([
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        dir: 'dist/client',
+        files: ['sw.js'],
+        rules: [
+          {
+            search: 'VERSION',
+            replace: version
+          },
+          {
+            search: /SW_DEBUG/,
+            replace: environment === 'production' ? 'false' : 'true'
+          }
+        ]
       }
-    ]
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        NOW: JSON.stringify(process.env.NOW),
-        NOW_URL: JSON.stringify(process.env.NOW_URL)
-      }
-    })
-  ],
-  output: {
-    filename: 'public/js/[name].js',
-    chunkFilename: 'public/js/[name].chunk.js',
-    publicPath: '/',
-    path: PATHS.BUILD
-  }
-}
+    ])
+  ]
 
-module.exports = () => {
-  return process.env.NODE_ENV === 'production'
-    ? merge(commonConfig, productionConfig)
-    : merge(commonConfig, devConfig)
+  // Customize output
+  if (environment === 'production' || process.env.BUILDING) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'disabled',
+        generateStatsFile: true,
+        statsFilename: '../../coverage/client-bundle-stats.json'
+      })
+    )
+  } else {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false
+      })
+    )
+  }
+  plugins.push(
+    new InjectManifest({
+      swSrc: 'src/client/sw.js',
+      swDest: 'sw.js',
+      exclude: [/\.map$/]
+    })
+  )
+
+  return {
+    entry: './src/client/application.jsx',
+    output: {
+      path: resolve(__dirname, 'dist/client'),
+      filename: 'app.js'
+    },
+    mode: environment === 'production' ? 'production' : 'development',
+    plugins,
+    resolve: {
+      extensions: ['.js', '.jsx']
+    },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules|(src\/server)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread']
+            }
+          }
+        },
+        {
+          test: /(manifest\.json)$/,
+          type: 'javascript/auto',
+          use: {
+            loader: 'file-loader',
+            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
+          }
+        },
+        {
+          test: /\.(ico|png)$/,
+          use: {
+            loader: 'file-loader',
+            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
+          }
+        }
+      ]
+    }
+  }
 }

@@ -1,155 +1,70 @@
-const path = require('path')
-const express = require('express')
-const appShellHandler = require('./app-shell-handler')
-const appManifest = require('../app/manifest.json')
-const axios = require('axios')
-const Parser = require('rss-parser')
-const sanitizeHtml = require('sanitize-html')
+const fastify = require('fastify')
+const { existsSync, readFileSync } = require('fs')
+const nodeFetch = require('node-fetch')
+const { resolve } = require('path')
+const { routes } = require('../../dist/server/routes')
+const { renderPage } = require('../../dist/server/page.html')
 
-const app = express()
-
-app.use((req, res, next) => {
-  console.log(`req.url: ${req.url}`)
-  next()
-})
-app.use(express.static(path.join(__dirname, '../../build/public'), {
-  maxAge: '1d'
-}))
-// host sw.js
-app.use(express.static(path.join(__dirname, '../../build/public/js')))
-
-// TODO reuse routes.js paths? depends on the server framework being used
-app.get('/', appShellHandler)
-app.get('/page/:pageNumber?', appShellHandler)
-app.get('/newest/:page?/:pageNumber?', appShellHandler)
-app.get('/newcomments/:page?/:pageNumber?', appShellHandler)
-app.get('/show/:page?/:pageNumber?', appShellHandler)
-app.get('/ask/:page?/:pageNumber?', appShellHandler)
-app.get('/jobs/:page?/:pageNumber?', appShellHandler)
-app.get('/app-shell', appShellHandler)
-app.get('/manifest.json', (request, response) => response.json(appManifest))
-app.get('/api/stories', (request, response) => {
-  const { filter, page } = request.query || {}
-
-  if (filter === 'comments') {
-    return RSSResponse(page, response)
-  }
-
-  return graphQLResponse(filter, page, response)
-})
-
-function sanitizeItemContent (items) {
-  return items.map(({content, ...rest}) => {
-    let cleanContent = sanitizeHtml(content)
-    return {
-      content: cleanContent,
-      ...rest
-    }
-  })
+function unhandledRejectionHandler(error) {
+  console.error(error)
+  process.exit(1)
 }
 
-function RSSResponse (page, response) {
-  const RSS_URL = 'https://hnrss.org/newcomments?count=100'
-  const parser = new Parser()
-  parser.parseURL(RSS_URL)
-    .then(feed => {
-      let startingItem = page ? (page - 1) * 30 : 0
-      const items = feed.items
-        .filter(item => item.title)
-        .slice(startingItem, startingItem + 30)
-      response.send(sanitizeItemContent(items))
-    })
+function detectHttps() {
+  const certPath = resolve(process.cwd(), 'ssl/certificate.pem')
+  const keyPath = resolve(process.cwd(), 'ssl/private-key.pem')
+  if (!existsSync(certPath) || !existsSync(keyPath)) return {}
+
+  return { https: { key: readFileSync(keyPath), cert: readFileSync(certPath) }, http2: true }
 }
 
-function graphQLResponse (filter, page, response) {
-  const API_URL = 'https://www.graphqlhub.com/graphql/'
-  const offset = page > 1 ? (page - 1) * 30 : 0
-  let queryType
+function setupFetch(server) {
+  global.fetch = async function(url, params) {
+    // External call, just use node-fetch
+    if (!url.startsWith('/api')) return nodeFetch(url, params)
 
-  switch (filter) {
-    case 'show':
-      queryType = 'showStories'
-      break
-    case 'ask':
-      queryType = 'askStories'
-      break
-    case 'jobs':
-      queryType = 'jobStories'
-      break
-    case 'rank':
-      queryType = 'newStories'
-      break
-    case 'new':
-      queryType = 'newStories'
-      break
-    case 'best':
-    default:
-      queryType = 'topStories'
+    // Local fetching, serve with fastify.inject
+    const response = await server.inject({ method: 'GET', url, ...params })
+
+    response.status = response.statusCode
+    response.statusText = response.statusMessage
+    return new nodeFetch.Response(response.payload, response)
   }
+}
 
-  const query = `
-    query {
-      hn {
-        ${queryType}(limit: 30, offset: ${offset}) {
-          by {
-            id
-          }
-          dead
-          deleted
-          id
-          kids {
-            id
-          }
-          score
-          text
-          title
-          type
-          url
+async function main() {
+  // Create the instance
+  const server = fastify({ logger: { prettyPrint: process.env.NODE_ENV !== 'production' }, ...detectHttps() })
+
+  // Add routes
+  for (const [path, component] of Object.entries(routes)) {
+    for (const suffix of ['', '/page/:page']) {
+      server.route({
+        method: 'GET',
+        url: `${path}${suffix}` || '/',
+        handler: renderPage,
+        config: {
+          component
         }
-      }
-    }`
-
-  const payload = {
-    query
+      })
+    }
   }
 
-  axios
-    .post(API_URL, payload)
-    .then((result) => {
-      response.send(result.data.data.hn[queryType])
-    })
-    .catch(error => {
-      error.statusCode = error.statusCode || 500
+  server.register(require('./api'))
 
-      if (error.response) {
-        // axios error - the true source of the error
-        console.log('API Error:', JSON.stringify(error.response.data))
-        error.statusCode = error.response.status
-      }
+  // Add application assets and manifest.json serving
+  server.register(require('fastify-static'), { root: resolve(process.cwd(), 'dist/client'), prefix: '/' })
+  server.register(require('fastify-compress'))
+  server.decorateRequest('apiCache', require('memory-cache'))
 
-      response.status(error.statusCode)
+  // Add server side support for fetch
+  setupFetch(server)
 
-      // return json error
-      return response.json({
-        name: error.name,
-        message: error.message,
-        stack: error.stack,
-        statusCode: error.statusCode
-      })
-    })
+  // Run the server!
+  await server.listen(3000, '0.0.0.0')
+
+  return server
 }
 
-function init () {
-  let server
-  return Promise.resolve(app)
-    .then(app => {
-      server = app.listen(3000, (err) => {
-        if (err) throw err
-      })
-    })
-    .then(() => ({ app, server }))
-}
-
-module.exports = {
-  init
-}
+process.on('unhandledRejection', unhandledRejectionHandler)
+main().catch(unhandledRejectionHandler)
