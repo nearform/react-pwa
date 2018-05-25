@@ -20,33 +20,17 @@ globalStyles.cssRule('body', {
 })
 
 globalStyles.cssRule('a', {
-  color: '#000000',
   textDecoration: 'none',
   $nest: {
     '&:hover, &:visited': {
-      color: '#828282',
       transition: 'color .1s ease-out'
     }
   }
 })
 
-globalStyles.cssRule('.background-enter', {
-  
+globalStyles.cssRule('.active', {
+  fontWeight: '600'
 })
-
-globalStyles.cssRule('.background-enter.background-enter-active', {
-
-})
-
-globalStyles.cssRule('.background-exit', {
-
-})
-
-globalStyles.cssRule('.background-exit.background-exit-active', {
-
-})
-
-globalStyles.cssRule('h4', { fontSize: em(1.1) })
 
 export async function renderPage(request, reply) {
   // Prepare the history

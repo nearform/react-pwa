@@ -22,7 +22,7 @@ const loadingAnimationName = keyframes({
 })
 
 const storiesListItemClassName = style(debugClassName('stories-list-item'), {
-  padding: '1em 1em 1em 0',
+  padding: '1em 0 0 0',
   display: 'grid',
   gridRowGap: '.5em',
   gridTemplateColumns: '53px',
@@ -31,7 +31,7 @@ const storiesListItemClassName = style(debugClassName('stories-list-item'), {
 
 
 const storiesListItemClassNamePlaceholder = style(debugClassName('stories-list-item'), {
-  padding: '1em 1em 1em 0',
+  padding: '1em 0 0 0',
   display: 'grid',
   gridRowGap: '.5em',
   gridTemplateColumns: '53px',
@@ -70,6 +70,11 @@ const storiesListTitle = style(debugClassName('stories-list-title'), {
   gridColumnEnd: '3',
   gridRowStart: '1',
   gridRowEnd: '2',
+  $nest: {
+    a: {
+      color: 'black'
+    }
+  }
 })
 
 const storiesListTitlePlaceholder = style(debugClassName('stories-list-title'), {
@@ -82,11 +87,13 @@ const storiesListTitlePlaceholder = style(debugClassName('stories-list-title'), 
 })
 
 const storiesListByLineClassName = style(debugClassName('stories-list-by-line'), {
-  padding: '1em',
-  gridColumnStart: '2',
+  padding: '.5em .5em .5em 1.5em',
+  gridColumnStart: '1',
   gridColumnEnd: '3',
   gridRowStart: '2',
   gridRowEnd: '3',
+  margin: '2em 0 0 0',
+  background: '#f7f7f8'
 })
 
 const placeholder = style({
@@ -120,7 +127,7 @@ export function Stories({ data: stories, location }) {
             <div className={storiesListIndexClassName}>{count}</div>
             <div className={storiesListTitle}><a href={story.url}>{story.title}</a></div>
             <div className={storiesListByLineClassName} suppressHydrationWarning>
-              1 hour ago by {story.by.id} ({story.score} points)
+              {story.score} points by {story.by.id}
             </div>
           </li>
         )
@@ -133,9 +140,9 @@ export function Stories({ data: stories, location }) {
       {Array(5).fill({}).map((_, index) => (
         <li className={storiesListItemClassNamePlaceholder} key={index}>
           <div className={storiesListIndexClassNamePlaceholder}>{index + 1}</div>
-          <div className={storiesListTitlePlaceholder}><p className={placeholder}>This is title</p></div>
-          <div className={storiesListByLineClassName} suppressHydrationWarning>
-            <p className={placeholder}>1 hour ago by dave (6 points)</p>
+          <div className={storiesListTitlePlaceholder}><p className={placeholder}>placeholder title</p></div>
+          <div className={storiesListByLineClassName}>
+            <p className={placeholder}>n points by placeholder</p>
           </div>
         </li>
       ))}

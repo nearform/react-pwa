@@ -6,7 +6,6 @@ import { pageContentClassName, pageTitleClassName } from '../styles/common'
 export function AskStoriesPage(props) {
   return (
     <div className={pageContentClassName}>
-      <h1 className={pageTitleClassName}>ask</h1>
       <Stories {...props} />
     </div>
   )

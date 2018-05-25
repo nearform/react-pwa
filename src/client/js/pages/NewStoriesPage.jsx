@@ -6,7 +6,6 @@ import { pageContentClassName, pageTitleClassName } from '../styles/common'
 export function NewStoriesPage(props) {
   return (
     <div className={pageContentClassName}>
-      <h1 className={pageTitleClassName}>newest</h1>
       <Stories {...props} />
     </div>
   )

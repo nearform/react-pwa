@@ -6,7 +6,8 @@ import { debugClassName } from '../styles/common'
 const logoClassName = style(debugClassName('logo'), {
   border: `2px solid #82827C`,
   width: 30,
-  padding: rem(.5)
+  padding: rem(.5),
+  color: '#82827C'
 })
 
 export function Logo(props) {
