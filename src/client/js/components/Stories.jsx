@@ -1,6 +1,6 @@
 import { rem, quote } from 'csx'
 import React from 'react'
-import { style, keyframes } from 'typestyle'
+import { style, keyframes, media, classes } from 'typestyle'
 import { debugClassName } from '../styles/common'
 
 const calculateStartingNumber = pathname => {
@@ -15,7 +15,10 @@ const storiesListClassName = style(debugClassName('stories-list'), {
   listStyleType: 'none',
   margin: 0,
   padding: 0,
-})
+},
+media({minWidth: 751, maxWidth: 1100}, {gridTemplateColumns: 'repeat(2, 50%)'}),
+media({minWidth: 1101}, {gridTemplateColumns: 'repeat(3, 33.333%)'}),
+)
 
 const loadingAnimationName = keyframes({
   '100%': { transform: 'translateX(100%)' }
@@ -27,15 +30,12 @@ const storiesListItemClassName = style(debugClassName('stories-list-item'), {
   gridRowGap: '.5em',
   gridTemplateColumns: '53px',
   backgroundImage: 'linear-gradient(0deg, #fff 97%, #e2e2e2 100%)',
-})
+},
+media({minWidth: 751}, {borderRight: '1px solid #e2e2e2'})
+)
 
 
 const storiesListItemClassNamePlaceholder = style(debugClassName('stories-list-item'), {
-  padding: '1em 0 0 0',
-  display: 'grid',
-  gridRowGap: '.5em',
-  gridTemplateColumns: '53px',
-  backgroundImage: 'linear-gradient(0deg, #fff 97%, #e2e2e2 100%)',
   $nest: {
     '&::after': {
       content: "''",
@@ -57,10 +57,9 @@ const storiesListIndexClassName = style(debugClassName('stories-list-index'), {
   gridRowStart: '1',
   gridRowEnd: '3',
   background: '#ec1c2b',
-  width: 20,
-  height: 20,
+  height: 40,
   textAlign: 'center',
-  padding: '1em',
+  paddingTop: '1em',
   color: 'white',
 })
 
@@ -69,6 +68,7 @@ const storiesListTitle = style(debugClassName('stories-list-title'), {
   gridColumnStart: '2',
   gridColumnEnd: '3',
   gridRowStart: '1',
+  height: '4em',
   gridRowEnd: '2',
   $nest: {
     a: {
@@ -78,11 +78,6 @@ const storiesListTitle = style(debugClassName('stories-list-title'), {
 })
 
 const storiesListTitlePlaceholder = style(debugClassName('stories-list-title'), {
-  padding: '0 1em 1em 1em',
-  gridColumnStart: '2',
-  gridColumnEnd: '3',
-  gridRowStart: '1',
-  gridRowEnd: '2',
   width: '66%'
 })
 
@@ -104,20 +99,23 @@ const placeholder = style({
 })
 
 const storiesListIndexClassNamePlaceholder = style(debugClassName('stories-list-index'), {
-  gridColumnStart: '1',
-  gridColumnEnd: '2',
-  gridRowStart: '1',
-  gridRowEnd: '3',
   background: '#d4d4d4',
-  width: 20,
-  height: 20,
-  textAlign: 'center',
-  padding: '1em',
   color: '#d4d4d4',
+})
+
+const noStoriesClassName = style(debugClassName('no-stories'), {
+  padding: '1em',
+  textAlign: 'center'
 })
 
 export function Stories({ data: stories, location }) {
   if (stories) {
+    if (stories.length === 0) {
+      return (
+        <div className={noStoriesClassName}>No further items to display.</div>
+      )
+    }
+    
     return (
       <ol className={storiesListClassName} start={calculateStartingNumber(location.pathname)}>
         {stories.filter(Boolean).map((story, index) => {
@@ -136,11 +134,12 @@ export function Stories({ data: stories, location }) {
     )
   }
 
-    return (<ol className={storiesListClassName}>
-      {Array(5).fill({}).map((_, index) => (
-        <li className={storiesListItemClassNamePlaceholder} key={index}>
-          <div className={storiesListIndexClassNamePlaceholder}>{index + 1}</div>
-          <div className={storiesListTitlePlaceholder}><p className={placeholder}>placeholder title</p></div>
+  return (
+    <ol className={storiesListClassName}>
+      {Array(20).fill({}).map((_, index) => (
+        <li className={classes(storiesListItemClassName, storiesListItemClassNamePlaceholder)} key={index}>
+          <div className={classes(storiesListIndexClassName, storiesListIndexClassNamePlaceholder)}>{index + 1}</div>
+          <div className={classes(storiesListTitle, storiesListTitlePlaceholder)}><p className={placeholder}>placeholder title</p></div>
           <div className={storiesListByLineClassName}>
             <p className={placeholder}>n points by placeholder</p>
           </div>

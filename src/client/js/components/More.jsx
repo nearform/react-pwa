@@ -44,12 +44,14 @@ const more = style(debugClassName('more-item'), {
   cursor: 'pointer',
   fontWeight: '800',
   padding: '10px 12px',
-  borderRadius: '10px'
+  borderRadius: '10px',
+  boxShadow: '2px 2px 8px 0px rgba( 0, 0, 0, 0.2 )'
 })
 
 const moreDisabled = style({
   background: '#b6b8bc',
-  cursor: 'not-allowed'
+  cursor: 'not-allowed',
+  boxShadow: 'none'
 })
 
 export function More({ location }) {

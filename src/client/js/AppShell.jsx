@@ -8,7 +8,6 @@ import { routes } from '../routes'
 import Navigation from './components/Navigation'
 import { RouteWithData } from './components/RouteWithData'
 import { debugClassName } from './styles/common'
-import { LoadingPage } from './pages/LoadingPage'
 import { OfflinePage } from './pages/OfflinePage'
 
 export function AppShell({ history, ssrPreloading }) {

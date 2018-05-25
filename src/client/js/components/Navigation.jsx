@@ -76,7 +76,7 @@ const sidenav = style({
   backgroundColor: '#3a404c',
   background: 'linear-gradient(142.5deg, #3a404c 0%, #3a404c 50%, #424853 50%, #424853 100% )',
   overflowX: 'hidden',
-  transition: '0.25s',
+  transition: 'all 0.3s cubic-bezier(.25,.8,.25,1)',
   paddingTop: '1.35em'
 })
 

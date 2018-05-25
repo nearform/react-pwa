@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router'
 import { ErrorPage } from '../pages/ErrorPage'
-import { LoadingPage } from '../pages/LoadingPage'
 import { OfflinePage } from '../pages/OfflinePage'
 
 export class RouteWithData extends Route {
@@ -9,7 +8,7 @@ export class RouteWithData extends Route {
     super(props, context)
 
     // Gather errors pages
-    this.placeholdersPages = Object.assign({ error: ErrorPage, loading: LoadingPage, offline: OfflinePage }, this.props.component.placeholdersPages || {})
+    this.placeholdersPages = Object.assign({ error: ErrorPage, offline: OfflinePage }, this.props.component.placeholdersPages || {})
   }
 
   render() {
