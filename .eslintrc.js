@@ -4,6 +4,10 @@ module.exports = {
     'jsx-quotes': [2, 'prefer-double']
   },
   globals: {
-    fetch: true
+    fetch: true,
+    workbox: true,
+    self: true,
+    SW_DEBUG: true,
+    VERSION: true
   }
 }

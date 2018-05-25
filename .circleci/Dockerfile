@@ -7,15 +7,13 @@ ENV NODE_ENV $NODE_ENV
 # Create app directory
 WORKDIR /usr/src/app
 
+# Copy application source - Note: the app is not built in Docker
+COPY package*.json *.config.js ./
+COPY dist ./dist
+COPY src ./src
+
 # Install app dependencies
-COPY package*.json ./
 RUN npm install --silent
-
-# Bundle app source
-COPY . .
-
-# Build the app
-RUN npm run build
 
 # Expose the port the app listens on
 EXPOSE 3000

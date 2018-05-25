@@ -5,7 +5,6 @@ export async function fetchData(filter, page) {
   const url = `/api/${filter === 'comments' ? 'comments' : 'stories'}?${params}`
 
   // Perform the request
-  console.log(`Fetching data from ${url} ...`)
   const response = await fetch(url)
 
   // For the fetch API a non 2xx respone is NOT an error. So make sure we handle it

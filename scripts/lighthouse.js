@@ -1,12 +1,14 @@
 const { exec } = require('child_process')
-const { writeFileSync } = require('fs')
+const { writeFile } = require('fs')
 const lighthouse = require('lighthouse')
 const { resolve } = require('path')
 const puppeteer = require('puppeteer')
 const { parse: parseUrl } = require('url')
 const { promisify } = require('util')
-const waitOn = promisify(require('wait-on'))
 const createBadge = require('gh-badges')
+
+const waitOn = promisify(require('wait-on'))
+const writeFileAsync = promisify(writeFile)
 
 function unhandledRejectionHandler(error) {
   console.error(error)
@@ -31,13 +33,31 @@ async function badge(spec) {
   })
 }
 
+async function createBadgeSvg(category, index) {
+  const score = Math.ceil(category.score * 100)
+
+  const svg = await badge({
+    text: [`Ligthouse ${category.title} Score`, `${score}/100 `],
+    colorscheme: badgeColor(score),
+    template: 'flat'
+  })
+
+  await writeFileAsync(resolve(process.cwd(), `coverage/badges/lighthouse-${category.id}.svg`), svg, 'utf8')
+
+  return { index, item: `${category.title}: ${score}` }
+}
+
 async function main() {
   const url = process.argv[2] || 'http://localhost:3000'
   const parsedUrl = parseUrl(url)
 
   // Launch the server and wait for the port to be available
-  const server = exec('npm run start')
-  await waitOn({ resources: [`tcp:${parsedUrl.port}`] })
+  let server = null
+  if (!process.argv[2]) {
+    // No external host, start the server
+    server = exec('npm run start')
+    await waitOn({ resources: [`tcp:${parsedUrl.port}`] })
+  }
 
   // Launch chrome
   const browser = await puppeteer.launch({ headless: process.env.VIEW !== 'true', args: ['--no-sandbox', '--show-paint-rects'] })
@@ -49,27 +69,15 @@ async function main() {
 
   // Kill everything
   await browser.close()
-  server.kill('SIGTERM')
+  if (server) server.kill('SIGTERM')
 
   // Gather results and build badges
-  const outputItems = []
-
-  for (const category of Object.values(results.categories)) {
-    const score = Math.ceil(category.score * 100)
-    outputItems.push(`${category.title}: ${score}`)
-
-    const svg = await badge({
-      text: [`Ligthouse ${category.title} Score`, `${score}/100 `],
-      colorscheme: badgeColor(score),
-      template: 'flat'
-    })
-
-    writeFileSync(resolve(process.cwd(), `coverage/badges/lighthouse-${category.id}.svg`), svg, 'utf8')
-  }
+  let outputItems = await Promise.all(Object.values(results.categories).map(createBadgeSvg))
+  outputItems = outputItems.sort((a, b) => a.index - b.index).map(i => i.item)
 
   console.log(`======= Lighthouse Score =======\n${outputItems.join('\n')}\n================================`)
 
-  writeFileSync(resolve(process.cwd(), 'coverage/lighthouse.json'), JSON.stringify(results, null, 2), 'utf8')
+  await writeFileAsync(resolve(process.cwd(), 'coverage/lighthouse.json'), JSON.stringify(results, null, 2), 'utf8')
 
   process.exit(0) // This is needed on the CI
 }

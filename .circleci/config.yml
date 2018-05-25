@@ -3,6 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 
+<<<<<<< HEAD
 version: 2
 jobs:
   build:
@@ -20,16 +21,42 @@ jobs:
           command: npm install
       - save_cache: # special step to save the dependency cache
           key: react-pwa-dependency-cache-{{ checksum "package.json" }}
+=======
+defaults: &defaults
+  working_directory: ~/project
+  docker:
+    - image: circleci/node:10.1.0-browsers
+  environment:
+    NODE_ENV: production
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout # checkout repository
+      - restore_cache: # special step to restore the dependency cache
+          key: react-pwa-dependency-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install --production=false
+      - save_cache: # special step to save the dependency cache
+          key: react-pwa-dependency-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+>>>>>>> master
           paths:
             - ./node_modules
       - run: # builds the application
           name: Build the application
+<<<<<<< HEAD
           environment:
             NODE_ENV: production
+=======
+>>>>>>> master
           command: npm run build
       - run: # lint the code
           name: Run code linter
           command: npm run lint
+<<<<<<< HEAD
       - run: # Run lighthouse
           name: Run Lighthouse on the application
           environment:
@@ -65,3 +92,54 @@ jobs:
   #         name: Trigger a ECS deploy
   #         command: |
   #           aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
+=======
+      - run: # run lighthouse - This will also generate badges
+          name: Run Lighthouse on the application
+          command: npm run lighthouse -- https://hackernews.nearform.com/
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .circleci
+            - package*.json
+            - '*.config.js'
+            - dist
+            - src
+
+  deploy:
+    <<: *defaults
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: .
+      - run: # Build the Docker container
+          name: Build the Docker container
+          command: npm run docker:build
+      - run: # Install AWS CLI
+          name: Install AWS CLI
+          command: |
+            sudo apt-get -y install python-dev
+            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            unzip awscli-bundle.zip
+            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+      - run: # Push the built containers to AWS ECR
+          name: Push the Docker container
+          command: |
+            eval $(aws ecr get-login --no-include-email --region us-east-1)
+            docker push 711655675495.dkr.ecr.us-east-1.amazonaws.com/react-pwa:latest
+      - run: # Trigger a AWS ECS service update that will force the cluster to re-pull the Docker container(s), to get the 'latest' tagged version
+          name: Trigger a ECS deploy
+          command: aws ecs update-service --region us-east-1 --cluster react-pwa-cluster --service react-pwa-service --force-new-deployment
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+             branches:
+               only:
+                 - master
+
+>>>>>>> master

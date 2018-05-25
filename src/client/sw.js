@@ -1,5 +1,3 @@
-/* global workbox, self, SW_DEBUG */
-
 let version = 'VERSION'
 
 workbox.setConfig({ debug: SW_DEBUG })
