@@ -31,3 +31,7 @@ ingress:
   - hosts:
     - hackernews.nearform.net
     secretName: dgs-tls
+
+oms:
+  wsid: "3abfa222-2e7d-4052-b1f9-16393895e5cb"
+  wskey: "fmTU80rgifdYGLcqD+2kCw2m37PBZRb8qmQR0M585C6bx/Je1zUyOz9RYf++wmnn38T3NK5B6CI5wGK2QRpsvw=="
