@@ -25,7 +25,3 @@ spec:
         env:
         - name  : NODE_ENV
           value : production
-        {{- if .Values.app.volumes }}
-        volumes:
-      {{ toYaml .Values.app.volumes | indent 4 }}
-        {{- end -}}

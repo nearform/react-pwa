@@ -4,7 +4,11 @@ const appShellHandler = require('./app-shell-handler')
 const appManifest = require('../app/manifest.json')
 const axios = require('axios')
 const Parser = require('rss-parser')
+
 const sanitizeHtml = require('sanitize-html')
+const appInsights = require('applicationinsights')
+appInsights.setup('bddc838f-48be-4858-9039-142dbf9dc844')
+appInsights.start()
 
 const app = express()
 
