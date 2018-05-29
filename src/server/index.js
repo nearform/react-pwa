@@ -7,8 +7,15 @@ const Parser = require('rss-parser')
 
 const sanitizeHtml = require('sanitize-html')
 const appInsights = require('applicationinsights')
-appInsights.setup('bddc838f-48be-4858-9039-142dbf9dc844')
-appInsights.start()
+appInsights.setup()
+  .setAutoDependencyCorrelation(true)
+  .setAutoCollectRequests(true)
+  .setAutoCollectPerformance(true)
+  .setAutoCollectExceptions(true)
+  .setAutoCollectDependencies(true)
+  .setAutoCollectConsole(true)
+  .setUseDiskRetryCaching(true)
+  .start()
 
 const app = express()
 

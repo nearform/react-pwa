@@ -1,12 +1,13 @@
 ---
 imgrepo: "pathfinders.azurecr.io/nearform/"
+vaultname: pathfinders
 
 service:
   externalPort: 80
   clusterType: ClusterIP
 
 image: react-pwa
-imageTag: 80
+imageTag: 89-12
 imagePullPolicy: Always
 
 app:
