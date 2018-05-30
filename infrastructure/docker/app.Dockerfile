@@ -4,11 +4,11 @@ FROM nearform/alpine3-s2i-nodejs:8
 WORKDIR /opt/app-root/src
 
 COPY package*.json ./
-RUN npm install --production
+RUN yarn install --production=false
 COPY . .
 
-RUN npm run build
+RUN yarn run build
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
