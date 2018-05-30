@@ -46,6 +46,8 @@ app.get('/manifest.json', (request, response) => response.json(appManifest))
 app.get('/api/stories', (request, response) => {
   const { filter, page } = request.query || {}
 
+  request.log.info('Stories requested')
+
   if (filter === 'comments') {
     return RSSResponse(page, response)
   }
