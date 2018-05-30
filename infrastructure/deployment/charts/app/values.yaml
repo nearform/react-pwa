@@ -7,7 +7,7 @@ service:
   clusterType: ClusterIP
 
 image: react-pwa
-imageTag: 89-12
+imageTag: 89-17
 imagePullPolicy: Always
 
 app:

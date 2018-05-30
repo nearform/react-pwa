@@ -6,19 +6,23 @@ const axios = require('axios')
 const Parser = require('rss-parser')
 
 const sanitizeHtml = require('sanitize-html')
-const appInsights = require('applicationinsights')
-appInsights.setup()
-  .setAutoDependencyCorrelation(true)
-  .setAutoCollectRequests(true)
-  .setAutoCollectPerformance(true)
-  .setAutoCollectExceptions(true)
-  .setAutoCollectDependencies(true)
-  .setAutoCollectConsole(true)
-  .setUseDiskRetryCaching(true)
-  .start()
+if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
+  const appInsights = require('applicationinsights')
+  appInsights.setup()
+    .setAutoDependencyCorrelation(true)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true)
+    .setUseDiskRetryCaching(true)
+    .start()
+}
 
 const app = express()
+var pino = require('express-pino-logger')()
 
+app.use(pino)
 app.use((req, res, next) => {
   console.log(`req.url: ${req.url}`)
   next()
