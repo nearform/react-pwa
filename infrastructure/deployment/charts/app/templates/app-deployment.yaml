@@ -21,7 +21,7 @@ spec:
         image: "{{ .Values.imgrepo }}vault-agent:1"
         env:
         - name: VAULT_BASE_URL
-          value: https://{{ .Values.vaultname }}-vault.vault.azure.net/
+          value: "https://{{ .Values.vaultname }}-vault.vault.azure.net/"
         - name: SERVICE_PRINCIPLE_FILE_PATH
           value: /host/azure.json
         - name: SECRETS_FOLDER
