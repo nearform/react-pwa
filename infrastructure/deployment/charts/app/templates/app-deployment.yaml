@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
       - name: acr-auth2
       initContainers:
-      - name: keyvault-agent
+      - name: "keyvault-agent"
         image: "{{ .Values.imgrepo }}vault-agent:1"
         env:
         - name: VAULT_BASE_URL
