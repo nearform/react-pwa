@@ -16,24 +16,6 @@ spec:
     spec:
       imagePullSecrets:
       - name: acr-auth2
-      initContainers:
-      - name: "keyvault-agent"
-        image: "{{ .Values.imgrepo }}vault-agent:1"
-        env:
-        - name: VAULT_BASE_URL
-          value: "https://{{ .Values.vaultname }}-vault.vault.azure.net/"
-        - name: SERVICE_PRINCIPLE_FILE_PATH
-          value: /host/azure.json
-        - name: SECRETS_FOLDER
-          value: /vault
-        - name: SECRETS_KEYS
-          value: insightskey
-        volumeMounts:
-        - name: vault
-          mountPath: /vault
-        - name: host-sp
-          mountPath: /host/azure.json
-          readOnly: true
       containers:
       - name: react-pwa
         image: "{{ .Values.imgrepo }}{{ .Values.image }}:{{ .Values.imageTag }}"
@@ -52,6 +34,24 @@ spec:
         volumeMounts:
         - mountPath: /etc/vault
           name: vault
+          readOnly: true
+      initContainers:
+      - name: "keyvault-agent"
+        image: "{{ .Values.imgrepo }}vault-agent:1"
+        env:
+        - name: VAULT_BASE_URL
+          value: "https://{{ .Values.vaultname }}-vault.vault.azure.net/"
+        - name: SERVICE_PRINCIPLE_FILE_PATH
+          value: /host/azure.json
+        - name: SECRETS_FOLDER
+          value: /vault
+        - name: SECRETS_KEYS
+          value: insightskey
+        volumeMounts:
+        - name: vault
+          mountPath: /vault
+        - name: host-sp
+          mountPath: /host/azure.json
           readOnly: true
       volumes:
         - name: vault
