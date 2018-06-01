@@ -61,7 +61,7 @@ export function More({ location }) {
 
   return (
     <div className={styles.more}>
-      <span>{rangeStart} - {rangeEnd}</span>
+      <span>{`${rangeStart} - ${rangeEnd}`}</span>
 
       {prevLinkEnabled &&
         <Link className={styles.moreItem} to={prevLink}>
