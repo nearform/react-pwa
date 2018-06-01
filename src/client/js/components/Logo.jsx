@@ -1,15 +1,16 @@
-import { rem } from 'csx'
 import React from 'react'
-import { style } from 'typestyle'
-import { debugClassName } from '../styles/common'
+import { stylesheet } from 'typestyle'
+import { colors } from '../styles/common'
 
-const logoClassName = style(debugClassName('logo'), {
-  border: `2px solid #82827C`,
-  width: 30,
-  padding: rem(.5),
-  color: '#82827C'
+const styles = stylesheet({
+  logo: {
+    border: `2px solid ${colors.NEARFORM_BRAND_ACCENT_2}`,
+    width: 30,
+    padding: '.5em',
+    color: colors.NEARFORM_BRAND_ACCENT_2
+  }
 })
 
-export function Logo(props) {
-  return <div className={logoClassName}>HN</div>
+export function Logo() {
+  return <div className={styles.logo}>HN</div>
 }

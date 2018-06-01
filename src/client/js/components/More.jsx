@@ -1,8 +1,7 @@
-import { rem } from 'csx'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { style, classes } from 'typestyle'
-import { debugClassName } from '../styles/common'
+import { stylesheet, classes } from 'typestyle'
+import { colors } from '../styles/common'
 
 const buildLinks = pathname => {
   const pathParts = pathname.split('/')
@@ -27,31 +26,31 @@ const buildLinks = pathname => {
   }
 }
 
-const moreLinkClassName = style(debugClassName('more-link'), {
-  padding: '1rem 0 1rem 0',
-  background: '#f9f9f9',
-  textAlign: 'right',
-  gridColumnStart: '1',
-  gridColumnEnd: '4',
-  gridRowStart: '2',
-  marginRight: '6px'
-})
-
-const more = style(debugClassName('more-item'), {
-  background: '#535762',
-  marginLeft: '1em',
-  color: 'white',
-  cursor: 'pointer',
-  fontWeight: '800',
-  padding: '10px 12px',
-  borderRadius: '10px',
-  boxShadow: '2px 2px 8px 0px rgba( 0, 0, 0, 0.2 )'
-})
-
-const moreDisabled = style({
-  background: '#b6b8bc',
-  cursor: 'not-allowed',
-  boxShadow: 'none'
+const styles = stylesheet({
+  more: {
+    padding: `1em 0 1em 0`,
+    background: colors.LIGHTEST_GRAY,
+    textAlign: 'right',
+    gridColumnStart: '1',
+    gridColumnEnd: '4',
+    gridRowStart: '2',
+    marginRight: '6px'
+  },
+  moreItem: {
+    background: colors.NEARFORM_BRAND_ACCENT_2,
+    marginLeft: '1em',
+    color: 'white',
+    cursor: 'pointer',
+    fontWeight: '800',
+    padding: '10px 12px',
+    borderRadius: '10px',
+    boxShadow: '2px 2px 8px 0px rgba( 0, 0, 0, 0.2 )'
+  },
+  moreDisabled: {
+    background: colors.GRAY,
+    cursor: 'not-allowed',
+    boxShadow: 'none'
+  }
 })
 
 export function More({ location }) {
@@ -61,22 +60,23 @@ export function More({ location }) {
   const rangeEnd = rangeStart + 29
 
   return (
-    <div className={moreLinkClassName}>
-      {rangeStart} - {rangeEnd}
+    <div className={styles.more}>
+      <span>{rangeStart} - {rangeEnd}</span>
+
       {prevLinkEnabled &&
-        <Link className={more} to={prevLink}>
+        <Link className={styles.moreItem} to={prevLink}>
           {'<'}
         </Link>
       }
 
       {!prevLinkEnabled &&
-        <span className={classes(more, moreDisabled)}>
+        <span className={classes(styles.moreItem, styles.moreDisabled)}>
           {'<'}
         </span>
 
       }
 
-      <Link className={more} to={nextLink}>
+      <Link className={styles.moreItem} to={nextLink}>
         {'>'}
       </Link>
     </div>

@@ -1,22 +1,27 @@
-import { em, px } from 'csx'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createTypeStyle, getStyles } from 'typestyle'
 import { AppShell } from './js/AppShell'
+import { colors } from './js/styles/common'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 
-globalStyles.cssRule('*', { lineHeight: 1.4 })
+globalStyles.cssRule('*', {
+  lineHeight: 1.4
+})
 
 // This sets the value of 1rem
-globalStyles.cssRule('html, body', { fontSize: px(16), padding: 0, margin: 0 })
+globalStyles.cssRule('html, body', {
+  fontSize: '16px',
+  padding: 0,
+  margin: 0
+})
 
 globalStyles.cssRule('body', {
-  color: '#828282',
+  color: colors.NEARFORM_BRAND_ACCENT_2,
   fontFamily: 'Verdana, Geneva, sans-serif',
-  fontSize: '12pt',
-  width: '100%'
+  fontSize: '12pt'
 })
 
 globalStyles.cssRule('a', {
@@ -64,7 +69,7 @@ export async function renderPage(request, reply) {
         <meta name="author" content="nearForm" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#ff6600" />
+        <meta name="theme-color" content="#ec1c2b" />
 
         <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
         <link rel="shortcut icon" href="images/favicon.ico" sizes="196x196" />
