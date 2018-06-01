@@ -58,7 +58,6 @@
     "@babel/register": "^7.0.0-beta.46",
     "@cowtech/eslint-config": "^4.19.4",
     "babel-loader": "^8.0.0-beta.2",
-    "eslint-config-standard-react": "^6.0.0",
     "file-loader": "^1.1.11",
     "gh-badges": "^1.3.0",
     "lighthouse": "^3.0.0-alpha.2",
