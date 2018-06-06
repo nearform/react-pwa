@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { media, classes, stylesheet } from 'typestyle'
-import { colors, ergonomics, icons } from '../styles/common'
+import { colors, ergonomics } from '../styles/common'
 import { NearFormLogo } from './NearFormLogo'
 import { Logo } from './Logo'
 import { More } from './More'
@@ -39,11 +39,6 @@ const styles = stylesheet({
   navigationHamburger: {
     gridColumnStart: '3',
     gridColumnEnd: '4',
-    backgroundImage: icons.HAMBURGER,
-    backgroundSize: '3em',
-    display: 'inline-block',
-    height: '3em',
-    width: '3em',
     cursor: 'pointer',
     ...media(
       {
@@ -56,11 +51,6 @@ const styles = stylesheet({
   navigationClose: {
     gridColumnStart: '2',
     gridColumnEnd: '3',
-    backgroundImage: icons.CLOSE,
-    backgroundSize: '2.5em',
-    display: 'inline-block',
-    height: '2.5em',
-    width: '2.5em',
     cursor: 'pointer'
   },
   navigationSide: {
@@ -161,9 +151,17 @@ class Navigation extends Component {
         <a aria-label="nearForm Website" className={styles.nearFormLogo} href="https://www.nearform.com/blog">
           <NearFormLogo />
         </a>
-        <div className={styles.navigationHamburger} onClick={() => this.toggleNavigation()} />
+        <div className={styles.navigationHamburger} onClick={() => this.toggleNavigation()}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <path fill={colors.NEARFORM_BRAND_MAIN} d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0" />
+          </svg>
+        </div>
         <div className={navigationVisible ? classes(styles.navigationSide, styles.navigationSideVisible) : styles.navigationSide}>
-          <div className={styles.navigationClose} onClick={() => this.toggleNavigation()} />
+          <div className={styles.navigationClose} onClick={() => this.toggleNavigation()}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+              <path fill={colors.NEARFORM_BRAND_MAIN} d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0" />
+            </svg>
+          </div>
           <ul className={styles.navigationMobile}>
             <li className={styles.navigationItem}><NavLink isActive={checkRootRouteActive} onClick={() => this.toggleNavigation()} to="/">Top Stories</NavLink></li>
             <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/newest">New Stories</NavLink></li>

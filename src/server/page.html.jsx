@@ -1,6 +1,6 @@
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { renderToString } from 'react-dom/server'
 import { createTypeStyle, getStyles } from 'typestyle'
 import { AppShell } from './js/AppShell'
 import { colors } from './js/styles/common'
@@ -20,8 +20,7 @@ globalStyles.cssRule('html, body', {
 
 globalStyles.cssRule('body', {
   color: colors.NEARFORM_BRAND_ACCENT_2,
-  fontFamily: 'Verdana, Geneva, sans-serif',
-  fontSize: '12pt'
+  fontFamily: 'Verdana, Geneva, sans-serif'
 })
 
 globalStyles.cssRule('a', {
@@ -53,12 +52,12 @@ export async function renderPage(request, reply) {
   }
 
   // Render the application separately in order to support typestyle
-  const app = renderToStaticMarkup(<AppShell history={history} ssrPreloading={ssrPreloading} />)
+  const app = renderToString(<AppShell history={history} ssrPreloading={ssrPreloading} />)
 
   // Return the rendered page
   reply.type('text/html')
 
-  return renderToStaticMarkup(
+  return renderToString(
     <html lang="en">
       <head>
         <title>Hacker News</title>
@@ -69,7 +68,7 @@ export async function renderPage(request, reply) {
         <meta name="author" content="nearForm" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#ec1c2b" />
+        <meta name="theme-color" content={colors.NEARFORM_BRAND_MAIN} />
 
         <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
         <link rel="shortcut icon" href="images/favicon.ico" sizes="196x196" />

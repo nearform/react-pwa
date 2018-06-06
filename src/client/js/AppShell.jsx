@@ -21,21 +21,13 @@ export function AppShell({ history, ssrPreloading }) {
     )
   }
 
-  if (typeof window === 'undefined') {
-    return (
-      <ServerRouter history={history}>
-        <Route render={({location}) => (
-          <Contents location={location} />
-        )} />
-      </ServerRouter>
-    )
-  }
+  const SelectedRouter = typeof window === 'undefined' ? ServerRouter : BrowserRouter
 
   return (
-    <BrowserRouter>
-      <Route render={({ location }) => (
+    <SelectedRouter history={history}>
+      <Route render={({location}) => (
         <Contents location={location} />
       )} />
-    </BrowserRouter>
+    </SelectedRouter>
   )
 }
