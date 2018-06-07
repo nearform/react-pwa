@@ -14,8 +14,6 @@ version: 2
 jobs:
   build:
     <<: *defaults
-    environment:
-        NODE_ENV: development
     steps:
       - checkout # checkout repository
       - restore_cache: # special step to restore the dependency cache
