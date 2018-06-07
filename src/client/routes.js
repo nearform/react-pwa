@@ -1,16 +1,29 @@
-import { AskStoriesPage } from './js/pages/AskStoriesPage'
-import { JobsStoriesPage } from './js/pages/JobsStoriesPage'
-import { NewCommentsPage } from './js/pages/NewCommentsPage'
-import { NewStoriesPage } from './js/pages/NewStoriesPage'
-import { ShowStoriesPage } from './js/pages/ShowStoriesPage'
-import { TopStoriesPage } from './js/pages/TopStoriesPage'
+import React from 'react'
+import { Stories } from './js/components/Stories'
+import { Comments } from './js/components/Comments'
+import { fetchData } from './js/data/fetching'
 
-// Add all the routes
+function pageFactory(type) {
+  function Page(props) {
+    return (
+      <main>
+        {type === 'comments' ? <Comments {...props} /> : <Stories {...props} />}
+      </main>
+    )
+  }
+
+  Page.dataFetcher = async function({ page }) {
+    return fetchData(type, page)
+  }
+
+  return Page
+}
+
 export const routes = {
-  '': TopStoriesPage,
-  '/newest': NewStoriesPage,
-  '/newcomments': NewCommentsPage,
-  '/show': ShowStoriesPage,
-  '/ask': AskStoriesPage,
-  '/jobs': JobsStoriesPage
+  '': pageFactory('top'),
+  '/newest': pageFactory('new'),
+  '/newcomments': pageFactory('comments'),
+  '/show': pageFactory('show'),
+  '/ask': pageFactory('ask'),
+  '/jobs': pageFactory('jobs')
 }

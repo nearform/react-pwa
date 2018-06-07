@@ -1,35 +1,40 @@
-import { em, px } from 'csx'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { renderToString } from 'react-dom/server'
 import { createTypeStyle, getStyles } from 'typestyle'
 import { AppShell } from './js/AppShell'
+import { colors } from './js/styles/common'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 
-globalStyles.cssRule('*', { lineHeight: 1.4 })
+globalStyles.cssRule('*', {
+  lineHeight: 1.4
+})
 
 // This sets the value of 1rem
-globalStyles.cssRule('html', { fontSize: px(10) })
+globalStyles.cssRule('html, body', {
+  fontSize: '16px',
+  padding: 0,
+  margin: 0
+})
 
 globalStyles.cssRule('body', {
-  color: '#707070',
-  fontFamily: 'Verdana, Geneva, sans-serif',
-  fontSize: '12pt'
+  color: colors.NEARFORM_BRAND_ACCENT_2,
+  fontFamily: 'Verdana, Geneva, sans-serif'
 })
 
 globalStyles.cssRule('a', {
-  color: '#000000',
   textDecoration: 'none',
   $nest: {
     '&:hover, &:visited': {
-      color: '#707070',
       transition: 'color .1s ease-out'
     }
   }
 })
 
-globalStyles.cssRule('h4', { fontSize: em(1.1) })
+globalStyles.cssRule('.active', {
+  fontWeight: '600'
+})
 
 export async function renderPage(request, reply) {
   // Prepare the history
@@ -47,12 +52,12 @@ export async function renderPage(request, reply) {
   }
 
   // Render the application separately in order to support typestyle
-  const app = renderToStaticMarkup(<AppShell history={history} ssrPreloading={ssrPreloading} />)
+  const app = renderToString(<AppShell history={history} ssrPreloading={ssrPreloading} />)
 
   // Return the rendered page
   reply.type('text/html')
 
-  return renderToStaticMarkup(
+  return renderToString(
     <html lang="en">
       <head>
         <title>Hacker News</title>
@@ -63,7 +68,7 @@ export async function renderPage(request, reply) {
         <meta name="author" content="nearForm" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#ff6600" />
+        <meta name="theme-color" content={colors.NEARFORM_BRAND_MAIN} />
 
         <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
         <link rel="shortcut icon" href="images/favicon.ico" sizes="196x196" />

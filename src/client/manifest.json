@@ -1,26 +1,16 @@
 {
-  "name": "Hacker News",
-  "short_name": "HN",
+  "name": "nearForm Hacker News",
+  "short_name": "nearForm HN",
   "icons": [
     {
-      "src": "/images/hn-logo-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/hn-logo-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/hn-logo-512x512.png",
-      "sizes": "512x512",
+      "src": "/images/favicon-1024.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#ff6600",
-  "theme_color": "#ff6600"
+  "background_color": "#ec1c2b",
+  "theme_color": "#ec1c2b"
 }

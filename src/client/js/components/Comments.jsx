@@ -1,9 +1,7 @@
-import { rem } from 'csx'
 import React from 'react'
 import TimeAgo from 'react-timeago'
-import { style } from 'typestyle'
-import { debugClassName } from '../styles/common'
-import { More, moreLinkClassName } from './More'
+import { classes, stylesheet } from 'typestyle'
+import { loadingAnimation, placeholder } from '../styles/common'
 
 const getTitle = title => {
   return (title || '')
@@ -12,53 +10,69 @@ const getTitle = title => {
     .replace(/"/g, '')
 }
 
-const commentsListClassName = style(debugClassName('comments-list'), {
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
-  $nest: {
-    [`& + .${moreLinkClassName}`]: {
-      paddingLeft: 0
+const styles = stylesheet({
+  commentsList: {
+    listStyle: 'none',
+    margin: 0,
+    padding: '1em',
+    overflowX: 'hidden'
+  },
+  commentsListItem: {
+    lineHeight: '10pt'
+  },
+  commentsListTitle: {
+    display: 'block',
+    margin: '0 0 1em'
+  },
+  commentsListContent: {
+    color: 'black',
+    display: 'block',
+    margin: '1em 0 1em 1em',
+    $nest: {
+      p: {
+        margin: `.5em 0`
+      }
     }
   }
 })
 
-const commentsListItemClassName = style(debugClassName('comments-list-item'), {
-  lineHeight: '10pt',
-  margin: `${rem(2)} 0`
-})
-
-const commentsListTitleClassName = style(debugClassName('comments-list-title'), {
-  display: 'block',
-  padding: `0 0 ${rem(1)}`
-})
-
-const commentsListContentClassName = style(debugClassName('comments-list-content'), {
-  color: '#000',
-  display: 'block',
-  paddingBottom: rem(1),
-  $nest: {
-    p: {
-      margin: `${rem(0.5)} 0`
-    }
-  }
-})
-
-export function Comments({ data: comments, location }) {
-  return (
-    <React.Fragment>
-      <ul className={commentsListClassName}>
+export function Comments({ data: comments }) {
+  if (comments) {
+    return (
+      <ul className={styles.commentsList}>
         {comments.map((comment, index) => (
-          <li className={commentsListItemClassName} key={`${comment.isoDate}-${index}`}>
-            <span className={commentsListTitleClassName}>
-              {comment.creator} <TimeAgo date={comment.isoDate} />
-              {' | '} on: {getTitle(comment.title)}
+          <li className={styles.commentsListItem} key={`${comment.isoDate}-${index}`}>
+            <span className={styles.commentsListTitle}>
+              <TimeAgo date={comment.isoDate} /> by {comment.creator} on {getTitle(comment.title)}
             </span>
-            <span className={commentsListContentClassName} dangerouslySetInnerHTML={{ __html: comment.content }} />
+            <span className={styles.commentsListContent} dangerouslySetInnerHTML={{ __html: comment.content }} />
           </li>
         ))}
       </ul>
-      <More location={location} />
-    </React.Fragment>
+    )
+  }
+
+  return (
+    <ul className={styles.commentsList}>
+      {Array(10).fill({}).map((_, index) => (
+        <li className={classes(styles.commentsListItem, loadingAnimation)} key={`placeholder-${index}`}>
+          <span className={classes(styles.commentsListTitle, placeholder)}>
+            time ago by placeholder
+          </span>
+
+          <span className={classes(styles.commentsListContent, placeholder)}>
+            placeholder comments
+          </span>
+
+          <span className={classes(styles.commentsListContent, placeholder)}>
+            placeholder comments
+          </span>
+
+          <span className={classes(styles.commentsListContent, placeholder)}>
+            placeholder comments
+          </span>
+        </li>
+      ))}
+    </ul>
   )
 }
