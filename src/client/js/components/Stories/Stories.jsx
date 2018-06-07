@@ -1,6 +1,6 @@
 import React from 'react'
 import { media, classes, stylesheet } from 'typestyle'
-import { colors, loadingAnimation, placeholder, ergonomics } from '../styles/common'
+import { colors, loadingAnimation, placeholder, ergonomics } from '../../styles/common'
 
 const calculateStartingNumber = pathname => {
   let currentPage = parseInt(pathname.split('page/')[1])
@@ -95,10 +95,12 @@ export function Stories({ data: stories, location }) {
       )
     }
 
+    const startingNumber = calculateStartingNumber(location.pathname)
+
     return (
-      <ol className={styles.storiesList} start={calculateStartingNumber(location.pathname)}>
+      <ol className={styles.storiesList} start={startingNumber}>
         {stories.filter(Boolean).map((story, index) => {
-          const count = index === 0 ? calculateStartingNumber(location.pathname) : index + calculateStartingNumber(location.pathname)
+          const count = index === 0 ? startingNumber : index + startingNumber
           return (
             <li className={styles.storiesListItem} key={story.id}>
               <div className={styles.storiesListIndex}>{count}</div>

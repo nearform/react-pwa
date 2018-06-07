@@ -1,0 +1,802 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when data and page provided 1`] = `
+<ol
+  class="storiesList_flhhfk0"
+  start="31"
+>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      31
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://docs.datomic.com/cloud/ions/ions.html"
+      >
+        Ions: Develop cloud applications by deploying to a running Datomic cluster
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      41 points by simonpure
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      32
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="http://rsnr.royalsocietypublishing.org/content/early/2018/05/09/rsnr.2018.0002"
+      >
+        Einstein in Oxford
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      17 points by sohkamyung
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      33
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://github.com/radareorg/cutter"
+      >
+        Cutter – A Qt and C++ GUI for Radare2 reverse engineering framework
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      223 points by xvilka
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      34
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jsr.12711"
+      >
+        Caffeine dosing strategies to optimize alertness during sleep loss
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      31 points by nickcw
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      35
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://jochen-hoenicke.de/trezor-power-analysis/"
+      >
+        Extracting the private key from a TREZOR with an oscilloscope (2015)
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      334 points by mlejva
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders correctly when data provided 1`] = `
+<ol
+  class="storiesList_flhhfk0"
+  start="1"
+>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      1
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://docs.datomic.com/cloud/ions/ions.html"
+      >
+        Ions: Develop cloud applications by deploying to a running Datomic cluster
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      41 points by simonpure
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      2
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="http://rsnr.royalsocietypublishing.org/content/early/2018/05/09/rsnr.2018.0002"
+      >
+        Einstein in Oxford
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      17 points by sohkamyung
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      3
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://github.com/radareorg/cutter"
+      >
+        Cutter – A Qt and C++ GUI for Radare2 reverse engineering framework
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      223 points by xvilka
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      4
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jsr.12711"
+      >
+        Caffeine dosing strategies to optimize alertness during sleep loss
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      31 points by nickcw
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli"
+  >
+    <div
+      class="storiesListIndex_f4epy2u"
+    >
+      5
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y"
+    >
+      <a
+        href="https://jochen-hoenicke.de/trezor-power-analysis/"
+      >
+        Extracting the private key from a TREZOR with an oscilloscope (2015)
+      </a>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      334 points by mlejva
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders correctly when empty data provided 1`] = `
+<div
+  class="noStories_f66kosg"
+>
+  No further items to display.
+</div>
+`;
+
+exports[`renders correctly when no data provided 1`] = `
+<ol
+  class="storiesList_flhhfk0"
+>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      1
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      2
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      3
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      4
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      5
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      6
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      7
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      8
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      9
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      10
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      11
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      12
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      13
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      14
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      15
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      16
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      17
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      18
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      19
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+  <li
+    class="storiesListItem_f1h5zrli loading_fmjor1"
+  >
+    <div
+      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+    >
+      20
+    </div>
+    <div
+      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        placeholder title
+      </p>
+    </div>
+    <div
+      class="storiesListByLine_f40jj2y"
+    >
+      <p
+        class="placeholder_fu1ixcy"
+      >
+        n points by placeholder
+      </p>
+    </div>
+  </li>
+</ol>
+`;
