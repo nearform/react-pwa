@@ -259,10 +259,10 @@ exports[`renders correctly when no data provided 1`] = `
   class="storiesList_flhhfk0"
 >
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       1
     </div>
@@ -270,7 +270,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -279,17 +279,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       2
     </div>
@@ -297,7 +297,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -306,17 +306,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       3
     </div>
@@ -324,7 +324,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -333,17 +333,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       4
     </div>
@@ -351,7 +351,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -360,17 +360,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       5
     </div>
@@ -378,7 +378,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -387,17 +387,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       6
     </div>
@@ -405,7 +405,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -414,17 +414,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       7
     </div>
@@ -432,7 +432,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -441,17 +441,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       8
     </div>
@@ -459,7 +459,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -468,17 +468,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       9
     </div>
@@ -486,7 +486,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -495,17 +495,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       10
     </div>
@@ -513,7 +513,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -522,17 +522,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       11
     </div>
@@ -540,7 +540,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -549,17 +549,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       12
     </div>
@@ -567,7 +567,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -576,17 +576,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       13
     </div>
@@ -594,7 +594,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -603,17 +603,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       14
     </div>
@@ -621,7 +621,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -630,17 +630,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       15
     </div>
@@ -648,7 +648,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -657,17 +657,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       16
     </div>
@@ -675,7 +675,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -684,17 +684,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       17
     </div>
@@ -702,7 +702,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -711,17 +711,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       18
     </div>
@@ -729,7 +729,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -738,17 +738,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       19
     </div>
@@ -756,7 +756,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -765,17 +765,17 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
     </div>
   </li>
   <li
-    class="storiesListItem_f1h5zrli loading_fmjor1"
+    class="storiesListItem_f1h5zrli fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f4epy2u fu1ixcy"
     >
       20
     </div>
@@ -783,7 +783,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         placeholder title
       </p>
@@ -792,7 +792,7 @@ exports[`renders correctly when no data provided 1`] = `
       class="storiesListByLine_f40jj2y"
     >
       <p
-        class="placeholder_fu1ixcy"
+        class="fu1ixcy"
       >
         n points by placeholder
       </p>
