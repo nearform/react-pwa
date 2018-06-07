@@ -13,9 +13,7 @@ describe('fetchData', () => {
 
   beforeEach(() => {
     global.fetch = jest.fn().mockImplementation(() => {
-      return new Promise((resolve, reject) => {
-        resolve(mockedResponse)
-      })
+      return Promise.resolve(mockedResponse)
     })
   })
 
