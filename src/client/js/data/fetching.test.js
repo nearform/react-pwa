@@ -39,10 +39,16 @@ describe('fetchData', () => {
     mockedPayload = { foo: 'bar' }
 
     await fetchData()
-    expect(global.fetch).toHaveBeenCalledWith('/api/stories?filter=undefined&')
+    expect(global.fetch).toHaveBeenCalledWith('/api/stories')
+
+    await fetchData('foo')
+    expect(global.fetch).toHaveBeenCalledWith('/api/stories?filter=foo')
+
+    await fetchData('foo', 42)
+    expect(global.fetch).toHaveBeenCalledWith('/api/stories?filter=foo&page=42')
 
     await fetchData('comments')
-    expect(global.fetch).toHaveBeenCalledWith('/api/comments?')
+    expect(global.fetch).toHaveBeenCalledWith('/api/comments')
 
     await fetchData('comments', 99)
     expect(global.fetch).toHaveBeenCalledWith('/api/comments?page=99')

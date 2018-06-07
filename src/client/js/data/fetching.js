@@ -1,8 +1,8 @@
 export async function fetchData(filter, page) {
   // Build the URL to request
-  let params = filter !== 'comments' ? `filter=${filter}&` : ''
-  if (page) params += `page=${page}`
-  const url = `/api/${filter === 'comments' ? 'comments' : 'stories'}?${params}`
+  let params = (filter && filter !== 'comments') ? `filter=${filter}` : ''
+  if (page) params += `${params ? '&' : ''}page=${page}`
+  const url = `/api/${filter === 'comments' ? 'comments' : 'stories'}${params ? '?' : ''}${params}`
 
   // Perform the request
   const response = await fetch(url)

@@ -36,13 +36,13 @@
     "watch:server": "nodemon -e js,jsx --watch src/server src/client --exec 'npm run build:server && node src/server'",
     "test": "npm run lint & npm run unit",
     "unit": "NODE_ENV=production jest src --coverage",
-    "precommit": "lint-staged"
+    "precommit": "NODE_ENV=production lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint src/**/*.js src/**/*.jsx --fix",
       "git add",
-      "NODE_ENV=production jest src --bail"
+      "jest src --bail"
     ]
   },
   "dependencies": {
