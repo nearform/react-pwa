@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { media, classes, stylesheet } from 'typestyle'
-import { colors, ergonomics } from '../styles/common'
-import { NearFormLogo } from './NearFormLogo'
-import { Logo } from './Logo'
-import { More } from './More'
+import { colors, ergonomics } from '../../styles/common'
+import { NearFormLogo } from '../NearFormLogo'
+import { Logo } from '../Logo'
+import { More } from '../More'
+import { HumburgerIcon, CloseIcon } from '../Glyphs'
 
 const styles = stylesheet({
   navigation: {
@@ -151,29 +152,25 @@ class Navigation extends Component {
         <a aria-label="nearForm Website" className={styles.nearFormLogo} href="https://www.nearform.com/blog">
           <NearFormLogo />
         </a>
-        <div className={styles.navigationHamburger} onClick={() => this.toggleNavigation()}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-            <path fill={colors.NEARFORM_BRAND_MAIN} d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0" />
-          </svg>
+        <div className={styles.navigationHamburger} onClick={this.toggleNavigation} data-auto="navigationHamburger">
+          <HumburgerIcon />
         </div>
         <div className={navigationVisible ? classes(styles.navigationSide, styles.navigationSideVisible) : styles.navigationSide}>
-          <div className={styles.navigationClose} onClick={() => this.toggleNavigation()}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-              <path fill={colors.NEARFORM_BRAND_MAIN} d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0" />
-            </svg>
+          <div className={styles.navigationClose} onClick={this.toggleNavigation} data-auto="navigationClose">
+            <CloseIcon />
           </div>
           <ul className={styles.navigationMobile}>
-            <li className={styles.navigationItem}><NavLink isActive={checkRootRouteActive} onClick={() => this.toggleNavigation()} to="/">Top Stories</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/newest">New Stories</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/newcomments">Comments</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/show">Show</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/ask">Ask</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={() => this.toggleNavigation()} to="/jobs">Jobs</NavLink></li>
+            <li className={styles.navigationItem} data-auto="mobileTopStoriesLink"><NavLink onClick={this.toggleNavigation} to="/" isActive={checkRootRouteActive} >Top Stories</NavLink></li>
+            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/newest">New Stories</NavLink></li>
+            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/newcomments">Comments</NavLink></li>
+            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/show">Show</NavLink></li>
+            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/ask">Ask</NavLink></li>
+            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/jobs">Jobs</NavLink></li>
             <li className={styles.navigationItem}><a href="https://www.nearform.com/blog">About nearForm</a></li>
           </ul>
         </div>
         <nav className={styles.navigationDesktop}>
-          <NavLink isActive={checkRootRouteActive} className={styles.navigationItem} to="/">Top Stories</NavLink>
+          <NavLink className={styles.navigationItem} to="/" isActive={checkRootRouteActive} >Top Stories</NavLink>
           <NavLink className={styles.navigationItem} to="/newest">New Stories</NavLink>
           <NavLink className={styles.navigationItem} to="/newcomments">Comments</NavLink>
           <NavLink className={styles.navigationItem} to="/show">Show</NavLink>
