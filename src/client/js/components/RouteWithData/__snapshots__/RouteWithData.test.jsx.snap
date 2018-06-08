@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders child correctly 1`] = `
+<div>
+  <span>
+    location.pathname: /
+  </span>
+  <span>
+    data: MOCK_PAYLOAD
+  </span>
+</div>
+`;
+
+exports[`renders error page when preloaded has error 1`] = `
+<div
+  class="f66kosg"
+>
+  <h2>
+    Woops, something went wrong
+  </h2>
+  <h4>
+    Error: 
+  </h4>
+  <h6>
+    Requested page: /
+  </h6>
+</div>
+`;
+
+exports[`renders offline page when not online 1`] = `
+<div
+  class="f66kosg"
+>
+  It looks like you're offine.
+</div>
+`;
