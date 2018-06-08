@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { media, classes, stylesheet } from 'typestyle'
 import { colors, ergonomics } from '../../styles/common'
-import { NearFormLogo } from '../NearFormLogo'
 import { Logo } from '../Logo'
 import { More } from '../More'
-import { HumburgerIcon, CloseIcon } from '../Glyphs'
+import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
 
 const styles = stylesheet({
   navigation: {
