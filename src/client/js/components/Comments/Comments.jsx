@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
 import { classes, stylesheet } from 'typestyle'
-import { loadingAnimation, placeholder } from '../styles/common'
+import { loadingAnimation, placeholder } from '../../styles/common'
 
 const getTitle = title => {
   return (title || '')
@@ -33,11 +33,21 @@ const styles = stylesheet({
         margin: `.5em 0`
       }
     }
+  },
+  noComments: {
+    padding: '1em',
+    textAlign: 'center'
   }
 })
 
 export function Comments({ data: comments }) {
   if (comments) {
+    if (comments.length === 0) {
+      return (
+        <div className={styles.noComments}>No further comments to display.</div>
+      )
+    }
+
     return (
       <ul className={styles.commentsList}>
         {comments.map((comment, index) => (
