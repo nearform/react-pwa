@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { stylesheet, classes } from 'typestyle'
-import { colors } from '../styles/common'
+import { colors } from '../../styles/common'
 
 const buildLinks = pathname => {
   const pathParts = pathname.split('/')

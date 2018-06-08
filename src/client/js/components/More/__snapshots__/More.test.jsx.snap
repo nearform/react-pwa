@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when location is "/" 1`] = `
+<div
+  class="more_f1a4p0rq"
+>
+  <span>
+    1 - 30
+  </span>
+  <span
+    class="moreItem_f8pzcup moreDisabled_fs9on40"
+  >
+    &lt;
+  </span>
+  <a
+    class="moreItem_f8pzcup"
+    href="/page/2"
+  >
+    &gt;
+  </a>
+</div>
+`;
+
+exports[`renders correctly when location is "/newcomments" 1`] = `
+<div
+  class="more_f1a4p0rq"
+>
+  <span>
+    1 - 30
+  </span>
+  <span
+    class="moreItem_f8pzcup moreDisabled_fs9on40"
+  >
+    &lt;
+  </span>
+  <a
+    class="moreItem_f8pzcup"
+    href="/newcomments/page/2"
+  >
+    &gt;
+  </a>
+</div>
+`;
+
+exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
+<div
+  class="more_f1a4p0rq"
+>
+  <span>
+    31 - 60
+  </span>
+  <a
+    class="moreItem_f8pzcup"
+    href="/newcomments"
+  >
+    &lt;
+  </a>
+  <a
+    class="moreItem_f8pzcup"
+    href="/newcomments/page/3"
+  >
+    &gt;
+  </a>
+</div>
+`;
+
+exports[`renders correctly when location is "/page/5" 1`] = `
+<div
+  class="more_f1a4p0rq"
+>
+  <span>
+    121 - 150
+  </span>
+  <a
+    class="moreItem_f8pzcup"
+    href="/page/4"
+  >
+    &lt;
+  </a>
+  <a
+    class="moreItem_f8pzcup"
+    href="/page/6"
+  >
+    &gt;
+  </a>
+</div>
+`;
