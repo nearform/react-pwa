@@ -1,6 +1,6 @@
 import React from 'react'
 import { stylesheet } from 'typestyle'
-import { colors } from '../styles/common'
+import { colors } from '../../styles/common'
 
 const styles = stylesheet({
   logo: {
