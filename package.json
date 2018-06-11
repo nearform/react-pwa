@@ -35,8 +35,8 @@
     "watch:client": "webpack --watch",
     "watch:server": "nodemon -e js,jsx --watch src/server src/client --exec 'npm run build:server && node src/server'",
     "test": "npm run lint & npm run unit",
-    "unit": "NODE_ENV=production jest src --coverage",
-    "precommit": "NODE_ENV=production lint-staged"
+    "unit": "NODE_ENV=development jest src --coverage",
+    "precommit": "NODE_ENV=development lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
