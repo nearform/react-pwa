@@ -224,241 +224,241 @@ exports[`renders correctly when no data provided 1`] = `
   class="commentsList_fah75xl"
 >
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli fmjor1"
+    class="commentsListItem_fiyvqli loading_fmjor1"
   >
     <span
-      class="commentsListTitle_f1bz5gy2 fu1ixcy"
+      class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
     >
       time ago by placeholder
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>
     <span
-      class="commentsListContent_ftg16dy fu1ixcy"
+      class="commentsListContent_ftg16dy placeholder_fu1ixcy"
     >
       placeholder comments
     </span>

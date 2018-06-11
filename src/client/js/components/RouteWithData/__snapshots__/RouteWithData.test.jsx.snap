@@ -13,7 +13,7 @@ exports[`renders child correctly 1`] = `
 
 exports[`renders error page when preloaded has error 1`] = `
 <div
-  class="f66kosg"
+  class="message-text_f66kosg"
 >
   <h2>
     Woops, something went wrong
@@ -29,7 +29,7 @@ exports[`renders error page when preloaded has error 1`] = `
 
 exports[`renders offline page when not online 1`] = `
 <div
-  class="f66kosg"
+  class="message-text_f66kosg"
 >
   It looks like you're offine.
 </div>

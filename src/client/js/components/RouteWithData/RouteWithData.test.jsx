@@ -14,7 +14,7 @@ const router = {
 
 const createContext = () => ({
   context: { router },
-  childContextTypes: { router: {} }
+  childContextTypes: () => ({ router: {} })
 })
 
 const MockComp = ({location, data}) => (
