@@ -82,14 +82,6 @@ module.exports = function(environment) {
           }
         },
         {
-          test: /(manifest\.json)$/,
-          type: 'javascript/auto',
-          use: {
-            loader: 'file-loader',
-            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
-          }
-        },
-        {
           test: /\.(ico|png)$/,
           use: {
             loader: 'file-loader',

@@ -4,6 +4,7 @@ const nodeFetch = require('node-fetch')
 const { resolve } = require('path')
 const { routes } = require('../../dist/server/routes')
 const { renderPage } = require('../../dist/server/page.html')
+const generateManifestJson = require('./generate-manifest-json')
 
 function unhandledRejectionHandler(error) {
   console.error(error)
@@ -33,6 +34,9 @@ function setupFetch(server) {
 }
 
 async function main() {
+  // Generate manifest.json respecting theme
+  generateManifestJson()
+
   // Create the instance
   const server = fastify({ logger: { prettyPrint: process.env.NODE_ENV !== 'production' }, ...detectHttps() })
 
