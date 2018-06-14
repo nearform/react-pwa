@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { stylesheet, classes } from 'typestyle'
 import { colors } from '../../styles/common'
 
-const buildLinks = pathname => {
+const PAGE_SIZE = 30 // TODO: this should be shared config and either passed in request or shared with server
+
+const buildLinks = (pathname, currentCount) => {
   const pathParts = pathname.split('/')
-  const currentPage = parseInt(pathname.split('page/')[1])
+  const currentPage = parseInt(pathname.split('page/')[1]) || 1
   const nextPage = Number.isInteger(currentPage) ? currentPage + 1 : 2
   const prevPage = Number.isInteger(currentPage) && currentPage > 2 ? currentPage - 1 : null
 
@@ -13,6 +15,7 @@ const buildLinks = pathname => {
     return {
       currentPage,
       prevLinkEnabled: currentPage >= 2,
+      nextLinkEnabled: !(currentCount < PAGE_SIZE),
       prevLink: Number.isInteger(currentPage) && currentPage > 2 ? `/page/${prevPage}` : '/',
       nextLink: `/page/${nextPage}`
     }
@@ -21,6 +24,7 @@ const buildLinks = pathname => {
   return {
     currentPage,
     prevLinkEnabled: currentPage >= 2,
+    nextLinkEnabled: !(currentCount < PAGE_SIZE),
     prevLink: Number.isInteger(currentPage) && currentPage > 2 ? `/${pathParts[1]}/page/${prevPage}` : `/${pathParts[1]}`,
     nextLink: `/${pathParts[1]}/page/${nextPage}`
   }
@@ -28,13 +32,15 @@ const buildLinks = pathname => {
 
 const styles = stylesheet({
   more: {
-    padding: `1em 0 1em 0`,
     background: colors.LIGHTEST_GRAY,
     textAlign: 'right',
     gridColumnStart: '1',
     gridColumnEnd: '4',
     gridRowStart: '2',
-    marginRight: '6px'
+    padding: '1em',
+    borderBottom: `6px solid ${colors.NEARFORM_BRAND_MAIN}`,
+    position: 'sticky',
+    top: '70px' // Height of the header TODO: should be shared constant
   },
   moreItem: {
     background: colors.NEARFORM_BRAND_ACCENT_2,
@@ -53,8 +59,9 @@ const styles = stylesheet({
   }
 })
 
-export function More({ location }) {
-  const {nextLink, prevLink, prevLinkEnabled, currentPage} = buildLinks(location.pathname)
+export function More({ location, data }) {
+  const currentCount = data ? data.length : 0
+  const {nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage} = buildLinks(location.pathname, currentCount)
 
   const rangeStart = currentPage ? 30 * (currentPage - 1) + 1 : 1
   const rangeEnd = rangeStart + 29
@@ -76,9 +83,17 @@ export function More({ location }) {
 
       }
 
-      <Link className={styles.moreItem} to={nextLink}>
-        {'>'}
-      </Link>
+      {nextLinkEnabled &&
+        <Link className={styles.moreItem} to={nextLink}>
+          {'>'}
+        </Link>
+      }
+
+      {!nextLinkEnabled &&
+        <span className={classes(styles.moreItem, styles.moreDisabled)}>
+          {'>'}
+        </span>
+      }
     </div>
   )
 }
