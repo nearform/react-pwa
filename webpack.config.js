@@ -3,6 +3,9 @@ const { resolve } = require('path')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { InjectManifest } = require('workbox-webpack-plugin')
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const clientConstants = require('./src/client/js/styles/constants')
 
 module.exports = function(environment) {
   if (!environment) environment = process.env.NODE_ENV || 'development'
@@ -27,6 +30,25 @@ module.exports = function(environment) {
           {
             search: /SW_DEBUG/,
             replace: environment === 'production' ? 'false' : 'true'
+          }
+        ]
+      }
+    ]),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/client/manifest.json',
+        to: 'manifest.json',
+        toType: 'file'
+      }
+    ]),
+    new ReplaceInFileWebpackPlugin([
+      {
+        dir: 'dist/client',
+        files: ['manifest.json'],
+        rules: [
+          {
+            search: /NEARFORM_BRAND_MAIN/ig,
+            replace: clientConstants.colors['NEARFORM_BRAND_MAIN']
           }
         ]
       }
@@ -79,14 +101,6 @@ module.exports = function(environment) {
               presets: ['@babel/preset-react'],
               plugins: ['@babel/plugin-proposal-object-rest-spread']
             }
-          }
-        },
-        {
-          test: /(manifest\.json)$/,
-          type: 'javascript/auto',
-          use: {
-            loader: 'file-loader',
-            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
           }
         },
         {

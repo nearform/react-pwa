@@ -11,6 +11,6 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#ec1c2b",
-  "theme_color": "#ec1c2b"
+  "background_color": "NEARFORM_BRAND_MAIN",
+  "theme_color": "NEARFORM_BRAND_MAIN"
 }

@@ -1,4 +1,8 @@
 import { style, keyframes } from 'typestyle'
+import constants from './constants'
+
+export const colors = constants.colors
+export const ergonomics = constants.ergonomics
 
 export function debugClassName($debugName, force = false) {
   return force === true || process.env.NODE_ENV !== 'production'
@@ -11,29 +15,6 @@ export const messageText = style(debugClassName('message-text'), {
   textAlign: 'center'
 })
 
-export const colors = {
-  LIGHTEST_GRAY: '#f9f9f9',
-  LIGHT_GRAY: '#e2e2e2',
-  GRAY: '#797a7c',
-  NEARFORM_BRAND_ACCENT_1: '#3a404c',
-  NEARFORM_BRAND_ACCENT_2: '#424853',
-  NEARFORM_BRAND_MAIN: '#ec1c2b'
-}
-
-export const ergonomics = {
-  PALM: {
-    BEGINNING: 0,
-    END: 750
-  },
-  LAP: {
-    BEGINNING: 751,
-    END: 1100
-  },
-  DESK: {
-    BEGINNING: 1101
-  }
-}
-
 export const placeholder = style(debugClassName('placeholder'), {
   margin: 0,
   padding: 0,
@@ -42,8 +23,8 @@ export const placeholder = style(debugClassName('placeholder'), {
    * override already defined styles and we can't rely on the cascade to ensure
    * one class is applied before the other
    */
-  color: `${colors.LIGHT_GRAY} !important`,
-  background: `${colors.LIGHT_GRAY} !important`
+  color: `${constants.colors.LIGHT_GRAY} !important`,
+  background: `${constants.colors.LIGHT_GRAY} !important`
 })
 
 export const loadingAnimation = style(debugClassName('loading'), {
