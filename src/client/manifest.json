@@ -1,0 +1,16 @@
+{
+  "name": "nearForm Hacker News",
+  "short_name": "nearForm HN",
+  "icons": [
+    {
+      "src": "/images/favicon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "NEARFORM_BRAND_MAIN",
+  "theme_color": "NEARFORM_BRAND_MAIN"
+}
