@@ -3,18 +3,17 @@ import { Link, NavLink } from 'react-router-dom'
 import { media, classes, stylesheet } from 'typestyle'
 import { colors, ergonomics } from '../../styles/common'
 import { Logo } from '../Logo'
-import { More } from '../More'
 import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
 
 const styles = stylesheet({
   navigation: {
+    zIndex: 1, // set stacking context for child side menu
     padding: '1em 1em 0 1em',
     display: 'grid',
     gridTemplateColumns: `65px auto 48px`,
     background: colors.LIGHTEST_GRAY,
     position: 'sticky',
     top: 0,
-    borderBottom: `6px solid ${colors.NEARFORM_BRAND_MAIN}`,
     alignItems: 'center',
     ...media(
       {
@@ -59,7 +58,6 @@ const styles = stylesheet({
     height: '100%',
     width: '0',
     position: 'fixed',
-    zIndex: '1',
     top: '0',
     left: '0',
     backgroundColor: colors.NEARFORM_BRAND_ACCENT_1,
@@ -140,7 +138,6 @@ class Navigation extends Component {
   }
 
   render() {
-    const { location } = this.props
     const { navigationVisible } = this.state
 
     return (
@@ -176,7 +173,6 @@ class Navigation extends Component {
           <NavLink className={styles.navigationItem} to="/ask">Ask</NavLink>
           <NavLink className={styles.navigationItem} to="/jobs">Jobs</NavLink>
         </nav>
-        <More location={location} />
       </heading>
     )
   }

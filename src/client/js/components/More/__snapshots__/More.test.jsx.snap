@@ -1,8 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders correctly when end of list reached 1`] = `
+<div
+  class="more_f1smk3yy"
+>
+  <span>
+    31 - 60
+  </span>
+  <a
+    class="moreItem_f8pzcup"
+    href="/newcomments"
+  >
+    &lt;
+  </a>
+  <span
+    class="moreItem_f8pzcup moreDisabled_fs9on40"
+  >
+    &gt;
+  </span>
+</div>
+`;
+
 exports[`renders correctly when location is "/" 1`] = `
 <div
-  class="more_f1a4p0rq"
+  class="more_f1smk3yy"
 >
   <span>
     1 - 30
@@ -23,7 +44,7 @@ exports[`renders correctly when location is "/" 1`] = `
 
 exports[`renders correctly when location is "/newcomments" 1`] = `
 <div
-  class="more_f1a4p0rq"
+  class="more_f1smk3yy"
 >
   <span>
     1 - 30
@@ -44,7 +65,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
 
 exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
 <div
-  class="more_f1a4p0rq"
+  class="more_f1smk3yy"
 >
   <span>
     31 - 60
@@ -66,7 +87,7 @@ exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
 
 exports[`renders correctly when location is "/page/5" 1`] = `
 <div
-  class="more_f1a4p0rq"
+  class="more_f1smk3yy"
 >
   <span>
     121 - 150

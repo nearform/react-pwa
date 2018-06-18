@@ -2,7 +2,7 @@
 
 exports[`renders correctly when location is "/" 1`] = `
 <heading
-  class="navigation_f18j1nnt"
+  class="navigation_f1q0zr17"
 >
   <a
     class="navigationLogo_f1wc7b1k"
@@ -75,7 +75,7 @@ exports[`renders correctly when location is "/" 1`] = `
     </svg>
   </div>
   <div
-    class="navigationSide_f1bx7dzy"
+    class="navigationSide_fjdmy2v"
   >
     <div
       class="navigationClose_fqg2kgw"
@@ -214,30 +214,12 @@ exports[`renders correctly when location is "/" 1`] = `
       Jobs
     </a>
   </nav>
-  <div
-    class="more_f1a4p0rq"
-  >
-    <span>
-      1 - 30
-    </span>
-    <span
-      class="moreItem_f8pzcup moreDisabled_fs9on40"
-    >
-      &lt;
-    </span>
-    <a
-      class="moreItem_f8pzcup"
-      href="/page/2"
-    >
-      &gt;
-    </a>
-  </div>
 </heading>
 `;
 
 exports[`renders correctly when location is "/newcomments" 1`] = `
 <heading
-  class="navigation_f18j1nnt"
+  class="navigation_f1q0zr17"
 >
   <a
     class="navigationLogo_f1wc7b1k"
@@ -310,7 +292,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
     </svg>
   </div>
   <div
-    class="navigationSide_f1bx7dzy"
+    class="navigationSide_fjdmy2v"
   >
     <div
       class="navigationClose_fqg2kgw"
@@ -449,23 +431,5 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
       Jobs
     </a>
   </nav>
-  <div
-    class="more_f1a4p0rq"
-  >
-    <span>
-      1 - 30
-    </span>
-    <span
-      class="moreItem_f8pzcup moreDisabled_fs9on40"
-    >
-      &lt;
-    </span>
-    <a
-      class="moreItem_f8pzcup"
-      href="/newcomments/page/2"
-    >
-      &gt;
-    </a>
-  </div>
 </heading>
 `;
