@@ -37,7 +37,7 @@ async function createBadgeSvg(category, index) {
   const score = Math.ceil(category.score * 100)
 
   const svg = await badge({
-    text: [`Ligthouse ${category.title} Score`, `${score}/100 `],
+    text: [`Lighthouse ${category.title} Score`, `${score}/100 `],
     colorscheme: badgeColor(score),
     template: 'flat'
   })
