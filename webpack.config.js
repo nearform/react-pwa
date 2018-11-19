@@ -41,6 +41,13 @@ module.exports = function(environment) {
         toType: 'file'
       }
     ]),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/client/robots.txt',
+        to: 'robots.txt',
+        toType: 'file'
+      }
+    ]),
     new ReplaceInFileWebpackPlugin([
       {
         dir: 'dist/client',
