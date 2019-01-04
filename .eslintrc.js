@@ -6,7 +6,10 @@ module.exports = {
         'jest/no-focused-tests': 'error',
         'jest/no-identical-title': 'error',
         'jest/valid-expect': 'error',
-        'react/prop-types': 0 //disabled for now to allow linting to pass with new eslint - will add this in a future PR
+        'react/prop-types': 0, //disabled for now to allow linting to pass with new eslint - will add this in a future PR
+        'node/no-deprecated-api': ['error', {
+          ignoreModuleItems: ['url.parse']
+      }]
       },
       env: {
         browser: true,
