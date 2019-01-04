@@ -5,12 +5,12 @@ const { resolve } = require('path')
 const { routes } = require('../../dist/server/routes')
 const { renderPage } = require('../../dist/server/page.html')
 
-function unhandledRejectionHandler(error) {
+function unhandledRejectionHandler (error) {
   console.error(error)
   process.exit(1)
 }
 
-function detectHttps() {
+function detectHttps () {
   const certPath = resolve(process.cwd(), 'ssl/certificate.pem')
   const keyPath = resolve(process.cwd(), 'ssl/private-key.pem')
   if (!existsSync(certPath) || !existsSync(keyPath)) return {}
@@ -18,8 +18,8 @@ function detectHttps() {
   return { https: { key: readFileSync(keyPath), cert: readFileSync(certPath) }, http2: true }
 }
 
-function setupFetch(server) {
-  global.fetch = async function(url, params) {
+function setupFetch (server) {
+  global.fetch = async function (url, params) {
     // External call, just use node-fetch
     if (!url.startsWith('/api')) return nodeFetch(url, params)
 
@@ -32,7 +32,7 @@ function setupFetch(server) {
   }
 }
 
-async function main() {
+async function main () {
   // Create the instance
   const server = fastify({ logger: { prettyPrint: process.env.NODE_ENV !== 'production' }, ...detectHttps() })
 

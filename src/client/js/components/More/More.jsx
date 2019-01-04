@@ -59,9 +59,9 @@ const styles = stylesheet({
   }
 })
 
-export function More({ location, data }) {
+export function More ({ location, data }) {
   const currentCount = data ? data.length : 0
-  const {nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage} = buildLinks(location.pathname, currentCount)
+  const { nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage } = buildLinks(location.pathname, currentCount)
 
   const rangeStart = currentPage ? 30 * (currentPage - 1) + 1 : 1
   const rangeEnd = rangeStart + 29

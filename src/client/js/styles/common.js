@@ -4,7 +4,7 @@ import constants from './constants'
 export const colors = constants.colors
 export const ergonomics = constants.ergonomics
 
-export function debugClassName($debugName, force = false) {
+export function debugClassName ($debugName, force = false) {
   return force === true || process.env.NODE_ENV !== 'production'
     ? { $debugName }
     : {}

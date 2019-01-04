@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'enzyme'
 
-import {Comments} from './Comments'
+import { Comments } from './Comments'
 
-import {commentsMock} from './comments.mock'
+import { commentsMock } from './comments.mock'
 
 jest.mock('react-timeago', () => () => (
   <time>'MOCK_TIME_AGO'</time>

@@ -11,6 +11,6 @@ const styles = stylesheet({
   }
 })
 
-export function Logo() {
+export function Logo () {
   return <div className={styles.logo}>HN</div>
 }

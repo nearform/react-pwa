@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'enzyme'
 
-import {NearFormLogo, HumburgerIcon, CloseIcon} from './Glyphs'
+import { NearFormLogo, HumburgerIcon, CloseIcon } from './Glyphs'
 
 it('renders NearFormLogo correctly', () => {
   const test = render(<NearFormLogo />)

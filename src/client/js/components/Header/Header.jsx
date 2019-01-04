@@ -114,12 +114,12 @@ const styles = stylesheet({
   }
 })
 
-function checkRootRouteActive(match, location) {
+function checkRootRouteActive (match, location) {
   return location.pathname === '/' || location.pathname.split('/')[1] === 'page'
 }
 
 class Navigation extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.toggleNavigation = this.toggleNavigation.bind(this)
@@ -129,7 +129,7 @@ class Navigation extends Component {
     }
   }
 
-  toggleNavigation() {
+  toggleNavigation () {
     this.setState(() => {
       return {
         navigationVisible: !this.state.navigationVisible
@@ -137,7 +137,7 @@ class Navigation extends Component {
     })
   }
 
-  render() {
+  render () {
     const { navigationVisible } = this.state
 
     return (
