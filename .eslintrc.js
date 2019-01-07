@@ -8,13 +8,13 @@ module.exports = {
     'jest/valid-expect': 'error'
   },
   env: {
-    'jest/globals': true
+    browser: true,
+    'jest/globals': true,
+    serviceworker: true
   },
   plugins: ['jest'],
   globals: {
-    fetch: true,
     workbox: true,
-    self: true,
     SW_DEBUG: true,
     VERSION: true
   }
