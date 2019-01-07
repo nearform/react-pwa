@@ -5,7 +5,7 @@ module.exports = {
     GRAY: '#797a7c',
     NEARFORM_BRAND_ACCENT_1: '#3a404c',
     NEARFORM_BRAND_ACCENT_2: '#424853',
-    NEARFORM_BRAND_MAIN: '#ec1c2b'
+    NEARFORM_BRAND_MAIN: '#2165E3'
   },
   ergonomics: {
     PALM: {

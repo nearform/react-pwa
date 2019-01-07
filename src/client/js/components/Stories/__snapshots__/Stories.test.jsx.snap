@@ -9,7 +9,7 @@ exports[`renders correctly when data and page provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       31
     </div>
@@ -32,7 +32,7 @@ exports[`renders correctly when data and page provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       32
     </div>
@@ -55,7 +55,7 @@ exports[`renders correctly when data and page provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       33
     </div>
@@ -78,7 +78,7 @@ exports[`renders correctly when data and page provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       34
     </div>
@@ -101,7 +101,7 @@ exports[`renders correctly when data and page provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       35
     </div>
@@ -132,7 +132,7 @@ exports[`renders correctly when data provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       1
     </div>
@@ -155,7 +155,7 @@ exports[`renders correctly when data provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       2
     </div>
@@ -178,7 +178,7 @@ exports[`renders correctly when data provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       3
     </div>
@@ -201,7 +201,7 @@ exports[`renders correctly when data provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       4
     </div>
@@ -224,7 +224,7 @@ exports[`renders correctly when data provided 1`] = `
     class="storiesListItem_f1h5zrli"
   >
     <div
-      class="storiesListIndex_f4epy2u"
+      class="storiesListIndex_f1rppnmc"
     >
       5
     </div>
@@ -262,7 +262,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       1
     </div>
@@ -289,7 +289,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       2
     </div>
@@ -316,7 +316,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       3
     </div>
@@ -343,7 +343,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       4
     </div>
@@ -370,7 +370,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       5
     </div>
@@ -397,7 +397,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       6
     </div>
@@ -424,7 +424,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       7
     </div>
@@ -451,7 +451,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       8
     </div>
@@ -478,7 +478,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       9
     </div>
@@ -505,7 +505,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       10
     </div>
@@ -532,7 +532,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       11
     </div>
@@ -559,7 +559,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       12
     </div>
@@ -586,7 +586,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       13
     </div>
@@ -613,7 +613,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       14
     </div>
@@ -640,7 +640,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       15
     </div>
@@ -667,7 +667,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       16
     </div>
@@ -694,7 +694,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       17
     </div>
@@ -721,7 +721,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       18
     </div>
@@ -748,7 +748,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       19
     </div>
@@ -775,7 +775,7 @@ exports[`renders correctly when no data provided 1`] = `
     class="storiesListItem_f1h5zrli loading_fmjor1"
   >
     <div
-      class="storiesListIndex_f4epy2u placeholder_fu1ixcy"
+      class="storiesListIndex_f1rppnmc placeholder_fu1ixcy"
     >
       20
     </div>
