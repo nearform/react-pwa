@@ -23,6 +23,12 @@ globalStyles.cssRule('body', {
   fontFamily: 'Verdana, Geneva, sans-serif'
 })
 
+globalStyles.cssRule('@media all and (display-mode: standalone)', {
+  body: {
+    '-webkit-touch-callout': 'none'
+  }
+})
+
 globalStyles.cssRule('a', {
   textDecoration: 'none',
   $nest: {
