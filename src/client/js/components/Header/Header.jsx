@@ -162,7 +162,7 @@ class Navigation extends Component {
             <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/show">Show</NavLink></li>
             <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/ask">Ask</NavLink></li>
             <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/jobs">Jobs</NavLink></li>
-            <li className={styles.navigationItem}><a href="https://www.nearform.com/blog">About nearForm</a></li>
+            <li className={styles.navigationItem}><a href="https://www.nearform.com/blog">About NearForm</a></li>
           </ul>
         </div>
         <nav className={styles.navigationDesktop}>

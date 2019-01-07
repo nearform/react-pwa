@@ -2,7 +2,7 @@
 
 exports[`renders correctly when end of list reached 1`] = `
 <div
-  class="more_f1smk3yy"
+  class="more_f1wasfrc"
 >
   <span>
     31 - 60
@@ -23,7 +23,7 @@ exports[`renders correctly when end of list reached 1`] = `
 
 exports[`renders correctly when location is "/" 1`] = `
 <div
-  class="more_f1smk3yy"
+  class="more_f1wasfrc"
 >
   <span>
     1 - 30
@@ -44,7 +44,7 @@ exports[`renders correctly when location is "/" 1`] = `
 
 exports[`renders correctly when location is "/newcomments" 1`] = `
 <div
-  class="more_f1smk3yy"
+  class="more_f1wasfrc"
 >
   <span>
     1 - 30
@@ -65,7 +65,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
 
 exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
 <div
-  class="more_f1smk3yy"
+  class="more_f1wasfrc"
 >
   <span>
     31 - 60
@@ -87,7 +87,7 @@ exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
 
 exports[`renders correctly when location is "/page/5" 1`] = `
 <div
-  class="more_f1smk3yy"
+  class="more_f1wasfrc"
 >
   <span>
     121 - 150
