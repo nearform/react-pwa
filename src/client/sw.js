@@ -1,3 +1,4 @@
+// this value will be replaced at build time
 let version = 'VERSION'
 
 workbox.setConfig({ debug: SW_DEBUG })
