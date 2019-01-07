@@ -8,13 +8,13 @@ const router = {
   history: new MemoryRouter().history,
   route: {
     location: {},
-    match: {}
-  }
+    match: {},
+  },
 }
 
 const createContext = () => ({
   context: { router },
-  childContextTypes: () => ({ router: {} })
+  childContextTypes: () => ({ router: {} }),
 })
 
 const MockComp = ({ location, data }) => (
@@ -35,15 +35,15 @@ it('renders child correctly', () => {
     component: MockComp,
     ssrPreloading: {
       success: true,
-      payload: 'MOCK_PAYLOAD'
+      payload: 'MOCK_PAYLOAD',
     },
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   const test = render(
-    <MemoryRouter initialEntries={[ props.location.pathname ]}>
+    <MemoryRouter initialEntries={[props.location.pathname]}>
       <RouteWithData {...props} />
     </MemoryRouter>
   )
@@ -56,15 +56,15 @@ it('renders error page when preloaded has error', () => {
     component: MockComp,
     ssrPreloading: {
       success: false,
-      payload: 'MOCK_PAYLOAD'
+      payload: 'MOCK_PAYLOAD',
     },
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   const test = render(
-    <MemoryRouter initialEntries={[ props.location.pathname ]}>
+    <MemoryRouter initialEntries={[props.location.pathname]}>
       <RouteWithData {...props} />
     </MemoryRouter>
   )
@@ -80,15 +80,15 @@ describe('loadData', () => {
       component: MockComp,
       ssrPreloading: {
         success: true,
-        payload: 'MOCK_PAYLOAD'
+        payload: 'MOCK_PAYLOAD',
       },
       location: {
-        pathname: '/'
-      }
+        pathname: '/',
+      },
     }
 
     const wrapper = mount(
-      <MemoryRouter initialEntries={[ props.location.pathname ]}>
+      <MemoryRouter initialEntries={[props.location.pathname]}>
         <RouteWithData {...props} />
       </MemoryRouter>
     )
@@ -96,7 +96,7 @@ describe('loadData', () => {
     test = wrapper.find(RouteWithData)
   })
 
-  it('calls child component\'s dataFetcher', async () => {
+  it("calls child component's dataFetcher", async () => {
     expect(MockComp.dataFetcher).not.toHaveBeenCalled()
 
     await test.instance().loadData()
@@ -113,8 +113,8 @@ it('renders offline page when not online', async () => {
     component: MockComp,
     ssrPreloading: {},
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   MockComp.dataFetcher = jest.fn().mockImplementation(() => {

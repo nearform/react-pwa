@@ -17,23 +17,24 @@ const styles = stylesheet({
     alignItems: 'center',
     ...media(
       {
-        minWidth: ergonomics.LAP.BEGINNING
-      }, {
-        gridTemplateColumns: '65px 170px auto'
+        minWidth: ergonomics.LAP.BEGINNING,
+      },
+      {
+        gridTemplateColumns: '65px 170px auto',
       }
-    )
+    ),
   },
   navigationLogo: {
     gridColumnStart: '1',
     gridColumnEnd: '2',
     fontWeight: 300,
     fontSize: '1.33em',
-    color: colors.NEARFORM_BRAND_MAIN
+    color: colors.NEARFORM_BRAND_MAIN,
   },
   navigationNav: {
     gridColumnStart: '3',
     gridColumnEnd: '4',
-    textAlign: 'right'
+    textAlign: 'right',
   },
   navigationHamburger: {
     gridColumnStart: '3',
@@ -41,16 +42,17 @@ const styles = stylesheet({
     cursor: 'pointer',
     ...media(
       {
-        minWidth: ergonomics.LAP.BEGINNING
-      }, {
-        display: 'none'
+        minWidth: ergonomics.LAP.BEGINNING,
+      },
+      {
+        display: 'none',
       }
-    )
+    ),
   },
   navigationClose: {
     gridColumnStart: '2',
     gridColumnEnd: '3',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   navigationSide: {
     display: 'grid',
@@ -70,10 +72,10 @@ const styles = stylesheet({
     )`,
     overflowX: 'hidden',
     transition: 'all .3s cubic-bezier(.25, .8, .25, 1)',
-    paddingTop: '1.35em'
+    paddingTop: '1.35em',
   },
   navigationSideVisible: {
-    width: '100%'
+    width: '100%',
   },
   navigationItem: {
     fontSize: '1.25em',
@@ -81,63 +83,65 @@ const styles = stylesheet({
     whiteSpace: 'nowrap',
     ...media(
       {
-        minWidth: ergonomics.LAP.BEGINNING
-      }, {
+        minWidth: ergonomics.LAP.BEGINNING,
+      },
+      {
         padding: '.5em',
         fontSize: '1em',
-        color: 'black'
+        color: 'black',
       }
     ),
     a: {
-      color: 'white'
-    }
+      color: 'white',
+    },
   },
   navigationMobile: {
     gridColumnStart: '1',
     gridColumnEnd: '2',
     gridRowStart: '1',
-    listStyleType: 'none'
+    listStyleType: 'none',
   },
   navigationDesktop: {
     textAlign: 'right',
     ...media(
       {
         minWidth: ergonomics.PALM.BEGINNING,
-        maxWidth: ergonomics.PALM.END
-      }, {
-        display: 'none'
+        maxWidth: ergonomics.PALM.END,
+      },
+      {
+        display: 'none',
       }
-    )
+    ),
   },
   nearFormLogo: {
-    width: '170px'
-  }
+    width: '170px',
+  },
 })
 
-function checkRootRouteActive (match, location) {
+function checkRootRouteActive(match, location) {
   return location.pathname === '/' || location.pathname.split('/')[1] === 'page'
 }
 
 class Navigation extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.toggleNavigation = this.toggleNavigation.bind(this)
 
     this.state = {
-      navigationVisible: false
+      navigationVisible: false,
     }
   }
 
-  toggleNavigation () {
+  toggleNavigation() {
     this.setState(() => {
       return {
-        navigationVisible: !this.state.navigationVisible
+        navigationVisible: !this.state.navigationVisible,
       }
     })
   }
 
-  render () {
+  render() {
     const { navigationVisible } = this.state
 
     return (
@@ -156,22 +160,60 @@ class Navigation extends Component {
             <CloseIcon />
           </div>
           <ul className={styles.navigationMobile}>
-            <li className={styles.navigationItem} data-auto="mobileTopStoriesLink"><NavLink onClick={this.toggleNavigation} to="/" isActive={checkRootRouteActive} >Top Stories</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/newest">New Stories</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/newcomments">Comments</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/show">Show</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/ask">Ask</NavLink></li>
-            <li className={styles.navigationItem}><NavLink onClick={this.toggleNavigation} to="/jobs">Jobs</NavLink></li>
-            <li className={styles.navigationItem}><a href="https://www.nearform.com/blog">About nearForm</a></li>
+            <li className={styles.navigationItem} data-auto="mobileTopStoriesLink">
+              <NavLink onClick={this.toggleNavigation} to="/" isActive={checkRootRouteActive}>
+                Top Stories
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <NavLink onClick={this.toggleNavigation} to="/newest">
+                New Stories
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <NavLink onClick={this.toggleNavigation} to="/newcomments">
+                Comments
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <NavLink onClick={this.toggleNavigation} to="/show">
+                Show
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <NavLink onClick={this.toggleNavigation} to="/ask">
+                Ask
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <NavLink onClick={this.toggleNavigation} to="/jobs">
+                Jobs
+              </NavLink>
+            </li>
+            <li className={styles.navigationItem}>
+              <a href="https://www.nearform.com/blog">About nearForm</a>
+            </li>
           </ul>
         </div>
         <nav className={styles.navigationDesktop}>
-          <NavLink className={styles.navigationItem} to="/" isActive={checkRootRouteActive} >Top Stories</NavLink>
-          <NavLink className={styles.navigationItem} to="/newest">New Stories</NavLink>
-          <NavLink className={styles.navigationItem} to="/newcomments">Comments</NavLink>
-          <NavLink className={styles.navigationItem} to="/show">Show</NavLink>
-          <NavLink className={styles.navigationItem} to="/ask">Ask</NavLink>
-          <NavLink className={styles.navigationItem} to="/jobs">Jobs</NavLink>
+          <NavLink className={styles.navigationItem} to="/" isActive={checkRootRouteActive}>
+            Top Stories
+          </NavLink>
+          <NavLink className={styles.navigationItem} to="/newest">
+            New Stories
+          </NavLink>
+          <NavLink className={styles.navigationItem} to="/newcomments">
+            Comments
+          </NavLink>
+          <NavLink className={styles.navigationItem} to="/show">
+            Show
+          </NavLink>
+          <NavLink className={styles.navigationItem} to="/ask">
+            Ask
+          </NavLink>
+          <NavLink className={styles.navigationItem} to="/jobs">
+            Jobs
+          </NavLink>
         </nav>
       </heading>
     )

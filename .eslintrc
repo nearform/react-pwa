@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["jest", "react", "prettier"],
+  "extends": ["standard", "standard-jsx", "standard-react", "plugin:prettier/recommended"],
+  "rules": {
+    "jsx-quotes": [2, "prefer-double"],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+    "react/prop-types": 0,
+    "node/no-deprecated-api": [
+      "error",
+      {
+        "ignoreModuleItems": ["url.parse"]
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "jest/globals": true,
+    "serviceworker": true
+  },
+  "globals": {
+    "fetch": true,
+    "workbox": true,
+    "self": true,
+    "SW_DEBUG": true,
+    "VERSION": true
+  }
+}

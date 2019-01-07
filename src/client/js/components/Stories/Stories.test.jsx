@@ -9,8 +9,8 @@ it('renders correctly when no data provided', () => {
   const props = {
     data: null,
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
   const test = render(<Stories {...props} />)
   expect(test).toMatchSnapshot()
@@ -20,8 +20,8 @@ it('renders correctly when empty data provided', () => {
   const props = {
     data: [],
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
   const test = render(<Stories {...props} />)
   expect(test).toMatchSnapshot()
@@ -31,8 +31,8 @@ it('renders correctly when data provided', () => {
   const props = {
     data: storiesMock,
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
   const test = render(<Stories {...props} />)
   expect(test).toMatchSnapshot()
@@ -42,8 +42,8 @@ it('renders correctly when data and page provided', () => {
   const props = {
     data: storiesMock,
     location: {
-      pathname: '/foo/page/2'
-    }
+      pathname: '/foo/page/2',
+    },
   }
   const test = render(<Stories {...props} />)
   expect(test).toMatchSnapshot()

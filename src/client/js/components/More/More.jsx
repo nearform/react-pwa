@@ -17,7 +17,7 @@ const buildLinks = (pathname, currentCount) => {
       prevLinkEnabled: currentPage >= 2,
       nextLinkEnabled: !(currentCount < PAGE_SIZE),
       prevLink: Number.isInteger(currentPage) && currentPage > 2 ? `/page/${prevPage}` : '/',
-      nextLink: `/page/${nextPage}`
+      nextLink: `/page/${nextPage}`,
     }
   }
 
@@ -26,7 +26,7 @@ const buildLinks = (pathname, currentCount) => {
     prevLinkEnabled: currentPage >= 2,
     nextLinkEnabled: !(currentCount < PAGE_SIZE),
     prevLink: Number.isInteger(currentPage) && currentPage > 2 ? `/${pathParts[1]}/page/${prevPage}` : `/${pathParts[1]}`,
-    nextLink: `/${pathParts[1]}/page/${nextPage}`
+    nextLink: `/${pathParts[1]}/page/${nextPage}`,
   }
 }
 
@@ -40,7 +40,7 @@ const styles = stylesheet({
     padding: '1em',
     borderBottom: `6px solid ${colors.NEARFORM_BRAND_MAIN}`,
     position: 'sticky',
-    top: '70px' // Height of the header TODO: should be shared constant
+    top: '70px', // Height of the header TODO: should be shared constant
   },
   moreItem: {
     background: colors.NEARFORM_BRAND_ACCENT_2,
@@ -50,16 +50,16 @@ const styles = stylesheet({
     fontWeight: '800',
     padding: '10px 12px',
     borderRadius: '10px',
-    boxShadow: '2px 2px 8px 0px rgba( 0, 0, 0, 0.2 )'
+    boxShadow: '2px 2px 8px 0px rgba( 0, 0, 0, 0.2 )',
   },
   moreDisabled: {
     background: colors.GRAY,
     cursor: 'not-allowed',
-    boxShadow: 'none'
-  }
+    boxShadow: 'none',
+  },
 })
 
-export function More ({ location, data }) {
+export function More({ location, data }) {
   const currentCount = data ? data.length : 0
   const { nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage } = buildLinks(location.pathname, currentCount)
 
@@ -70,30 +70,21 @@ export function More ({ location, data }) {
     <div className={styles.more}>
       <span>{`${rangeStart} - ${rangeEnd}`}</span>
 
-      {prevLinkEnabled &&
+      {prevLinkEnabled && (
         <Link className={styles.moreItem} to={prevLink}>
           {'<'}
         </Link>
-      }
+      )}
 
-      {!prevLinkEnabled &&
-        <span className={classes(styles.moreItem, styles.moreDisabled)}>
-          {'<'}
-        </span>
+      {!prevLinkEnabled && <span className={classes(styles.moreItem, styles.moreDisabled)}>{'<'}</span>}
 
-      }
-
-      {nextLinkEnabled &&
+      {nextLinkEnabled && (
         <Link className={styles.moreItem} to={nextLink}>
           {'>'}
         </Link>
-      }
+      )}
 
-      {!nextLinkEnabled &&
-        <span className={classes(styles.moreItem, styles.moreDisabled)}>
-          {'>'}
-        </span>
-      }
+      {!nextLinkEnabled && <span className={classes(styles.moreItem, styles.moreDisabled)}>{'>'}</span>}
     </div>
   )
 }

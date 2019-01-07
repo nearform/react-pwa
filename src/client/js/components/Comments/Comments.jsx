@@ -15,14 +15,14 @@ const styles = stylesheet({
     listStyle: 'none',
     margin: 0,
     padding: '1em',
-    overflowX: 'hidden'
+    overflowX: 'hidden',
   },
   commentsListItem: {
-    lineHeight: '10pt'
+    lineHeight: '10pt',
   },
   commentsListTitle: {
     display: 'block',
-    margin: '0 0 1em'
+    margin: '0 0 1em',
   },
   commentsListContent: {
     color: 'black',
@@ -30,22 +30,20 @@ const styles = stylesheet({
     margin: '1em 0 1em 1em',
     $nest: {
       p: {
-        margin: `.5em 0`
-      }
-    }
+        margin: `.5em 0`,
+      },
+    },
   },
   noComments: {
     padding: '1em',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 })
 
-export function Comments ({ data: comments }) {
+export function Comments({ data: comments }) {
   if (comments) {
     if (comments.length === 0) {
-      return (
-        <div className={styles.noComments}>No further comments to display.</div>
-      )
+      return <div className={styles.noComments}>No further comments to display.</div>
     }
 
     return (
@@ -64,25 +62,19 @@ export function Comments ({ data: comments }) {
 
   return (
     <ul className={styles.commentsList}>
-      {Array(10).fill({}).map((_, index) => (
-        <li className={classes(styles.commentsListItem, loadingAnimation)} key={`placeholder-${index}`}>
-          <span className={classes(styles.commentsListTitle, placeholder)}>
-            time ago by placeholder
-          </span>
+      {Array(10)
+        .fill({})
+        .map((_, index) => (
+          <li className={classes(styles.commentsListItem, loadingAnimation)} key={`placeholder-${index}`}>
+            <span className={classes(styles.commentsListTitle, placeholder)}>time ago by placeholder</span>
 
-          <span className={classes(styles.commentsListContent, placeholder)}>
-            placeholder comments
-          </span>
+            <span className={classes(styles.commentsListContent, placeholder)}>placeholder comments</span>
 
-          <span className={classes(styles.commentsListContent, placeholder)}>
-            placeholder comments
-          </span>
+            <span className={classes(styles.commentsListContent, placeholder)}>placeholder comments</span>
 
-          <span className={classes(styles.commentsListContent, placeholder)}>
-            placeholder comments
-          </span>
-        </li>
-      ))}
+            <span className={classes(styles.commentsListContent, placeholder)}>placeholder comments</span>
+          </li>
+        ))}
     </ul>
   )
 }

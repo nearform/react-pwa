@@ -4,25 +4,25 @@ import { ErrorPage } from '../../pages/ErrorPage'
 import { OfflinePage } from '../../pages/OfflinePage'
 
 export class RouteWithData extends Route {
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context)
 
     // Gather errors pages
     this.placeholdersPages = Object.assign({ error: ErrorPage, offline: OfflinePage }, this.props.component.placeholdersPages || {})
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // Once the data has been used, mark it as used - This is done here since the method is not called on the server
     delete this.props.ssrPreloading.payload
   }
 
-  componentWillReceiveProps (nextProps, nextContext) {
+  componentWillReceiveProps(nextProps, nextContext) {
     super.componentWillReceiveProps(nextProps, nextContext)
 
     this.setState(() => ({ data: null, error: null }))
   }
 
-  async loadData () {
+  async loadData() {
     try {
       const data = await this.props.component.dataFetcher(this.state.match.params)
 
@@ -32,10 +32,10 @@ export class RouteWithData extends Route {
     }
   }
 
-  renderPreloaded () {
+  renderPreloaded() {
     // Gather the properties we're going to forward
     const {
-      ssrPreloading: { success, payload }
+      ssrPreloading: { success, payload },
     } = this.props
 
     // Render the appropriate component - Note that on SSR there is no Loading or Offline case here, obviously
@@ -44,7 +44,7 @@ export class RouteWithData extends Route {
     return this.renderComponent(this.props.component, { data: payload })
   }
 
-  renderComponent (component, additionalProps = {}) {
+  renderComponent(component, additionalProps = {}) {
     const { history, route, staticContext } = this.context.router
 
     const location = this.props.location || route.location
@@ -54,7 +54,7 @@ export class RouteWithData extends Route {
     return React.createElement(component, props)
   }
 
-  render () {
+  render() {
     // There is no match, nothing to worry about
     if (!this.state.match) return null
 

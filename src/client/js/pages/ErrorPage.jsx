@@ -1,7 +1,7 @@
 import React from 'react'
 import { messageText } from '../styles/common'
 
-export function ErrorPage (props) {
+export function ErrorPage(props) {
   return (
     <div className={messageText}>
       <h2>Woops, something went wrong</h2>
