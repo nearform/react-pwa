@@ -6,9 +6,9 @@ describe('fetchData', () => {
   let mockedResponse = {
     ok: mockedSuccess,
     ...mockedPayload,
-    json: function () {
+    json: function() {
       return mockedPayload
-    }
+    },
   }
 
   beforeEach(() => {

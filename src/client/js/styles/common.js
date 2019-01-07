@@ -4,15 +4,13 @@ import constants from './constants'
 export const colors = constants.colors
 export const ergonomics = constants.ergonomics
 
-export function debugClassName ($debugName, force = false) {
-  return force === true || process.env.NODE_ENV !== 'production'
-    ? { $debugName }
-    : {}
+export function debugClassName($debugName, force = false) {
+  return force === true || process.env.NODE_ENV !== 'production' ? { $debugName } : {}
 }
 
 export const messageText = style(debugClassName('message-text'), {
   padding: '1em',
-  textAlign: 'center'
+  textAlign: 'center',
 })
 
 export const placeholder = style(debugClassName('placeholder'), {
@@ -24,7 +22,7 @@ export const placeholder = style(debugClassName('placeholder'), {
    * one class is applied before the other
    */
   color: `${constants.colors.LIGHT_GRAY} !important`,
-  background: `${constants.colors.LIGHT_GRAY} !important`
+  background: `${constants.colors.LIGHT_GRAY} !important`,
 })
 
 export const loadingAnimation = style(debugClassName('loading'), {
@@ -34,16 +32,15 @@ export const loadingAnimation = style(debugClassName('loading'), {
       position: 'absolute',
       width: '100%',
       height: '100%',
-      background:
-        'linear-gradient(90deg, rgba(0,0,0,0), rgba(255,255,255,0.15), rgba(0,0,0,0))',
+      background: 'linear-gradient(90deg, rgba(0,0,0,0), rgba(255,255,255,0.15), rgba(0,0,0,0))',
       transform: 'translateX(-100%)',
       animationName: keyframes({
         '100%': {
-          transform: 'translateX(100%)'
-        }
+          transform: 'translateX(100%)',
+        },
       }),
       animationDuration: '1.5s',
-      animationIterationCount: 'infinite'
-    }
-  }
+      animationIterationCount: 'infinite',
+    },
+  },
 })

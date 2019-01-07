@@ -1,14 +1,14 @@
 const Parser = require('rss-parser')
 const sanitizeHtml = require('sanitize-html')
 
-module.exports = async function (fastify, opts) {
+module.exports = async function(fastify, opts) {
   const pageSize = 30
 
-  function computeCacheKey (type, ...args) {
+  function computeCacheKey(type, ...args) {
     return `${type}:${args.join('|')}`
   }
 
-  async function fetchStories (request, reply) {
+  async function fetchStories(request, reply) {
     // Get parameters
     const { filter, page } = request.query || {}
     const cacheKey = computeCacheKey('stories', filter, page)
@@ -60,15 +60,15 @@ module.exports = async function (fastify, opts) {
       `,
       variables: {
         limit: pageSize,
-        offset
-      }
+        offset,
+      },
     }
 
     // Perform the request
     const response = await fetch('https://www.graphqlhub.com/graphql/', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
 
     // Parse the response
@@ -82,7 +82,7 @@ module.exports = async function (fastify, opts) {
     return data
   }
 
-  async function fetchComments (request, reply) {
+  async function fetchComments(request, reply) {
     // Get parameters
     const { page } = request.query || {}
     const cacheKey = computeCacheKey('comments', page)

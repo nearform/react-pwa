@@ -18,18 +18,20 @@ const styles = stylesheet({
     ...media(
       {
         minWidth: ergonomics.LAP.BEGINNING,
-        maxWidth: ergonomics.LAP.END
-      }, {
-        gridTemplateColumns: 'repeat(2, 50%)'
+        maxWidth: ergonomics.LAP.END,
+      },
+      {
+        gridTemplateColumns: 'repeat(2, 50%)',
       }
     ).$nest,
     ...media(
       {
-        minWidth: ergonomics.DESK.BEGINNING
-      }, {
-        gridTemplateColumns: 'repeat(3, 33.333%)'
+        minWidth: ergonomics.DESK.BEGINNING,
+      },
+      {
+        gridTemplateColumns: 'repeat(3, 33.333%)',
       }
-    ).$nest
+    ).$nest,
   },
   storiesListItem: {
     padding: '1em 0 0 0',
@@ -39,11 +41,12 @@ const styles = stylesheet({
     backgroundImage: `linear-gradient(0deg, white 97%, ${colors.LIGHT_GRAY} 100%)`,
     ...media(
       {
-        minWidth: ergonomics.LAP.BEGINNING
-      }, {
-        borderRight: `1px solid ${colors.LIGHT_GRAY}`
+        minWidth: ergonomics.LAP.BEGINNING,
+      },
+      {
+        borderRight: `1px solid ${colors.LIGHT_GRAY}`,
       }
-    )
+    ),
   },
   storiesListIndex: {
     gridColumnStart: '1',
@@ -54,7 +57,7 @@ const styles = stylesheet({
     height: 40,
     textAlign: 'center',
     paddingTop: '1em',
-    color: 'white'
+    color: 'white',
   },
   storiesListTitle: {
     padding: '0 1em 1em 1em',
@@ -65,12 +68,12 @@ const styles = stylesheet({
     gridRowEnd: '2',
     $nest: {
       a: {
-        color: 'black'
-      }
-    }
+        color: 'black',
+      },
+    },
   },
   storiesListTitlePlaceholder: {
-    width: '66%'
+    width: '66%',
   },
   storiesListByLine: {
     padding: '.5em .5em .5em 1.5em',
@@ -79,20 +82,18 @@ const styles = stylesheet({
     gridRowStart: '2',
     gridRowEnd: '3',
     margin: '2em 0 0 0',
-    background: colors.LIGHTEST_GRAY
+    background: colors.LIGHTEST_GRAY,
   },
   noStories: {
     padding: '1em',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 })
 
-export function Stories ({ data: stories, location }) {
+export function Stories({ data: stories, location }) {
   if (stories) {
     if (stories.length === 0) {
-      return (
-        <div className={styles.noStories}>No further items to display.</div>
-      )
+      return <div className={styles.noStories}>No further items to display.</div>
     }
 
     const startingNumber = calculateStartingNumber(location.pathname)
@@ -104,7 +105,9 @@ export function Stories ({ data: stories, location }) {
           return (
             <li className={styles.storiesListItem} key={story.id}>
               <div className={styles.storiesListIndex}>{count}</div>
-              <div className={styles.storiesListTitle}><a href={story.url}>{story.title}</a></div>
+              <div className={styles.storiesListTitle}>
+                <a href={story.url}>{story.title}</a>
+              </div>
               <div className={styles.storiesListByLine} suppressHydrationWarning>
                 {story.score} points by {story.by.id}
               </div>
@@ -117,15 +120,19 @@ export function Stories ({ data: stories, location }) {
 
   return (
     <ol className={styles.storiesList}>
-      {Array(20).fill({}).map((_, index) => (
-        <li className={classes(styles.storiesListItem, loadingAnimation)} key={index}>
-          <div className={classes(styles.storiesListIndex, placeholder)}>{index + 1}</div>
-          <div className={classes(styles.storiesListTitle, styles.storiesListTitlePlaceholder)}><p className={placeholder}>placeholder title</p></div>
-          <div className={styles.storiesListByLine}>
-            <p className={placeholder}>n points by placeholder</p>
-          </div>
-        </li>
-      ))}
+      {Array(20)
+        .fill({})
+        .map((_, index) => (
+          <li className={classes(styles.storiesListItem, loadingAnimation)} key={index}>
+            <div className={classes(styles.storiesListIndex, placeholder)}>{index + 1}</div>
+            <div className={classes(styles.storiesListTitle, styles.storiesListTitlePlaceholder)}>
+              <p className={placeholder}>placeholder title</p>
+            </div>
+            <div className={styles.storiesListByLine}>
+              <p className={placeholder}>n points by placeholder</p>
+            </div>
+          </li>
+        ))}
     </ol>
   )
 }

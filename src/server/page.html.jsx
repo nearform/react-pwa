@@ -8,41 +8,41 @@ import { colors } from './js/styles/common'
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 
 globalStyles.cssRule('*', {
-  lineHeight: 1.4
+  lineHeight: 1.4,
 })
 
 // This sets the value of 1rem
 globalStyles.cssRule('html, body', {
   fontSize: '16px',
   padding: 0,
-  margin: 0
+  margin: 0,
 })
 
 globalStyles.cssRule('body', {
   color: colors.NEARFORM_BRAND_ACCENT_2,
-  fontFamily: 'Verdana, Geneva, sans-serif'
+  fontFamily: 'Verdana, Geneva, sans-serif',
 })
 
 globalStyles.cssRule('@media all and (display-mode: standalone)', {
   body: {
-    '-webkit-touch-callout': 'none'
-  }
+    '-webkit-touch-callout': 'none',
+  },
 })
 
 globalStyles.cssRule('a', {
   textDecoration: 'none',
   $nest: {
     '&:hover, &:visited': {
-      transition: 'color .1s ease-out'
-    }
-  }
+      transition: 'color .1s ease-out',
+    },
+  },
 })
 
 globalStyles.cssRule('.active', {
-  fontWeight: '600'
+  fontWeight: '600',
 })
 
-export async function renderPage (request, reply) {
+export async function renderPage(request, reply) {
   // Prepare the history
   const history = createMemoryHistory({ initialEntries: [request.req.url] })
 

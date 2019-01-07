@@ -7,12 +7,12 @@ import Header from './Header'
 it('renders correctly when location is "/"', () => {
   const props = {
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   const test = render(
-    <MemoryRouter initialEntries={[ props.location.pathname ]}>
+    <MemoryRouter initialEntries={[props.location.pathname]}>
       <Header {...props} />
     </MemoryRouter>
   )
@@ -23,12 +23,12 @@ it('renders correctly when location is "/"', () => {
 it('renders correctly when location is "/newcomments"', () => {
   const props = {
     location: {
-      pathname: '/newcomments'
-    }
+      pathname: '/newcomments',
+    },
   }
 
   const test = render(
-    <MemoryRouter initialEntries={[ props.location.pathname ]}>
+    <MemoryRouter initialEntries={[props.location.pathname]}>
       <Header {...props} />
     </MemoryRouter>
   )
@@ -39,8 +39,8 @@ it('renders correctly when location is "/newcomments"', () => {
 it('opens and closes mobile nav menu', () => {
   const props = {
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   const test = shallow(<Header {...props} />)
@@ -59,8 +59,8 @@ it('opens and closes mobile nav menu', () => {
 it('toggles navigation when clicking mobile nav item', () => {
   const props = {
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   }
 
   const test = shallow(<Header {...props} />)

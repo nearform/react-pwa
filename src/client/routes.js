@@ -4,8 +4,8 @@ import { Stories } from './js/components/Stories'
 import { Comments } from './js/components/Comments'
 import { fetchData } from './js/data/fetching'
 
-function pageFactory (type) {
-  function Page (props) {
+function pageFactory(type) {
+  function Page(props) {
     return (
       <main>
         <More {...props} />
@@ -14,7 +14,7 @@ function pageFactory (type) {
     )
   }
 
-  Page.dataFetcher = async function ({ page }) {
+  Page.dataFetcher = async function({ page }) {
     return fetchData(type, page)
   }
 
@@ -27,5 +27,5 @@ export const routes = {
   '/newcomments': pageFactory('comments'),
   '/show': pageFactory('show'),
   '/ask': pageFactory('ask'),
-  '/jobs': pageFactory('jobs')
+  '/jobs': pageFactory('jobs'),
 }

@@ -6,7 +6,7 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 )
 
-export function register (config) {
+export function register(config) {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       const swUrl = '/sw.js'
@@ -28,7 +28,7 @@ export function register (config) {
   }
 }
 
-function registerValidSW (swUrl, config) {
+function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
@@ -69,7 +69,7 @@ function registerValidSW (swUrl, config) {
     })
 }
 
-function checkValidServiceWorker (swUrl, config) {
+function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
@@ -92,7 +92,7 @@ function checkValidServiceWorker (swUrl, config) {
     })
 }
 
-export function unregister () {
+export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {
       registration.unregister()

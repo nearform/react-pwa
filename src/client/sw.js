@@ -15,7 +15,7 @@ workbox.routing.registerRoute(/^\/images\/.*/, workbox.strategies.cacheFirst())
 workbox.routing.registerRoute(
   /\/api\/.*/,
   workbox.strategies.networkFirst({
-    cacheName: `hn-pwa-api-v2.${version}`
+    cacheName: `hn-pwa-api-v2.${version}`,
   })
 )
 
@@ -23,8 +23,8 @@ workbox.routing.registerRoute(
 workbox.precaching.precache([
   {
     url: '/',
-    revision: version
-  }
+    revision: version,
+  },
 ])
 workbox.precaching.precacheAndRoute(self.__precacheManifest || [])
 

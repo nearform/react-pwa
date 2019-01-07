@@ -6,7 +6,7 @@ import * as serviceWorker from './js/utils/serviceWorker'
 // Require assets so that they are included in the bundle and in the precache
 require.context('./images', true)
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Rehydrate the application
   hydrate(<AppShell ssrPreloading={window.__ssrPreloading} />, document.getElementById('root'))
 
