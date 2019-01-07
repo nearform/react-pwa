@@ -191,7 +191,7 @@ class Navigation extends Component {
               </NavLink>
             </li>
             <li className={styles.navigationItem}>
-              <a href="https://www.nearform.com/blog">About nearForm</a>
+              <a href="https://www.nearform.com/blog">About NearForm</a>
             </li>
           </ul>
         </div>
