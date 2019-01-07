@@ -40,7 +40,7 @@ const styles = stylesheet({
   }
 })
 
-export function Comments({ data: comments }) {
+export function Comments ({ data: comments }) {
   if (comments) {
     if (comments.length === 0) {
       return (

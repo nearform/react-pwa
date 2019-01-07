@@ -17,7 +17,7 @@ const createContext = () => ({
   childContextTypes: () => ({ router: {} })
 })
 
-const MockComp = ({location, data}) => (
+const MockComp = ({ location, data }) => (
   <div>
     <span>location.pathname: {location.pathname}</span>
     <span>data: {data}</span>
@@ -107,7 +107,7 @@ describe('loadData', () => {
 
 it('renders offline page when not online', async () => {
   const onLine = global.navigator.onLine
-  Object.defineProperty(window.navigator, 'onLine', {value: false, configurable: true})
+  Object.defineProperty(window.navigator, 'onLine', { value: false, configurable: true })
 
   const props = {
     component: MockComp,
@@ -127,5 +127,5 @@ it('renders offline page when not online', async () => {
 
   expect(render(test.instance().render())).toMatchSnapshot()
 
-  Object.defineProperty(window.navigator, 'onLine', {value: onLine})
+  Object.defineProperty(window.navigator, 'onLine', { value: onLine })
 })

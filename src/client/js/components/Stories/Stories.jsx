@@ -87,7 +87,7 @@ const styles = stylesheet({
   }
 })
 
-export function Stories({ data: stories, location }) {
+export function Stories ({ data: stories, location }) {
   if (stories) {
     if (stories.length === 0) {
       return (

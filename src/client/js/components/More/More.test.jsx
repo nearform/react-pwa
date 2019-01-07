@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 
-import {More} from './More'
+import { More } from './More'
 
 it('renders correctly when location is "/"', () => {
   const props = {

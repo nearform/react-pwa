@@ -42,7 +42,7 @@ globalStyles.cssRule('.active', {
   fontWeight: '600'
 })
 
-export async function renderPage(request, reply) {
+export async function renderPage (request, reply) {
   // Prepare the history
   const history = createMemoryHistory({ initialEntries: [request.req.url] })
 

@@ -5,17 +5,18 @@ const { resolve } = require('path')
 const puppeteer = require('puppeteer')
 const { parse: parseUrl } = require('url')
 const { promisify } = require('util')
-const createBadge = require('gh-badges')
+const { BadgeFactory } = require('gh-badges')
 
+const bf = new BadgeFactory()
 const waitOn = promisify(require('wait-on'))
 const writeFileAsync = promisify(writeFile)
 
-function unhandledRejectionHandler(error) {
+function unhandledRejectionHandler (error) {
   console.error(error)
   process.exit(1)
 }
 
-function badgeColor(score) {
+function badgeColor (score) {
   if (score > 90) return 'green'
   else if (score > 80) return 'yellow'
   else if (score > 50) return 'orange'
@@ -23,9 +24,9 @@ function badgeColor(score) {
   return 'red'
 }
 
-async function badge(spec) {
+async function badge (spec) {
   return new Promise((resolve, reject) => {
-    createBadge(spec, (svg, err) => {
+    bf.create(spec, (svg, err) => {
       if (err) return reject(err)
 
       resolve(svg)
@@ -33,7 +34,7 @@ async function badge(spec) {
   })
 }
 
-async function createBadgeSvg(category, index) {
+async function createBadgeSvg (category, index) {
   const score = Math.ceil(category.score * 100)
 
   const svg = await badge({
@@ -47,7 +48,7 @@ async function createBadgeSvg(category, index) {
   return { index, item: `${category.title}: ${score}` }
 }
 
-async function main() {
+async function main () {
   const url = process.argv[2] || 'http://localhost:3000'
   const parsedUrl = parseUrl(url)
 

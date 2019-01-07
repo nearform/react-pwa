@@ -5,12 +5,12 @@ import { routes } from '../routes'
 import Header from './components/Header'
 import { RouteWithData } from './components/RouteWithData'
 
-export function AppShell({ history, ssrPreloading }) {
+export function AppShell ({ history, ssrPreloading }) {
   const routesConfig = Object.entries(routes).reduce((accu, [path, component]) => {
     return accu.concat({ path: path || '/', component, ssrPreloading, exact: true }, { path: `${path}/page/:page`, component, ssrPreloading, exact: true })
   }, [])
 
-  const Contents = ({location}) => {
+  const Contents = ({ location }) => {
     return (
       <Fragment>
         <Header location={location} />
@@ -25,7 +25,7 @@ export function AppShell({ history, ssrPreloading }) {
 
   return (
     <SelectedRouter history={history}>
-      <Route render={({location}) => (
+      <Route render={({ location }) => (
         <Contents location={location} />
       )} />
     </SelectedRouter>

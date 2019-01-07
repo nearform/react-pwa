@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'enzyme'
 
-import {Stories} from './Stories'
+import { Stories } from './Stories'
 
-import {storiesMock} from './stories.mock'
+import { storiesMock } from './stories.mock'
 
 it('renders correctly when no data provided', () => {
   const props = {

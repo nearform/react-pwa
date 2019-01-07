@@ -1,4 +1,4 @@
-const {fetchData} = require('./fetching')
+const { fetchData } = require('./fetching')
 
 describe('fetchData', () => {
   let mockedSuccess = true
@@ -6,7 +6,7 @@ describe('fetchData', () => {
   let mockedResponse = {
     ok: mockedSuccess,
     ...mockedPayload,
-    json: function() {
+    json: function () {
       return mockedPayload
     }
   }
