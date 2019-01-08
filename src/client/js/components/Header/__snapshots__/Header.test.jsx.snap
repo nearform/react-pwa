@@ -159,7 +159,7 @@ exports[`renders correctly when location is "/" 1`] = `
         <a
           href="https://www.nearform.com/blog"
         >
-          About nearForm
+          About NearForm
         </a>
       </li>
     </ul>
@@ -367,7 +367,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
         <a
           href="https://www.nearform.com/blog"
         >
-          About nearForm
+          About NearForm
         </a>
       </li>
     </ul>
