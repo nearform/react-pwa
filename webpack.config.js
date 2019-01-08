@@ -25,28 +25,28 @@ module.exports = function(environment) {
         rules: [
           {
             search: 'VERSION',
-            replace: version
+            replace: version,
           },
           {
             search: /SW_DEBUG/,
-            replace: environment === 'production' ? 'false' : 'true'
-          }
-        ]
-      }
+            replace: environment === 'production' ? 'false' : 'true',
+          },
+        ],
+      },
     ]),
     new CopyWebpackPlugin([
       {
         from: 'src/client/manifest.json',
         to: 'manifest.json',
-        toType: 'file'
-      }
+        toType: 'file',
+      },
     ]),
     new CopyWebpackPlugin([
       {
         from: 'src/client/robots.txt',
         to: 'robots.txt',
-        toType: 'file'
-      }
+        toType: 'file',
+      },
     ]),
     new ReplaceInFileWebpackPlugin([
       {
@@ -54,12 +54,12 @@ module.exports = function(environment) {
         files: ['manifest.json'],
         rules: [
           {
-            search: /NEARFORM_BRAND_MAIN/ig,
-            replace: clientConstants.colors['NEARFORM_BRAND_MAIN']
-          }
-        ]
-      }
-    ])
+            search: /NEARFORM_BRAND_MAIN/gi,
+            replace: clientConstants.colors['NEARFORM_BRAND_MAIN'],
+          },
+        ],
+      },
+    ]),
   ]
 
   // Customize output
@@ -68,13 +68,13 @@ module.exports = function(environment) {
       new BundleAnalyzerPlugin({
         analyzerMode: 'disabled',
         generateStatsFile: true,
-        statsFilename: '../../coverage/client-bundle-stats.json'
+        statsFilename: '../../coverage/client-bundle-stats.json',
       })
     )
   } else {
     plugins.push(
       new BundleAnalyzerPlugin({
-        openAnalyzer: false
+        openAnalyzer: false,
       })
     )
   }
@@ -82,7 +82,7 @@ module.exports = function(environment) {
     new InjectManifest({
       swSrc: 'src/client/sw.js',
       swDest: 'sw.js',
-      exclude: [/\.map$/]
+      exclude: [/\.map$/],
     })
   )
 
@@ -90,12 +90,12 @@ module.exports = function(environment) {
     entry: './src/client/application.jsx',
     output: {
       path: resolve(__dirname, 'dist/client'),
-      filename: 'app.js'
+      filename: 'app.js',
     },
     mode: environment === 'production' ? 'production' : 'development',
     plugins,
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx'],
     },
     module: {
       rules: [
@@ -106,18 +106,18 @@ module.exports = function(environment) {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-react'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread']
-            }
-          }
+              plugins: ['@babel/plugin-proposal-object-rest-spread'],
+            },
+          },
         },
         {
           test: /\.(ico|png)$/,
           use: {
             loader: 'file-loader',
-            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') }
-          }
-        }
-      ]
-    }
+            options: { name: '[path][name].[ext]', outputPath: path => path.replace('src/client/', '') },
+          },
+        },
+      ],
+    },
   }
 }

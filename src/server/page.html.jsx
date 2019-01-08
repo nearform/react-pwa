@@ -50,8 +50,8 @@ export async function renderPage(request, reply) {
   let ssrPreloading = {}
 
   try {
-    if (reply.context.config.component && typeof reply.context.config.component.dataFetcher === 'function') {
-      ssrPreloading = { success: true, payload: await reply.context.config.component.dataFetcher(request.params) }
+    if (typeof reply.context.config.component.fetchData === 'function') {
+      ssrPreloading = { success: true, payload: await reply.context.config.component.fetchData(request.params) }
     }
   } catch (e) {
     ssrPreloading = { success: false, payload: e }
@@ -127,7 +127,11 @@ export async function renderPage(request, reply) {
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: app }} />
 
-        <script defer type="text/javascript" dangerouslySetInnerHTML={{ __html: `window.__ssrPreloading = ${JSON.stringify(ssrPreloading)}` }} />
+        <script
+          defer
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: `window.__ssrPreloading = ${JSON.stringify(ssrPreloading)}` }}
+        />
         <script defer type="text/javascript" src="/app.js" />
       </body>
     </html>

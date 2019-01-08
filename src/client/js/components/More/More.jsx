@@ -25,7 +25,8 @@ const buildLinks = (pathname, currentCount) => {
     currentPage,
     prevLinkEnabled: currentPage >= 2,
     nextLinkEnabled: !(currentCount < PAGE_SIZE),
-    prevLink: Number.isInteger(currentPage) && currentPage > 2 ? `/${pathParts[1]}/page/${prevPage}` : `/${pathParts[1]}`,
+    prevLink:
+      Number.isInteger(currentPage) && currentPage > 2 ? `/${pathParts[1]}/page/${prevPage}` : `/${pathParts[1]}`,
     nextLink: `/${pathParts[1]}/page/${nextPage}`,
   }
 }
@@ -61,7 +62,10 @@ const styles = stylesheet({
 
 export function More({ location, data }) {
   const currentCount = data ? data.length : 0
-  const { nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage } = buildLinks(location.pathname, currentCount)
+  const { nextLink, prevLink, nextLinkEnabled, prevLinkEnabled, currentPage } = buildLinks(
+    location.pathname,
+    currentCount
+  )
 
   const rangeStart = currentPage ? 30 * (currentPage - 1) + 1 : 1
   const rangeEnd = rangeStart + 29

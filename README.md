@@ -13,11 +13,11 @@ This project is an example of how a Progressive Web Application can be structure
 
 ## Project goals
 
-* Every page can be server-side rendered
-* Client-side routing
-* All static assets to be cached
-* All api requests to be cached
-* Offline capable
+- Every page can be server-side rendered
+- Client-side routing
+- All static assets to be cached
+- All api requests to be cached
+- Offline capable
 
 ## Install
 
@@ -48,16 +48,16 @@ This will build the project and serve it locally at `http://localhost:3000`
 
 ## Frameworks and libraries used
 
-* [Node.js](https://nodejs.org/en/)
-* [Fastify](https://www.fastify.io/)
-* [React](https://reactjs.org/)
-* [React Router](https://reacttraining.com/react-router/)
-* [Typestyle](https://typestyle.github.io/)
-* [Babel](https://babeljs.io/)
-* [WebPack](https://webpack.js.org/)
-* [Rollup](https://rollupjs.org/guide/en)
-* [Workbox](https://developers.google.com/web/tools/workbox/)
-* [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [Node.js](https://nodejs.org/en/)
+- [Fastify](https://www.fastify.io/)
+- [React](https://reactjs.org/)
+- [React Router](https://reacttraining.com/react-router/)
+- [Typestyle](https://typestyle.github.io/)
+- [Babel](https://babeljs.io/)
+- [WebPack](https://webpack.js.org/)
+- [Rollup](https://rollupjs.org/guide/en)
+- [Workbox](https://developers.google.com/web/tools/workbox/)
+- [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
 ## Development
 
@@ -103,9 +103,9 @@ The service worker is used to cache API responses so that should the internet co
 
 Within the context of the app, each page is represented by it's own `js/pages/[page]` file. This helps in debugging, in terms of isolating issues that might be happening within one section of the site, and can be useful when defining rules for [code splitting](https://reactjs.org/docs/code-splitting.html).
 
-##### RouteWithData
+##### Page
 
-Within the app's `containers` most of the data fetching and handling occurs within `RouteWithData`, which on the client takes care of handling asynchronous loading of the
+Within the app's `containers` most of the data fetching and handling occurs within `Page` component, which on the client takes care of handling asynchronous loading of the
 data, while on the server receives the data as static property.
 
 The routes are defined within `routes.js` as a series of objects for each route. This process runs either server-side or on the client-side.
@@ -118,12 +118,12 @@ This repo has its own CircleCI project attached to it: https://circleci.com/gh/n
 
 Whenever a new commit is pushed into master, a new CircleCI build will be triggered and that build will follow the steps defined in `.circleci/config.yml`:
 
-* it will set up its own environment, including the Docker daemon and required containers
-* install the npm modules required by the app to make sure there aren't any dependency issues
-* run tests (there are none written now unfortunately)
-* build a Docker container based on the included `Dockerfile`
-* push that container to the container registry hosted by AWS (ECR)
-* trigger a deploy. This means forcing an update on the ECS service and cluster hosting the application (see below). This will force the service and cluster to re-download the Docker container defined in the ECS task (the one tagged with `latest` and that has been pushed to the registry by the above step)
+- it will set up its own environment, including the Docker daemon and required containers
+- install the npm modules required by the app to make sure there aren't any dependency issues
+- run tests (there are none written now unfortunately)
+- build a Docker container based on the included `Dockerfile`
+- push that container to the container registry hosted by AWS (ECR)
+- trigger a deploy. This means forcing an update on the ECS service and cluster hosting the application (see below). This will force the service and cluster to re-download the Docker container defined in the ECS task (the one tagged with `latest` and that has been pushed to the registry by the above step)
 
 ### Hosting
 
@@ -159,19 +159,19 @@ In the interest of fostering an open and welcoming environment, we as contributo
 
 Examples of behavior that contributes to creating a positive environment include:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards other community members
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+- The use of sexualized language or imagery and unwelcome sexual attention or advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic address, without explicit permission
+- Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ## Our Responsibilities
 

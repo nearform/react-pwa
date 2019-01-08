@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when location is "/" 1`] = `
-<heading
+<header
   class="navigation_f1q0zr17"
 >
   <a
@@ -61,7 +61,7 @@ exports[`renders correctly when location is "/" 1`] = `
   </a>
   <div
     class="navigationHamburger_f19l4149"
-    data-auto="navigationHamburger"
+    data-testid="navigationHamburger"
   >
     <svg
       height="48"
@@ -76,10 +76,11 @@ exports[`renders correctly when location is "/" 1`] = `
   </div>
   <div
     class="navigationSide_fjdmy2v"
+    data-testid="navigation"
   >
     <div
       class="navigationClose_fqg2kgw"
-      data-auto="navigationClose"
+      data-testid="navigationClose"
     >
       <svg
         height="48"
@@ -97,7 +98,7 @@ exports[`renders correctly when location is "/" 1`] = `
     >
       <li
         class="navigationItem_fy01t6e"
-        data-auto="mobileTopStoriesLink"
+        data-testid="mobileTopStoriesLink"
       >
         <a
           aria-current="page"
@@ -158,7 +159,7 @@ exports[`renders correctly when location is "/" 1`] = `
         <a
           href="https://www.nearform.com/blog"
         >
-          About NearForm
+          About nearForm
         </a>
       </li>
     </ul>
@@ -204,11 +205,11 @@ exports[`renders correctly when location is "/" 1`] = `
       Jobs
     </a>
   </nav>
-</heading>
+</header>
 `;
 
 exports[`renders correctly when location is "/newcomments" 1`] = `
-<heading
+<header
   class="navigation_f1q0zr17"
 >
   <a
@@ -268,7 +269,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
   </a>
   <div
     class="navigationHamburger_f19l4149"
-    data-auto="navigationHamburger"
+    data-testid="navigationHamburger"
   >
     <svg
       height="48"
@@ -283,10 +284,11 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
   </div>
   <div
     class="navigationSide_fjdmy2v"
+    data-testid="navigation"
   >
     <div
       class="navigationClose_fqg2kgw"
-      data-auto="navigationClose"
+      data-testid="navigationClose"
     >
       <svg
         height="48"
@@ -304,7 +306,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
     >
       <li
         class="navigationItem_fy01t6e"
-        data-auto="mobileTopStoriesLink"
+        data-testid="mobileTopStoriesLink"
       >
         <a
           href="/"
@@ -365,7 +367,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
         <a
           href="https://www.nearform.com/blog"
         >
-          About NearForm
+          About nearForm
         </a>
       </li>
     </ul>
@@ -411,5 +413,5 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
       Jobs
     </a>
   </nav>
-</heading>
+</header>
 `;
