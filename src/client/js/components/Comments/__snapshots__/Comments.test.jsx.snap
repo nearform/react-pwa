@@ -2,10 +2,10 @@
 
 exports[`renders correctly when data provided 1`] = `
 <ul
-  class="commentsList_fah75xl"
+  class="commentsList_f1azx7cb"
 >
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -28,7 +28,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -52,7 +52,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -72,7 +72,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -89,7 +89,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -109,7 +109,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -135,7 +135,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -155,7 +155,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -175,7 +175,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -192,7 +192,7 @@ exports[`renders correctly when data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli"
+    class="commentsListItem_f1y5xtod"
   >
     <span
       class="commentsListTitle_f1bz5gy2"
@@ -221,10 +221,10 @@ exports[`renders correctly when empty data provided 1`] = `
 
 exports[`renders correctly when no data provided 1`] = `
 <ul
-  class="commentsList_fah75xl"
+  class="commentsList_f1azx7cb"
 >
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -248,7 +248,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -272,7 +272,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -296,7 +296,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -320,7 +320,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -344,7 +344,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -368,7 +368,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -392,7 +392,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -416,7 +416,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
@@ -440,7 +440,7 @@ exports[`renders correctly when no data provided 1`] = `
     </span>
   </li>
   <li
-    class="commentsListItem_fiyvqli loading_fmjor1"
+    class="commentsListItem_f1y5xtod loading_f1712lg4"
   >
     <span
       class="commentsListTitle_f1bz5gy2 placeholder_fu1ixcy"
