@@ -15,9 +15,10 @@ const styles = stylesheet({
     listStyle: 'none',
     margin: 0,
     padding: '1em',
-    overflowX: 'hidden',
   },
   commentsListItem: {
+    position: 'relative',
+    overflow: 'hidden',
     lineHeight: '10pt',
   },
   commentsListTitle: {

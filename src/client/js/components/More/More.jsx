@@ -41,6 +41,7 @@ const styles = stylesheet({
     padding: '1em',
     borderBottom: `6px solid ${colors.NEARFORM_BRAND_MAIN}`,
     position: 'sticky',
+    zIndex: 1,
     top: '70px', // Height of the header TODO: should be shared constant
   },
   moreItem: {

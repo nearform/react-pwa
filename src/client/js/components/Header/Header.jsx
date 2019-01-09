@@ -7,7 +7,7 @@ import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
 
 export const styles = stylesheet({
   navigation: {
-    zIndex: 1, // set stacking context for child side menu
+    zIndex: 2, // set stacking context for child side menu
     padding: '1em 1em 0 1em',
     display: 'grid',
     gridTemplateColumns: `65px auto 48px`,

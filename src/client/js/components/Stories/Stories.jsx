@@ -34,6 +34,8 @@ const styles = stylesheet({
     ).$nest,
   },
   storiesListItem: {
+    position: 'relative',
+    overflow: 'hidden',
     padding: '1em 0 0 0',
     display: 'grid',
     gridRowGap: '.5em',
