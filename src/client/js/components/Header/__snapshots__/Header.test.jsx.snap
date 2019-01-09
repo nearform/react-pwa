@@ -2,7 +2,7 @@
 
 exports[`renders correctly when location is "/" 1`] = `
 <heading
-  class="navigation_f1q0zr17"
+  class="navigation_f1bchzmg"
 >
   <a
     class="navigationLogo_f14i6856"
@@ -209,7 +209,7 @@ exports[`renders correctly when location is "/" 1`] = `
 
 exports[`renders correctly when location is "/newcomments" 1`] = `
 <heading
-  class="navigation_f1q0zr17"
+  class="navigation_f1bchzmg"
 >
   <a
     class="navigationLogo_f14i6856"
