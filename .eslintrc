@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["jest", "react", "prettier"],
+  "plugins": ["jest", "react", "react-hooks", "prettier"],
   "extends": ["standard", "standard-jsx", "standard-react", "plugin:prettier/recommended"],
   "rules": {
     "jsx-quotes": [2, "prefer-double"],
@@ -9,6 +9,7 @@
     "jest/no-identical-title": "error",
     "jest/valid-expect": "error",
     "react/prop-types": 0,
+    "react-hooks/rules-of-hooks": "error",
     "node/no-deprecated-api": [
       "error",
       {

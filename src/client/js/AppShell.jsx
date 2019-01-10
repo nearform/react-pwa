@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Router as ServerRouter, Switch } from 'react-router'
 import { BrowserRouter, Route } from 'react-router-dom'
 import routes from '../routes'
@@ -16,14 +16,14 @@ export function AppShell({ history, ssrPreloading }) {
 
   return (
     <SelectedRouter history={history}>
-      <Fragment>
+      <>
         <Header />
         <Switch>
           {routesConfig.map(({ component: Component, ssrPreloading, ...routeProps }, i) => (
             <Route key={i} {...routeProps} render={props => <Component {...props} ssrPreloading={ssrPreloading} />} />
           ))}
         </Switch>
-      </Fragment>
+      </>
     </SelectedRouter>
   )
 }

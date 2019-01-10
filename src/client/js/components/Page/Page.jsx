@@ -45,10 +45,10 @@ function pageFactory(type) {
     )
 
     return state.error ? (
-      <React.Fragment>
+      <>
         {window.navigator.onLine && <ErrorPage {...props} error={state.error} />}
         {!window.navigator.onLine && <OfflinePage {...props} error={state.error} />}
-      </React.Fragment>
+      </>
     ) : (
       <main>
         <More {...props} data={state.data} />
