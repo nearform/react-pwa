@@ -63,7 +63,7 @@ export async function renderPage(request, reply) {
   // Return the rendered page
   reply.type('text/html')
 
-  return renderToString(
+  return `<!DOCTYPE html>${renderToString(
     <html lang="en">
       <head>
         <title>Hacker News</title>
@@ -135,5 +135,5 @@ export async function renderPage(request, reply) {
         <script defer type="text/javascript" src="/app.js" />
       </body>
     </html>
-  )
+  )}`
 }
