@@ -68,7 +68,8 @@ export const commentsMock = [
     content:
       "&gt; Even if surveillance is already widespread, that doesn't make more surveillance a good thing.<p>I'm one of those types who uses cash, doesn't own a cell-phone, doesn't have Facebook or any of the others, opts for pat-downs at the airport as a form of protest, etc. etc.</p><p>Having security and surveillance on our ports of entry seems entirely reasonable to me.</p><p>The problem I can imagine is that we're almost guaranteed to run into No-Fly-List style mistaken-identity situations and I sincerely doubt CBP will have reasonable recourse for such mistakes.</p>",
     creator: 'mieseratte',
-    title: "New comment by mieseratte in 'US government to use facial recognition technology at Mexico border crossing'",
+    title:
+      "New comment by mieseratte in 'US government to use facial recognition technology at Mexico border crossing'",
     link: 'https://news.ycombinator.com/item?id=17256011',
     pubDate: 'Thu, 07 Jun 2018 14:28:23 +0000',
     'dc:creator': 'mieseratte',

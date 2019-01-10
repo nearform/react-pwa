@@ -1,8 +1,7 @@
 import React from 'react'
-import { render, shallow } from 'enzyme'
+import { render, mount } from 'enzyme'
 import { MemoryRouter, NavLink } from 'react-router-dom'
-
-import Header from './Header'
+import Header, { styles } from './Header'
 
 it('renders correctly when location is "/"', () => {
   const props = {
@@ -43,17 +42,24 @@ it('opens and closes mobile nav menu', () => {
     },
   }
 
-  const test = shallow(<Header {...props} />)
-  const navigationHamburger = test.find('[data-auto="navigationHamburger"]')
-  const navigationClose = test.find('[data-auto="navigationClose"]')
+  const test = mount(
+    <MemoryRouter initialEntries={[props.location.pathname]}>
+      <Header {...props} />
+    </MemoryRouter>
+  )
 
-  expect(test.state().navigationVisible).toEqual(false)
+  const navigation = test.find('[data-testid="navigation"]')
+  const navigationNode = navigation.getDOMNode()
+  const navigationHamburger = test.find('[data-testid="navigationHamburger"]')
+  const navigationClose = test.find('[data-testid="navigationClose"]')
+
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(false)
 
   navigationHamburger.simulate('click')
-  expect(test.state().navigationVisible).toEqual(true)
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(true)
 
   navigationClose.simulate('click')
-  expect(test.state().navigationVisible).toEqual(false)
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(false)
 })
 
 it('toggles navigation when clicking mobile nav item', () => {
@@ -63,15 +69,22 @@ it('toggles navigation when clicking mobile nav item', () => {
     },
   }
 
-  const test = shallow(<Header {...props} />)
-  const navigationHamburger = test.find('[data-auto="navigationHamburger"]')
-  const mobileTopStoriesLink = test.find('[data-auto="mobileTopStoriesLink"]').find(NavLink)
+  const test = mount(
+    <MemoryRouter initialEntries={[props.location.pathname]}>
+      <Header {...props} />
+    </MemoryRouter>
+  )
 
-  expect(test.state().navigationVisible).toEqual(false)
+  const navigation = test.find('[data-testid="navigation"]')
+  const navigationNode = navigation.getDOMNode()
+  const navigationHamburger = test.find('[data-testid="navigationHamburger"]')
+  const mobileTopStoriesLink = test.find('[data-testid="mobileTopStoriesLink"]').find(NavLink)
+
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(false)
 
   navigationHamburger.simulate('click')
-  expect(test.state().navigationVisible).toEqual(true)
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(true)
 
   mobileTopStoriesLink.simulate('click')
-  expect(test.state().navigationVisible).toEqual(false)
+  expect(navigationNode.className.includes(styles.navigationSideVisible)).toEqual(false)
 })

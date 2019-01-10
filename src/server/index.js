@@ -2,7 +2,7 @@ const fastify = require('fastify')
 const { existsSync, readFileSync } = require('fs')
 const nodeFetch = require('node-fetch')
 const { resolve } = require('path')
-const { routes } = require('../../dist/server/routes')
+const routes = require('../../dist/server/routes').default
 const { renderPage } = require('../../dist/server/page.html')
 
 function unhandledRejectionHandler(error) {
@@ -37,11 +37,11 @@ async function main() {
   const server = fastify({ logger: { prettyPrint: process.env.NODE_ENV !== 'production' }, ...detectHttps() })
 
   // Add routes
-  for (const [path, component] of Object.entries(routes)) {
+  for (const { path, component } of routes) {
     for (const suffix of ['', '/page/:page']) {
       server.route({
         method: 'GET',
-        url: `${path}${suffix}` || '/',
+        url: `${path}${suffix}`,
         handler: renderPage,
         config: {
           component,

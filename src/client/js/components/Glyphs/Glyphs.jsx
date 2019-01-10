@@ -4,7 +4,10 @@ import { colors } from '../../styles/common'
 
 export const HumburgerIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-    <path fill={colors.NEARFORM_BRAND_MAIN} d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0" />
+    <path
+      fill={colors.NEARFORM_BRAND_MAIN}
+      d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
+    />
   </svg>
 )
 
