@@ -1,4 +1,5 @@
 # Generic
+.idea
 .DS_Store
 client-bundle-stats.json
 coverage
