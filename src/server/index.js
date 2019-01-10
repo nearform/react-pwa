@@ -2,8 +2,8 @@ const fastify = require('fastify')
 const { existsSync, readFileSync } = require('fs')
 const nodeFetch = require('node-fetch')
 const { resolve } = require('path')
-const routes = require('../../dist/server/routes').default
-const { renderPage } = require('../../dist/server/page.html')
+const routes = require('../client/routes').default
+const { renderPage } = require('./page.html')
 
 function unhandledRejectionHandler(error) {
   console.error(error)
