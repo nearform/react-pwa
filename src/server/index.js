@@ -41,7 +41,7 @@ async function main() {
     for (const suffix of ['', '/page/:page']) {
       server.route({
         method: 'GET',
-        url: `${path}${suffix}`,
+        url: `${path}${path === '/' && suffix ? suffix.substr(1) : suffix}`,
         handler: renderPage,
         config: {
           component,
