@@ -50,7 +50,7 @@ function pageFactory(type) {
         {!window.navigator.onLine && <OfflinePage {...props} error={state.error} />}
       </>
     ) : (
-      <main>
+      <main role="main" id="content">
         <More {...props} data={state.data} />
         {type === 'comments' ? <Comments {...props} data={state.data} /> : <Stories {...props} data={state.data} />}
       </main>

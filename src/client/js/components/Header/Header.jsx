@@ -5,6 +5,12 @@ import { colors, ergonomics } from '../../styles/common'
 import { Logo } from '../Logo'
 import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
 
+const buttonReset = {
+  border: 'none',
+  background: 'none',
+  padding: 0,
+}
+
 export const styles = stylesheet({
   navigation: {
     zIndex: 2, // set stacking context for child side menu
@@ -37,6 +43,7 @@ export const styles = stylesheet({
     textAlign: 'right',
   },
   navigationHamburger: {
+    ...buttonReset,
     gridColumnStart: '3',
     gridColumnEnd: '4',
     cursor: 'pointer',
@@ -50,11 +57,15 @@ export const styles = stylesheet({
     ),
   },
   navigationClose: {
+    ...buttonReset,
+    alignSelf: 'start',
+    textAlign: 'left',
     gridColumnStart: '2',
     gridColumnEnd: '3',
     cursor: 'pointer',
   },
   navigationSide: {
+    visibility: 'hidden',
     display: 'grid',
     gridTemplateColumns: 'auto 57px',
     height: '100%',
@@ -75,6 +86,7 @@ export const styles = stylesheet({
     paddingTop: '1.35em',
   },
   navigationSideVisible: {
+    visibility: 'visible',
     width: '100%',
   },
   navigationItem: {
@@ -127,25 +139,35 @@ const Navigation = () => {
   const toggleNavigation = useCallback(() => setNavigationVisible(oldNavigationVisible => !oldNavigationVisible), [])
 
   return (
-    <header className={styles.navigation}>
+    <header className={styles.navigation} role="banner">
       <Link to="/" className={styles.navigationLogo}>
         <Logo />
       </Link>
-      <a aria-label="nearForm Website" className={styles.nearFormLogo} href="https://www.nearform.com/blog">
+      <a aria-label="NearForm Website" className={styles.nearFormLogo} href="https://www.nearform.com/blog">
         <NearFormLogo />
       </a>
-      <div className={styles.navigationHamburger} onClick={toggleNavigation} data-testid="navigationHamburger">
+      <button
+        className={styles.navigationHamburger}
+        onClick={toggleNavigation}
+        aria-label="Menu"
+        data-testid="navigationHamburger"
+      >
         <HumburgerIcon />
-      </div>
-      <div
+      </button>
+      <nav
         className={
           navigationVisible ? classes(styles.navigationSide, styles.navigationSideVisible) : styles.navigationSide
         }
         data-testid="navigation"
       >
-        <div className={styles.navigationClose} onClick={toggleNavigation} data-testid="navigationClose">
+        <button
+          className={styles.navigationClose}
+          onClick={toggleNavigation}
+          aria-label="Close"
+          data-testid="navigationClose"
+        >
           <CloseIcon />
-        </div>
+        </button>
         <ul className={styles.navigationMobile}>
           <li className={styles.navigationItem} data-testid="mobileTopStoriesLink">
             <NavLink onClick={toggleNavigation} to="/" isActive={checkRootRouteActive}>
@@ -181,7 +203,7 @@ const Navigation = () => {
             <a href="https://www.nearform.com/blog">About NearForm</a>
           </li>
         </ul>
-      </div>
+      </nav>
       <nav className={styles.navigationDesktop}>
         <NavLink className={styles.navigationItem} to="/" isActive={checkRootRouteActive}>
           Top Stories
