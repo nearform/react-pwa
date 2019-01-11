@@ -2,8 +2,8 @@ import { createMemoryHistory } from 'history'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { createTypeStyle, getStyles } from 'typestyle'
-import { AppShell } from './js/AppShell'
-import { colors } from './js/styles/common'
+import { AppShell } from '../client/js/AppShell'
+import { colors } from '../client/js/styles/common'
 
 const globalStyles = createTypeStyle() // Instantiate a different typestyle sheet since global styles won't be regenerated from the client
 

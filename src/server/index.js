@@ -2,8 +2,8 @@ const fastify = require('fastify')
 const { existsSync, readFileSync } = require('fs')
 const nodeFetch = require('node-fetch')
 const { resolve } = require('path')
-const routes = require('../../dist/server/routes').default
-const { renderPage } = require('../../dist/server/page.html')
+const routes = require('../client/routes').default
+const { renderPage } = require('./page.html')
 
 function unhandledRejectionHandler(error) {
   console.error(error)
@@ -41,7 +41,7 @@ async function main() {
     for (const suffix of ['', '/page/:page']) {
       server.route({
         method: 'GET',
-        url: `${path}${suffix}`,
+        url: `${path}${path === '/' && suffix ? suffix.substr(1) : suffix}`,
         handler: renderPage,
         config: {
           component,
