@@ -23,6 +23,14 @@ globalStyles.cssRule('body', {
   fontFamily: 'Verdana, Geneva, sans-serif',
 })
 
+globalStyles.cssRule('[tabindex="-1"]', {
+  $nest: {
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+})
+
 globalStyles.cssRule('@media all and (display-mode: standalone)', {
   body: {
     '-webkit-touch-callout': 'none',
@@ -63,7 +71,7 @@ export async function renderPage(request, reply) {
   // Return the rendered page
   reply.type('text/html')
 
-  return renderToString(
+  return `<!DOCTYPE html>${renderToString(
     <html lang="en">
       <head>
         <title>Hacker News</title>
@@ -121,7 +129,7 @@ export async function renderPage(request, reply) {
           media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
         />
 
-        <style>{globalStyles.getStyles()}</style>
+        <style dangerouslySetInnerHTML={{ __html: globalStyles.getStyles() }} />
         <style>{getStyles()}</style>
       </head>
       <body>
@@ -135,5 +143,5 @@ export async function renderPage(request, reply) {
         <script defer type="text/javascript" src="/app.js" />
       </body>
     </html>
-  )
+  )}`
 }

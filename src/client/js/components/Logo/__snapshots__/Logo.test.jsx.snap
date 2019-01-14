@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Logo correctly 1`] = `
-<div
-  class="logo_f4kazk7"
+<h1
+  aria-label="Hacker News"
+  class="logo_f1rhdeyj"
 >
   HN
-</div>
+</h1>
 `;

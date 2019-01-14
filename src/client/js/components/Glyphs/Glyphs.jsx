@@ -3,7 +3,8 @@ import React from 'react'
 import { colors } from '../../styles/common'
 
 export const HumburgerIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true">
+    <title>Menu</title>
     <path
       fill={colors.NEARFORM_BRAND_MAIN}
       d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
@@ -12,7 +13,8 @@ export const HumburgerIcon = () => (
 )
 
 export const CloseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true">
+    <title>Close</title>
     <path
       fill={colors.NEARFORM_BRAND_MAIN}
       d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
@@ -21,7 +23,8 @@ export const CloseIcon = () => (
 )
 
 export const NearFormLogo = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="190" height="52" viewBox="170 21 80 95">
+  <svg xmlns="http://www.w3.org/2000/svg" width="190" height="52" viewBox="170 21 80 95" aria-hidden="true">
+    <title>NearForm</title>
     <g fill="#2165e5" fillRule="nonzero">
       <path d="M97.77,48H85.88a1.71,1.71,0,0,0-1.71,1.7V64.23L74.83,52a10.15,10.15,0,0,0-8.09-4H57.51A5.54,5.54,0,0,0,52,53.49V89.88a5.54,5.54,0,0,0,5.54,5.54H69.43a1.7,1.7,0,0,0,1.71-1.71V79l9.29,12.36a10.15,10.15,0,0,0,8.13,4.06h9.21a5.54,5.54,0,0,0,5.54-5.54V53.49A5.54,5.54,0,0,0,97.77,48ZM67.89,92H57.47a2.19,2.19,0,0,1-2.19-2.19V58.29L67.89,74.87ZM98,92H88.52a6.86,6.86,0,0,1-5.42-2.67L56.07,54a1.64,1.64,0,0,1,1.3-2.64h9.4A6.81,6.81,0,0,1,72.19,54l27.08,35.3A1.64,1.64,0,0,1,98,92ZM100,85,87.42,68.45V51.36H97.84A2.19,2.19,0,0,1,100,53.55Z" />
       <path d="M166.77,91.35h-7.58L140.34,69.78V91.35h-9.77V52H138l19,22.15V52h9.77Z" />

@@ -2,10 +2,14 @@
 
 exports[`renders CloseIcon correctly 1`] = `
 <svg
+  aria-hidden="true"
   height="48"
   width="48"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title>
+    Close
+  </title>
   <path
     d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
     fill="#2165E3"
@@ -15,10 +19,14 @@ exports[`renders CloseIcon correctly 1`] = `
 
 exports[`renders HumburgerIcon correctly 1`] = `
 <svg
+  aria-hidden="true"
   height="48"
   width="48"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title>
+    Menu
+  </title>
   <path
     d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
     fill="#2165E3"
@@ -28,11 +36,15 @@ exports[`renders HumburgerIcon correctly 1`] = `
 
 exports[`renders NearFormLogo correctly 1`] = `
 <svg
+  aria-hidden="true"
   height="52"
   viewBox="170 21 80 95"
   width="190"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title>
+    NearForm
+  </title>
   <g
     fill="#2165e5"
     fill-rule="nonzero"

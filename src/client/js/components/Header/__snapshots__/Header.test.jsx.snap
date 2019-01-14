@@ -3,28 +3,34 @@
 exports[`renders correctly when location is "/" 1`] = `
 <header
   class="navigation_f1bchzmg"
+  role="banner"
 >
   <a
     class="navigationLogo_f14i6856"
     href="/"
   >
-    <div
-      class="logo_f4kazk7"
+    <h1
+      aria-label="Hacker News"
+      class="logo_f1rhdeyj"
     >
       HN
-    </div>
+    </h1>
   </a>
   <a
-    aria-label="nearForm Website"
+    aria-label="NearForm Website"
     class="nearFormLogo_f1kigu13"
     href="https://www.nearform.com/blog"
   >
     <svg
+      aria-hidden="true"
       height="52"
       viewBox="170 21 80 95"
       width="190"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        NearForm
+      </title>
       <g
         fill="#2165e5"
         fill-rule="nonzero"
@@ -59,111 +65,149 @@ exports[`renders correctly when location is "/" 1`] = `
       </g>
     </svg>
   </a>
-  <div
-    class="navigationHamburger_f19l4149"
+  <button
+    aria-describedby="nav-info"
+    aria-label="Menu"
+    class="navigationHamburger_f18vijaj"
     data-testid="navigationHamburger"
   >
     <svg
+      aria-hidden="true"
       height="48"
       width="48"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        Menu
+      </title>
       <path
         d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
         fill="#2165E3"
       />
     </svg>
-  </div>
-  <div
-    class="navigationSide_fjdmy2v"
+    <span
+      class="hidden_f1wt0yvj"
+      id="nav-info"
+    >
+      Press this button to show navigation
+    </span>
+  </button>
+  <nav
+    class="navigationSide_fmq9nc0"
     data-testid="navigation"
+    role="dialog"
   >
     <div
-      class="navigationClose_fqg2kgw"
-      data-testid="navigationClose"
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+    <div
+      class="navigationSideContentWrapper_fwbx8zi"
+      data-focus-lock-disabled="disabled"
     >
-      <svg
-        height="48"
-        width="48"
-        xmlns="http://www.w3.org/2000/svg"
+      <ul
+        class="navigationMobile_f1wfwpva"
       >
-        <path
-          d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
-          fill="#2165E3"
-        />
-      </svg>
+        <li
+          class="navigationItem_fy01t6e"
+          data-testid="mobileTopStoriesLink"
+        >
+          <a
+            aria-current="page"
+            class="active"
+            href="/"
+          >
+            Top Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/newest"
+          >
+            New Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/newcomments"
+          >
+            Comments
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/show"
+          >
+            Show
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/ask"
+          >
+            Ask
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/jobs"
+          >
+            Jobs
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="https://www.nearform.com/blog"
+          >
+            About NearForm
+          </a>
+        </li>
+      </ul>
+      <button
+        aria-label="Close"
+        class="navigationClose_frquig"
+        data-testid="navigationClose"
+      >
+        <svg
+          aria-hidden="true"
+          height="48"
+          width="48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
+            fill="#2165E3"
+          />
+        </svg>
+      </button>
     </div>
-    <ul
-      class="navigationMobile_f1wfwpva"
-    >
-      <li
-        class="navigationItem_fy01t6e"
-        data-testid="mobileTopStoriesLink"
-      >
-        <a
-          aria-current="page"
-          class="active"
-          href="/"
-        >
-          Top Stories
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/newest"
-        >
-          New Stories
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/newcomments"
-        >
-          Comments
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/show"
-        >
-          Show
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/ask"
-        >
-          Ask
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/jobs"
-        >
-          Jobs
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="https://www.nearform.com/blog"
-        >
-          About NearForm
-        </a>
-      </li>
-    </ul>
-  </div>
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+  </nav>
   <nav
     class="navigationDesktop_f18tdmk2"
   >
@@ -211,28 +255,34 @@ exports[`renders correctly when location is "/" 1`] = `
 exports[`renders correctly when location is "/newcomments" 1`] = `
 <header
   class="navigation_f1bchzmg"
+  role="banner"
 >
   <a
     class="navigationLogo_f14i6856"
     href="/"
   >
-    <div
-      class="logo_f4kazk7"
+    <h1
+      aria-label="Hacker News"
+      class="logo_f1rhdeyj"
     >
       HN
-    </div>
+    </h1>
   </a>
   <a
-    aria-label="nearForm Website"
+    aria-label="NearForm Website"
     class="nearFormLogo_f1kigu13"
     href="https://www.nearform.com/blog"
   >
     <svg
+      aria-hidden="true"
       height="52"
       viewBox="170 21 80 95"
       width="190"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        NearForm
+      </title>
       <g
         fill="#2165e5"
         fill-rule="nonzero"
@@ -267,111 +317,149 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
       </g>
     </svg>
   </a>
-  <div
-    class="navigationHamburger_f19l4149"
+  <button
+    aria-describedby="nav-info"
+    aria-label="Menu"
+    class="navigationHamburger_f18vijaj"
     data-testid="navigationHamburger"
   >
     <svg
+      aria-hidden="true"
       height="48"
       width="48"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        Menu
+      </title>
       <path
         d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
         fill="#2165E3"
       />
     </svg>
-  </div>
-  <div
-    class="navigationSide_fjdmy2v"
+    <span
+      class="hidden_f1wt0yvj"
+      id="nav-info"
+    >
+      Press this button to show navigation
+    </span>
+  </button>
+  <nav
+    class="navigationSide_fmq9nc0"
     data-testid="navigation"
+    role="dialog"
   >
     <div
-      class="navigationClose_fqg2kgw"
-      data-testid="navigationClose"
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+    <div
+      class="navigationSideContentWrapper_fwbx8zi"
+      data-focus-lock-disabled="disabled"
     >
-      <svg
-        height="48"
-        width="48"
-        xmlns="http://www.w3.org/2000/svg"
+      <ul
+        class="navigationMobile_f1wfwpva"
       >
-        <path
-          d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
-          fill="#2165E3"
-        />
-      </svg>
+        <li
+          class="navigationItem_fy01t6e"
+          data-testid="mobileTopStoriesLink"
+        >
+          <a
+            href="/"
+          >
+            Top Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/newest"
+          >
+            New Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            aria-current="page"
+            class="active"
+            href="/newcomments"
+          >
+            Comments
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/show"
+          >
+            Show
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/ask"
+          >
+            Ask
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/jobs"
+          >
+            Jobs
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="https://www.nearform.com/blog"
+          >
+            About NearForm
+          </a>
+        </li>
+      </ul>
+      <button
+        aria-label="Close"
+        class="navigationClose_frquig"
+        data-testid="navigationClose"
+      >
+        <svg
+          aria-hidden="true"
+          height="48"
+          width="48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
+            fill="#2165E3"
+          />
+        </svg>
+      </button>
     </div>
-    <ul
-      class="navigationMobile_f1wfwpva"
-    >
-      <li
-        class="navigationItem_fy01t6e"
-        data-testid="mobileTopStoriesLink"
-      >
-        <a
-          href="/"
-        >
-          Top Stories
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/newest"
-        >
-          New Stories
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          aria-current="page"
-          class="active"
-          href="/newcomments"
-        >
-          Comments
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/show"
-        >
-          Show
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/ask"
-        >
-          Ask
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="/jobs"
-        >
-          Jobs
-        </a>
-      </li>
-      <li
-        class="navigationItem_fy01t6e"
-      >
-        <a
-          href="https://www.nearform.com/blog"
-        >
-          About NearForm
-        </a>
-      </li>
-    </ul>
-  </div>
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="-1"
+    />
+  </nav>
   <nav
     class="navigationDesktop_f18tdmk2"
   >
@@ -390,6 +478,259 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
     <a
       aria-current="page"
       class="navigationItem_fy01t6e active"
+      href="/newcomments"
+    >
+      Comments
+    </a>
+    <a
+      class="navigationItem_fy01t6e"
+      href="/show"
+    >
+      Show
+    </a>
+    <a
+      class="navigationItem_fy01t6e"
+      href="/ask"
+    >
+      Ask
+    </a>
+    <a
+      class="navigationItem_fy01t6e"
+      href="/jobs"
+    >
+      Jobs
+    </a>
+  </nav>
+</header>
+`;
+
+exports[`should render with menu open 1`] = `
+<header
+  class="navigation_f1bchzmg"
+  role="banner"
+>
+  <a
+    class="navigationLogo_f14i6856"
+    href="/"
+  >
+    <h1
+      aria-label="Hacker News"
+      class="logo_f1rhdeyj"
+    >
+      HN
+    </h1>
+  </a>
+  <a
+    aria-label="NearForm Website"
+    class="nearFormLogo_f1kigu13"
+    href="https://www.nearform.com/blog"
+  >
+    <svg
+      aria-hidden="true"
+      height="52"
+      viewBox="170 21 80 95"
+      width="190"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>
+        NearForm
+      </title>
+      <g
+        fill="#2165e5"
+        fill-rule="nonzero"
+      >
+        <path
+          d="M97.77,48H85.88a1.71,1.71,0,0,0-1.71,1.7V64.23L74.83,52a10.15,10.15,0,0,0-8.09-4H57.51A5.54,5.54,0,0,0,52,53.49V89.88a5.54,5.54,0,0,0,5.54,5.54H69.43a1.7,1.7,0,0,0,1.71-1.71V79l9.29,12.36a10.15,10.15,0,0,0,8.13,4.06h9.21a5.54,5.54,0,0,0,5.54-5.54V53.49A5.54,5.54,0,0,0,97.77,48ZM67.89,92H57.47a2.19,2.19,0,0,1-2.19-2.19V58.29L67.89,74.87ZM98,92H88.52a6.86,6.86,0,0,1-5.42-2.67L56.07,54a1.64,1.64,0,0,1,1.3-2.64h9.4A6.81,6.81,0,0,1,72.19,54l27.08,35.3A1.64,1.64,0,0,1,98,92ZM100,85,87.42,68.45V51.36H97.84A2.19,2.19,0,0,1,100,53.55Z"
+        />
+        <path
+          d="M166.77,91.35h-7.58L140.34,69.78V91.35h-9.77V52H138l19,22.15V52h9.77Z"
+        />
+        <path
+          d="M197.27,79.9l-.05.17h-19.9a6,6,0,0,0,6.3,4.51,4.83,4.83,0,0,0,4.28-2h9.25c-1.33,5.78-6.71,9.43-13.64,9.43-9.2,0-15.33-6.13-15.33-14.69s6-14.63,14.92-14.63c8.16,0,14.34,5.61,14.34,14A20,20,0,0,1,197.27,79.9ZM177.2,74.58h11.45a5.19,5.19,0,0,0-5.55-4.68A5.73,5.73,0,0,0,177.2,74.58Z"
+        />
+        <path
+          d="M229.43,91.35h-9.37V89.79a14,14,0,0,1-7.69,2.14c-7.57,0-13.93-6.31-13.93-14.63s6.36-14.63,13.93-14.63a14,14,0,0,1,7.69,2.14V63.3h9.37Zm-9.37-9.72V73a7.26,7.26,0,0,0-5.84-2.66,7,7,0,0,0,0,13.94A7.17,7.17,0,0,0,220.06,81.63Z"
+        />
+        <path
+          d="M250.63,71.75c-4.57.17-7.46,1.38-9.66,3.58v16H231.6v-28H241v3a14.05,14.05,0,0,1,9.66-3.47Z"
+        />
+        <path
+          d="M281.27,60.64V52H252V91.35h9.78V77.47h14.66V77.3a16.91,16.91,0,0,1,2.1-8.33H261.73V60.64Z"
+        />
+        <path
+          d="M328.49,71.75c-4.57.17-7.46,1.38-9.65,3.58v16h-9.37v-28h9.37v3a14,14,0,0,1,9.65-3.47Z"
+        />
+        <path
+          d="M376.61,75.33v16h-9.43V76.84c0-4-1.91-5.9-5-5.9a5.45,5.45,0,0,0-4.28,2.31c.06.69.12,1.39.12,2.08v16h-9.37V76.84c0-4-2-5.9-5-5.9-1.45,0-2.84.69-4.22,2.48V91.35H330v-28h9.37V65a9.86,9.86,0,0,1,7-2.54A11,11,0,0,1,355,66.19a13.7,13.7,0,0,1,9.95-3.75C371.63,62.44,376.61,67.35,376.61,75.33Z"
+        />
+        <path
+          d="M308.31,77.3c0,8.56-6.36,14.92-15.21,14.92s-15.2-6.36-15.2-14.92,6.36-14.63,15.2-14.63S308.31,68.85,308.31,77.3Zm-8.84,0a6.34,6.34,0,1,0-12.67,0c0,3.76,2.55,6.77,6.36,6.77S299.47,81.11,299.47,77.35Z"
+        />
+      </g>
+    </svg>
+  </a>
+  <button
+    aria-describedby="nav-info"
+    aria-label="Menu"
+    class="navigationHamburger_f18vijaj"
+    data-testid="navigationHamburger"
+  >
+    <svg
+      aria-hidden="true"
+      height="48"
+      width="48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>
+        Menu
+      </title>
+      <path
+        d="M6.559 10.398h38v5.043h-38zm0 12.641h38v5.121h-38zm0 12.723h38V40.8h-38zm0 0"
+        fill="#2165E3"
+      />
+    </svg>
+    <span
+      class="hidden_f1wt0yvj"
+      id="nav-info"
+    >
+      Press this button to show navigation
+    </span>
+  </button>
+  <nav
+    class="navigationSide_fmq9nc0"
+    data-testid="navigation"
+    role="dialog"
+    style="visibility:visible;transform:translateX(0)"
+  >
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="0"
+    />
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="1"
+    />
+    <div
+      class="navigationSideContentWrapper_fwbx8zi"
+      data-focus-lock-disabled="false"
+    >
+      <ul
+        class="navigationMobile_f1wfwpva"
+      >
+        <li
+          class="navigationItem_fy01t6e"
+          data-testid="mobileTopStoriesLink"
+        >
+          <a
+            aria-current="page"
+            class="active"
+            href="/"
+          >
+            Top Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/newest"
+          >
+            New Stories
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/newcomments"
+          >
+            Comments
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/show"
+          >
+            Show
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/ask"
+          >
+            Ask
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="/jobs"
+          >
+            Jobs
+          </a>
+        </li>
+        <li
+          class="navigationItem_fy01t6e"
+        >
+          <a
+            href="https://www.nearform.com/blog"
+          >
+            About NearForm
+          </a>
+        </li>
+      </ul>
+      <button
+        aria-label="Close"
+        class="navigationClose_frquig"
+        data-testid="navigationClose"
+      >
+        <svg
+          aria-hidden="true"
+          height="48"
+          width="48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M46.328 4.348L43.68 1.695 24 21.348 4.336 1.684 1.684 4.336 21.348 24 1.672 43.652l2.648 2.653L24 26.652l19.664 19.664 2.652-2.652L26.652 24zm0 0"
+            fill="#2165E3"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      data-focus-guard="true"
+      style="width:1px;height:0px;padding:0;overflow:hidden;position:fixed;top:1px;left:1px"
+      tabindex="0"
+    />
+  </nav>
+  <nav
+    class="navigationDesktop_f18tdmk2"
+  >
+    <a
+      aria-current="page"
+      class="navigationItem_fy01t6e active"
+      href="/"
+    >
+      Top Stories
+    </a>
+    <a
+      class="navigationItem_fy01t6e"
+      href="/newest"
+    >
+      New Stories
+    </a>
+    <a
+      class="navigationItem_fy01t6e"
       href="/newcomments"
     >
       Comments

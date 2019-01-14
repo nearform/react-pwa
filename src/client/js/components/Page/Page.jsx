@@ -12,7 +12,7 @@ const initialState = {
 }
 
 function pageFactory(type) {
-  function Page({ match: { url, params }, ssrPreloading, ...props }) {
+  function Page({ match: { url, params }, ssrPreloading, navigationVisible, ...props }) {
     const getPreloadedState = ({ success, payload }, state) =>
       success ? { ...state, data: payload } : { ...state, error: payload }
 
@@ -50,7 +50,7 @@ function pageFactory(type) {
         {!window.navigator.onLine && <OfflinePage {...props} error={state.error} />}
       </>
     ) : (
-      <main>
+      <main role="main" id="content" tabIndex="-1" aria-hidden={navigationVisible}>
         <More {...props} data={state.data} />
         {type === 'comments' ? <Comments {...props} data={state.data} /> : <Stories {...props} data={state.data} />}
       </main>
