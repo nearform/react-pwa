@@ -76,7 +76,7 @@ export function More({ location, data }) {
       <span>{`${rangeStart} - ${rangeEnd}`}</span>
 
       <Link
-        className={prevLinkEnabled ? styles.moreItem : classes(styles.moreItem, styles.moreDisabled)}
+        className={classes(styles.moreItem, !prevLinkEnabled && styles.moreDisabled)}
         role="button"
         aria-label="Load previous posts"
         disabled={!prevLinkEnabled}
@@ -86,7 +86,7 @@ export function More({ location, data }) {
       </Link>
 
       <Link
-        className={nextLinkEnabled ? styles.moreItem : classes(styles.moreItem, styles.moreDisabled)}
+        className={classes(styles.moreItem, !nextLinkEnabled && styles.moreDisabled)}
         role="button"
         aria-label="Load next posts"
         disabled={!nextLinkEnabled}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { style } from 'typestyle'
 import { More } from '../More'
 import { Stories } from '../Stories'
 import { Comments } from '../Comments'
@@ -50,7 +51,13 @@ function pageFactory(type) {
         {!window.navigator.onLine && <OfflinePage {...props} error={state.error} />}
       </>
     ) : (
-      <main role="main" id="content" tabIndex="-1" aria-hidden={navigationVisible}>
+      <main
+        role="main"
+        id="content"
+        tabIndex="-1"
+        aria-hidden={navigationVisible}
+        className={style({ outline: 'none' })}
+      >
         <More {...props} data={state.data} />
         {type === 'comments' ? <Comments {...props} data={state.data} /> : <Stories {...props} data={state.data} />}
       </main>
