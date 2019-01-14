@@ -8,16 +8,22 @@ exports[`renders correctly when end of list reached 1`] = `
     31 - 60
   </span>
   <a
+    aria-label="Load previous posts"
     class="moreItem_f8pzcup"
     href="/newcomments"
+    role="button"
   >
     &lt;
   </a>
-  <span
+  <a
+    aria-label="Load next posts"
     class="moreItem_f8pzcup moreDisabled_fs9on40"
+    disabled=""
+    href="/newcomments/page/3"
+    role="button"
   >
     &gt;
-  </span>
+  </a>
 </div>
 `;
 
@@ -28,14 +34,20 @@ exports[`renders correctly when location is "/" 1`] = `
   <span>
     1 - 30
   </span>
-  <span
+  <a
+    aria-label="Load previous posts"
     class="moreItem_f8pzcup moreDisabled_fs9on40"
+    disabled=""
+    href="/"
+    role="button"
   >
     &lt;
-  </span>
+  </a>
   <a
+    aria-label="Load next posts"
     class="moreItem_f8pzcup"
     href="/page/2"
+    role="button"
   >
     &gt;
   </a>
@@ -49,14 +61,20 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
   <span>
     1 - 30
   </span>
-  <span
+  <a
+    aria-label="Load previous posts"
     class="moreItem_f8pzcup moreDisabled_fs9on40"
+    disabled=""
+    href="/newcomments"
+    role="button"
   >
     &lt;
-  </span>
+  </a>
   <a
+    aria-label="Load next posts"
     class="moreItem_f8pzcup"
     href="/newcomments/page/2"
+    role="button"
   >
     &gt;
   </a>
@@ -71,14 +89,18 @@ exports[`renders correctly when location is "/newcomments/page/2" 1`] = `
     31 - 60
   </span>
   <a
+    aria-label="Load previous posts"
     class="moreItem_f8pzcup"
     href="/newcomments"
+    role="button"
   >
     &lt;
   </a>
   <a
+    aria-label="Load next posts"
     class="moreItem_f8pzcup"
     href="/newcomments/page/3"
+    role="button"
   >
     &gt;
   </a>
@@ -93,14 +115,18 @@ exports[`renders correctly when location is "/page/5" 1`] = `
     121 - 150
   </span>
   <a
+    aria-label="Load previous posts"
     class="moreItem_f8pzcup"
     href="/page/4"
+    role="button"
   >
     &lt;
   </a>
   <a
+    aria-label="Load next posts"
     class="moreItem_f8pzcup"
     href="/page/6"
+    role="button"
   >
     &gt;
   </a>

@@ -1,6 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { media, classes, stylesheet } from 'typestyle'
+import FocusLock from 'react-focus-lock'
+import { Transition } from 'react-transition-group'
+import { media, stylesheet } from 'typestyle'
 import { colors, ergonomics } from '../../styles/common'
 import { Logo } from '../Logo'
 import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
@@ -9,6 +11,12 @@ const buttonReset = {
   border: 'none',
   background: 'none',
   padding: 0,
+}
+
+const navigationTransition = {
+  entering: { visibility: 'visible', transform: 'translateX(0)' },
+  entered: { visibility: 'visible', transform: 'translateX(0)' },
+  exiting: { visibility: 'visible' },
 }
 
 export const styles = stylesheet({
@@ -66,13 +74,11 @@ export const styles = stylesheet({
   },
   navigationSide: {
     visibility: 'hidden',
-    display: 'grid',
-    gridTemplateColumns: 'auto 57px',
+    width: '100%',
     height: '100%',
-    width: '0',
     position: 'fixed',
-    top: '0',
-    left: '0',
+    top: 0,
+    left: 0,
     backgroundColor: colors.NEARFORM_BRAND_ACCENT_1,
     background: `linear-gradient(
       142.5deg,
@@ -81,13 +87,14 @@ export const styles = stylesheet({
       ${colors.NEARFORM_BRAND_ACCENT_2} 50%,
       ${colors.NEARFORM_BRAND_ACCENT_2} 100%
     )`,
-    overflowX: 'hidden',
-    transition: 'all .3s cubic-bezier(.25, .8, .25, 1)',
+    transform: 'translateX(-100%)',
+    transition: 'transform .3s cubic-bezier(.25, .8, .25, 1)',
     paddingTop: '1.35em',
   },
-  navigationSideVisible: {
-    visibility: 'visible',
-    width: '100%',
+  navigationSideContentWrapper: {
+    display: 'grid',
+    gridTemplateColumns: 'auto 57px',
+    height: '100%',
   },
   navigationItem: {
     fontSize: '1.25em',
@@ -128,16 +135,16 @@ export const styles = stylesheet({
   nearFormLogo: {
     width: '170px',
   },
+  hidden: {
+    display: 'none',
+  },
 })
 
 function checkRootRouteActive(match, location) {
   return location.pathname === '/' || location.pathname.split('/')[1] === 'page'
 }
 
-const Navigation = () => {
-  const [navigationVisible, setNavigationVisible] = useState(false)
-  const toggleNavigation = useCallback(() => setNavigationVisible(oldNavigationVisible => !oldNavigationVisible), [])
-
+const Navigation = ({ navigationVisible, toggleNavigation }) => {
   return (
     <header className={styles.navigation} role="banner">
       <Link to="/" className={styles.navigationLogo}>
@@ -146,64 +153,77 @@ const Navigation = () => {
       <a aria-label="NearForm Website" className={styles.nearFormLogo} href="https://www.nearform.com/blog">
         <NearFormLogo />
       </a>
+
       <button
         className={styles.navigationHamburger}
         onClick={toggleNavigation}
         aria-label="Menu"
+        aria-describedby="nav-info"
         data-testid="navigationHamburger"
       >
         <HumburgerIcon />
+        <span id="nav-info" className={styles.hidden}>
+          Press this button to show navigation
+        </span>
       </button>
-      <nav
-        className={
-          navigationVisible ? classes(styles.navigationSide, styles.navigationSideVisible) : styles.navigationSide
-        }
-        data-testid="navigation"
-      >
-        <button
-          className={styles.navigationClose}
-          onClick={toggleNavigation}
-          aria-label="Close"
-          data-testid="navigationClose"
-        >
-          <CloseIcon />
-        </button>
-        <ul className={styles.navigationMobile}>
-          <li className={styles.navigationItem} data-testid="mobileTopStoriesLink">
-            <NavLink onClick={toggleNavigation} to="/" isActive={checkRootRouteActive}>
-              Top Stories
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <NavLink onClick={toggleNavigation} to="/newest">
-              New Stories
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <NavLink onClick={toggleNavigation} to="/newcomments">
-              Comments
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <NavLink onClick={toggleNavigation} to="/show">
-              Show
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <NavLink onClick={toggleNavigation} to="/ask">
-              Ask
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <NavLink onClick={toggleNavigation} to="/jobs">
-              Jobs
-            </NavLink>
-          </li>
-          <li className={styles.navigationItem}>
-            <a href="https://www.nearform.com/blog">About NearForm</a>
-          </li>
-        </ul>
-      </nav>
+
+      <Transition in={navigationVisible} timeout={300}>
+        {state => (
+          <nav
+            className={styles.navigationSide}
+            style={{ ...navigationTransition[state] }}
+            role="dialog"
+            data-testid="navigation"
+          >
+            <FocusLock disabled={!navigationVisible} returnFocus className={styles.navigationSideContentWrapper}>
+              <ul className={styles.navigationMobile}>
+                <li className={styles.navigationItem} data-testid="mobileTopStoriesLink">
+                  <NavLink onClick={toggleNavigation} to="/" isActive={checkRootRouteActive}>
+                    Top Stories
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <NavLink onClick={toggleNavigation} to="/newest">
+                    New Stories
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <NavLink onClick={toggleNavigation} to="/newcomments">
+                    Comments
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <NavLink onClick={toggleNavigation} to="/show">
+                    Show
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <NavLink onClick={toggleNavigation} to="/ask">
+                    Ask
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <NavLink onClick={toggleNavigation} to="/jobs">
+                    Jobs
+                  </NavLink>
+                </li>
+                <li className={styles.navigationItem}>
+                  <a href="https://www.nearform.com/blog">About NearForm</a>
+                </li>
+              </ul>
+              <button
+                className={styles.navigationClose}
+                onClick={toggleNavigation}
+                aria-label="Close"
+                data-testid="navigationClose"
+              >
+                <CloseIcon />
+              </button>
+            </FocusLock>
+          </nav>
+        )}
+      </Transition>
+
       <nav className={styles.navigationDesktop}>
         <NavLink className={styles.navigationItem} to="/" isActive={checkRootRouteActive}>
           Top Stories

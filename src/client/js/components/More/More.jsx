@@ -75,21 +75,25 @@ export function More({ location, data }) {
     <div className={styles.more}>
       <span>{`${rangeStart} - ${rangeEnd}`}</span>
 
-      {prevLinkEnabled && (
-        <Link className={styles.moreItem} to={prevLink}>
-          {'<'}
-        </Link>
-      )}
+      <Link
+        className={prevLinkEnabled ? styles.moreItem : classes(styles.moreItem, styles.moreDisabled)}
+        role="button"
+        aria-label="Load previous posts"
+        disabled={!prevLinkEnabled}
+        to={prevLink}
+      >
+        {'<'}
+      </Link>
 
-      {!prevLinkEnabled && <span className={classes(styles.moreItem, styles.moreDisabled)}>{'<'}</span>}
-
-      {nextLinkEnabled && (
-        <Link className={styles.moreItem} to={nextLink}>
-          {'>'}
-        </Link>
-      )}
-
-      {!nextLinkEnabled && <span className={classes(styles.moreItem, styles.moreDisabled)}>{'>'}</span>}
+      <Link
+        className={nextLinkEnabled ? styles.moreItem : classes(styles.moreItem, styles.moreDisabled)}
+        role="button"
+        aria-label="Load next posts"
+        disabled={!nextLinkEnabled}
+        to={nextLink}
+      >
+        {'>'}
+      </Link>
     </div>
   )
 }

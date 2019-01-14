@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when data and page provided 1`] = `
-<ol
-  class="storiesList_flhhfk0"
+<div
+  class="storiesList_f1dej7hl"
   start="31"
 >
-  <li
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -13,22 +13,22 @@ exports[`renders correctly when data and page provided 1`] = `
     >
       31
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://docs.datomic.com/cloud/ions/ions.html"
       >
         Ions: Develop cloud applications by deploying to a running Datomic cluster
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       41 points by simonpure
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -36,22 +36,22 @@ exports[`renders correctly when data and page provided 1`] = `
     >
       32
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="http://rsnr.royalsocietypublishing.org/content/early/2018/05/09/rsnr.2018.0002"
       >
         Einstein in Oxford
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       17 points by sohkamyung
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -59,22 +59,22 @@ exports[`renders correctly when data and page provided 1`] = `
     >
       33
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://github.com/radareorg/cutter"
       >
         Cutter – A Qt and C++ GUI for Radare2 reverse engineering framework
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       223 points by xvilka
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -82,22 +82,22 @@ exports[`renders correctly when data and page provided 1`] = `
     >
       34
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jsr.12711"
       >
         Caffeine dosing strategies to optimize alertness during sleep loss
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       31 points by nickcw
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -105,30 +105,30 @@ exports[`renders correctly when data and page provided 1`] = `
     >
       35
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://jochen-hoenicke.de/trezor-power-analysis/"
       >
         Extracting the private key from a TREZOR with an oscilloscope (2015)
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       334 points by mlejva
     </div>
-  </li>
-</ol>
+  </article>
+</div>
 `;
 
 exports[`renders correctly when data provided 1`] = `
-<ol
-  class="storiesList_flhhfk0"
+<div
+  class="storiesList_f1dej7hl"
   start="1"
 >
-  <li
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -136,22 +136,22 @@ exports[`renders correctly when data provided 1`] = `
     >
       1
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://docs.datomic.com/cloud/ions/ions.html"
       >
         Ions: Develop cloud applications by deploying to a running Datomic cluster
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       41 points by simonpure
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -159,22 +159,22 @@ exports[`renders correctly when data provided 1`] = `
     >
       2
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="http://rsnr.royalsocietypublishing.org/content/early/2018/05/09/rsnr.2018.0002"
       >
         Einstein in Oxford
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       17 points by sohkamyung
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -182,22 +182,22 @@ exports[`renders correctly when data provided 1`] = `
     >
       3
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://github.com/radareorg/cutter"
       >
         Cutter – A Qt and C++ GUI for Radare2 reverse engineering framework
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       223 points by xvilka
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -205,22 +205,22 @@ exports[`renders correctly when data provided 1`] = `
     >
       4
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jsr.12711"
       >
         Caffeine dosing strategies to optimize alertness during sleep loss
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       31 points by nickcw
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5"
   >
     <div
@@ -228,22 +228,22 @@ exports[`renders correctly when data provided 1`] = `
     >
       5
     </div>
-    <div
-      class="storiesListTitle_fhylo1y"
+    <h2
+      class="storiesListTitle_f1nap1zu"
     >
       <a
         href="https://jochen-hoenicke.de/trezor-power-analysis/"
       >
         Extracting the private key from a TREZOR with an oscilloscope (2015)
       </a>
-    </div>
+    </h2>
     <div
       class="storiesListByLine_f40jj2y"
     >
       334 points by mlejva
     </div>
-  </li>
-</ol>
+  </article>
+</div>
 `;
 
 exports[`renders correctly when empty data provided 1`] = `
@@ -255,10 +255,10 @@ exports[`renders correctly when empty data provided 1`] = `
 `;
 
 exports[`renders correctly when no data provided 1`] = `
-<ol
-  class="storiesList_flhhfk0"
+<div
+  class="storiesList_f1dej7hl"
 >
-  <li
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -267,7 +267,7 @@ exports[`renders correctly when no data provided 1`] = `
       1
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -284,8 +284,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -294,7 +294,7 @@ exports[`renders correctly when no data provided 1`] = `
       2
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -311,8 +311,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -321,7 +321,7 @@ exports[`renders correctly when no data provided 1`] = `
       3
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -338,8 +338,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -348,7 +348,7 @@ exports[`renders correctly when no data provided 1`] = `
       4
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -365,8 +365,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -375,7 +375,7 @@ exports[`renders correctly when no data provided 1`] = `
       5
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -392,8 +392,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -402,7 +402,7 @@ exports[`renders correctly when no data provided 1`] = `
       6
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -419,8 +419,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -429,7 +429,7 @@ exports[`renders correctly when no data provided 1`] = `
       7
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -446,8 +446,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -456,7 +456,7 @@ exports[`renders correctly when no data provided 1`] = `
       8
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -473,8 +473,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -483,7 +483,7 @@ exports[`renders correctly when no data provided 1`] = `
       9
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -500,8 +500,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -510,7 +510,7 @@ exports[`renders correctly when no data provided 1`] = `
       10
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -527,8 +527,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -537,7 +537,7 @@ exports[`renders correctly when no data provided 1`] = `
       11
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -554,8 +554,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -564,7 +564,7 @@ exports[`renders correctly when no data provided 1`] = `
       12
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -581,8 +581,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -591,7 +591,7 @@ exports[`renders correctly when no data provided 1`] = `
       13
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -608,8 +608,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -618,7 +618,7 @@ exports[`renders correctly when no data provided 1`] = `
       14
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -635,8 +635,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -645,7 +645,7 @@ exports[`renders correctly when no data provided 1`] = `
       15
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -662,8 +662,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -672,7 +672,7 @@ exports[`renders correctly when no data provided 1`] = `
       16
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -689,8 +689,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -699,7 +699,7 @@ exports[`renders correctly when no data provided 1`] = `
       17
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -716,8 +716,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -726,7 +726,7 @@ exports[`renders correctly when no data provided 1`] = `
       18
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -743,8 +743,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -753,7 +753,7 @@ exports[`renders correctly when no data provided 1`] = `
       19
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -770,8 +770,8 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-  <li
+  </article>
+  <article
     class="storiesListItem_fq4lpe5 loading_f1712lg4"
   >
     <div
@@ -780,7 +780,7 @@ exports[`renders correctly when no data provided 1`] = `
       20
     </div>
     <div
-      class="storiesListTitle_fhylo1y storiesListTitlePlaceholder_fhbamv0"
+      class="storiesListTitle_f1nap1zu storiesListTitlePlaceholder_fhbamv0"
     >
       <p
         class="placeholder_fu1ixcy"
@@ -797,6 +797,6 @@ exports[`renders correctly when no data provided 1`] = `
         n points by placeholder
       </p>
     </div>
-  </li>
-</ol>
+  </article>
+</div>
 `;

@@ -23,6 +23,14 @@ globalStyles.cssRule('body', {
   fontFamily: 'Verdana, Geneva, sans-serif',
 })
 
+globalStyles.cssRule('[tabindex="-1"]', {
+  $nest: {
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+})
+
 globalStyles.cssRule('@media all and (display-mode: standalone)', {
   body: {
     '-webkit-touch-callout': 'none',
@@ -121,7 +129,7 @@ export async function renderPage(request, reply) {
           media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
         />
 
-        <style>{globalStyles.getStyles()}</style>
+        <style dangerouslySetInnerHTML={{ __html: globalStyles.getStyles() }} />
         <style>{getStyles()}</style>
       </head>
       <body>

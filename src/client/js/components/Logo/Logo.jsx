@@ -4,6 +4,9 @@ import { colors } from '../../styles/common'
 
 const styles = stylesheet({
   logo: {
+    fontSize: 'inherit',
+    fontWeight: 'normal',
+    margin: 0,
     border: `2px solid ${colors.NEARFORM_BRAND_ACCENT_2}`,
     width: 30,
     padding: '.5em',
@@ -12,5 +15,9 @@ const styles = stylesheet({
 })
 
 export function Logo() {
-  return <div className={styles.logo}>HN</div>
+  return (
+    <h1 className={styles.logo} aria-label="Hacker News">
+      HN
+    </h1>
+  )
 }

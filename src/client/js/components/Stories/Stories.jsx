@@ -12,9 +12,6 @@ const styles = stylesheet({
   storiesList: {
     display: 'grid',
     gridTemplateColumns: '100%',
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
     ...media(
       {
         minWidth: ergonomics.LAP.BEGINNING,
@@ -62,6 +59,9 @@ const styles = stylesheet({
     color: 'white',
   },
   storiesListTitle: {
+    margin: 0,
+    fontWeight: 'normal',
+    fontSize: 'inherit',
     padding: '0 1em 1em 1em',
     gridColumnStart: '2',
     gridColumnEnd: '3',
@@ -101,31 +101,31 @@ export function Stories({ data: stories, location }) {
     const startingNumber = calculateStartingNumber(location.pathname)
 
     return (
-      <ol className={styles.storiesList} start={startingNumber}>
+      <div className={styles.storiesList} start={startingNumber}>
         {stories.filter(Boolean).map((story, index) => {
           const count = index === 0 ? startingNumber : index + startingNumber
           return (
-            <li className={styles.storiesListItem} key={story.id}>
+            <article className={styles.storiesListItem} key={story.id}>
               <div className={styles.storiesListIndex}>{count}</div>
-              <div className={styles.storiesListTitle}>
+              <h2 className={styles.storiesListTitle}>
                 <a href={story.url}>{story.title}</a>
-              </div>
+              </h2>
               <div className={styles.storiesListByLine} suppressHydrationWarning>
                 {story.score} points by {story.by.id}
               </div>
-            </li>
+            </article>
           )
         })}
-      </ol>
+      </div>
     )
   }
 
   return (
-    <ol className={styles.storiesList}>
+    <div className={styles.storiesList}>
       {Array(20)
         .fill({})
         .map((_, index) => (
-          <li className={classes(styles.storiesListItem, loadingAnimation)} key={index}>
+          <article className={classes(styles.storiesListItem, loadingAnimation)} key={index}>
             <div className={classes(styles.storiesListIndex, placeholder)}>{index + 1}</div>
             <div className={classes(styles.storiesListTitle, styles.storiesListTitlePlaceholder)}>
               <p className={placeholder}>placeholder title</p>
@@ -133,8 +133,8 @@ export function Stories({ data: stories, location }) {
             <div className={styles.storiesListByLine}>
               <p className={placeholder}>n points by placeholder</p>
             </div>
-          </li>
+          </article>
         ))}
-    </ol>
+    </div>
   )
 }
