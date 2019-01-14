@@ -79,6 +79,7 @@ export const styles = stylesheet({
     position: 'fixed',
     top: 0,
     left: 0,
+    zIndex: 10,
     backgroundColor: colors.NEARFORM_BRAND_ACCENT_1,
     background: `linear-gradient(
       142.5deg,
@@ -144,7 +145,7 @@ function checkRootRouteActive(match, location) {
   return location.pathname === '/' || location.pathname.split('/')[1] === 'page'
 }
 
-const Navigation = ({ navigationVisible, toggleNavigation }) => {
+function Header({ navigationVisible, toggleNavigation }) {
   return (
     <header className={styles.navigation} role="banner">
       <Link to="/" className={styles.navigationLogo}>
@@ -248,4 +249,4 @@ const Navigation = ({ navigationVisible, toggleNavigation }) => {
   )
 }
 
-export default Navigation
+export default Header
