@@ -93,7 +93,7 @@ exports[`renders correctly when location is "/" 1`] = `
     </span>
   </button>
   <nav
-    class="navigationSide_fmq9nc0"
+    class="navigationSide_f1gg7end"
     data-testid="navigation"
     role="dialog"
   >
@@ -345,7 +345,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
     </span>
   </button>
   <nav
-    class="navigationSide_fmq9nc0"
+    class="navigationSide_f1gg7end"
     data-testid="navigation"
     role="dialog"
   >
@@ -597,7 +597,7 @@ exports[`should render with menu open 1`] = `
     </span>
   </button>
   <nav
-    class="navigationSide_fmq9nc0"
+    class="navigationSide_f1gg7end"
     data-testid="navigation"
     role="dialog"
     style="visibility:visible;transform:translateX(0)"
