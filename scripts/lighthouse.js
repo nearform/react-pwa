@@ -11,12 +11,12 @@ const bf = new BadgeFactory()
 const waitOn = promisify(require('wait-on'))
 const writeFileAsync = promisify(writeFile)
 
-function unhandledRejectionHandler (error) {
+function unhandledRejectionHandler(error) {
   console.error(error)
   process.exit(1)
 }
 
-function badgeColor (score) {
+function badgeColor(score) {
   if (score > 90) return 'green'
   else if (score > 80) return 'yellow'
   else if (score > 50) return 'orange'
@@ -24,23 +24,13 @@ function badgeColor (score) {
   return 'red'
 }
 
-async function badge (spec) {
-  return new Promise((resolve, reject) => {
-    bf.create(spec, (svg, err) => {
-      if (err) return reject(err)
-
-      resolve(svg)
-    })
-  })
-}
-
-async function createBadgeSvg (category, index) {
+async function createBadgeSvg(category, index) {
   const score = Math.ceil(category.score * 100)
 
-  const svg = await badge({
+  const svg = await bf.create({
     text: [`Lighthouse ${category.title} Score`, `${score}/100 `],
     colorscheme: badgeColor(score),
-    template: 'flat'
+    template: 'flat',
   })
 
   await writeFileAsync(resolve(process.cwd(), `coverage/badges/lighthouse-${category.id}.svg`), svg, 'utf8')
@@ -48,7 +38,7 @@ async function createBadgeSvg (category, index) {
   return { index, item: `${category.title}: ${score}` }
 }
 
-async function main () {
+async function main() {
   const url = process.argv[2] || 'http://localhost:3000'
   const parsedUrl = parseUrl(url)
 
@@ -61,7 +51,10 @@ async function main () {
   }
 
   // Launch chrome
-  const browser = await puppeteer.launch({ headless: process.env.VIEW !== 'true', args: ['--no-sandbox', '--show-paint-rects'] })
+  const browser = await puppeteer.launch({
+    headless: process.env.VIEW !== 'true',
+    args: ['--no-sandbox', '--show-paint-rects'],
+  })
 
   // Execute lighthouse
   const results = (await lighthouse(url, { port: parseUrl(browser.wsEndpoint()).port, output: 'json' })).lhr
