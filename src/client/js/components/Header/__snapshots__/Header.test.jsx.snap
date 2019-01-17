@@ -68,7 +68,7 @@ exports[`renders correctly when location is "/" 1`] = `
   <button
     aria-describedby="nav-info"
     aria-label="Menu"
-    class="navigationHamburger_f18vijaj"
+    class="navigationHamburger_f1drioqs"
     data-testid="navigationHamburger"
   >
     <svg
@@ -183,7 +183,7 @@ exports[`renders correctly when location is "/" 1`] = `
       </ul>
       <button
         aria-label="Close"
-        class="navigationClose_frquig"
+        class="navigationClose_fqeebw7"
         data-testid="navigationClose"
       >
         <svg
@@ -320,7 +320,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
   <button
     aria-describedby="nav-info"
     aria-label="Menu"
-    class="navigationHamburger_f18vijaj"
+    class="navigationHamburger_f1drioqs"
     data-testid="navigationHamburger"
   >
     <svg
@@ -435,7 +435,7 @@ exports[`renders correctly when location is "/newcomments" 1`] = `
       </ul>
       <button
         aria-label="Close"
-        class="navigationClose_frquig"
+        class="navigationClose_fqeebw7"
         data-testid="navigationClose"
       >
         <svg
@@ -572,7 +572,7 @@ exports[`should render with menu open 1`] = `
   <button
     aria-describedby="nav-info"
     aria-label="Menu"
-    class="navigationHamburger_f18vijaj"
+    class="navigationHamburger_f1drioqs"
     data-testid="navigationHamburger"
   >
     <svg
@@ -688,7 +688,7 @@ exports[`should render with menu open 1`] = `
       </ul>
       <button
         aria-label="Close"
-        class="navigationClose_frquig"
+        class="navigationClose_fqeebw7"
         data-testid="navigationClose"
       >
         <svg

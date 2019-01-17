@@ -25,6 +25,13 @@ export const placeholder = style(debugClassName('placeholder'), {
   background: `${constants.colors.LIGHT_GRAY} !important`,
 })
 
+export const buttonReset = {
+  border: 'none',
+  background: 'none',
+  padding: 0,
+  margin: 0,
+}
+
 export const loadingAnimation = style(debugClassName('loading'), {
   $nest: {
     '&::after': {

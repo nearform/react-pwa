@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prompt test suite natively supported should render correctly 1`] = `
+<div
+  class="wrapper_fgxiik6"
+  style="visibility:visible;transform:translateY(0)"
+>
+  <h3
+    class="title_f5zh3yy"
+  >
+    This app can be installed for offline use.
+  </h3>
+  <div
+    class="buttons_f1dxplrk"
+  >
+    <button
+      class="button_fjoq4c1 installButton_f1wgjmrm"
+    >
+      Install
+    </button>
+    <button
+      class="button_fjoq4c1"
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Prompt test suite not natively supported should render correctly 1`] = `
+<div
+  class="wrapper_fgxiik6"
+  style="visibility:visible;transform:translateY(0)"
+>
+  <h3
+    class="title_f5zh3yy"
+  >
+    This app can be installed for offline use.
+  </h3>
+  <div
+    class="buttons_f1dxplrk"
+  >
+    <button
+      class="button_fjoq4c1 installButton_f1wgjmrm"
+    >
+      Install
+    </button>
+    <button
+      class="button_fjoq4c1"
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Prompt test suite not natively supported should show instructions when clicking install 1`] = `
+<Prompt
+  display={true}
+  onDismiss={[MockFunction]}
+  onInstall={[MockFunction]}
+>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <div
+      className="wrapper_fgxiik6"
+      style={
+        Object {
+          "transform": "translateY(0)",
+          "visibility": "visible",
+        }
+      }
+    >
+      <h3
+        className="title_f5zh3yy"
+      >
+        This app can be installed for offline use.
+      </h3>
+      <Unsupported
+        onDismiss={[MockFunction]}
+      >
+        <p>
+          If you are using Chrome, press the Menu button in the browser and Add to homescreen.
+        </p>
+        <p>
+          If you are using Safari, press the Share button in the browser and Add to Home Screen.
+        </p>
+        <p>
+          If you are using Opera, press the plus sign in top left and Add to home screen.
+        </p>
+        <p>
+          For any other browser please consult with documentation.
+        </p>
+        <div
+          className="buttons_f1dxplrk"
+        >
+          <button
+            className="button_fjoq4c1"
+            onClick={[MockFunction]}
+          >
+            Close
+          </button>
+        </div>
+      </Unsupported>
+    </div>
+  </Transition>
+</Prompt>
+`;
