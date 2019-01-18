@@ -12,8 +12,8 @@ export const HumburgerIcon = () => (
   </svg>
 )
 
-export const CloseIcon = ({ width = 48, height = 48 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} aria-hidden="true">
+export const CloseIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true">
     <title>Close</title>
     <path
       fill={colors.NEARFORM_BRAND_MAIN}
