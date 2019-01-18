@@ -14,12 +14,12 @@ exports[`Prompt test suite natively supported should render correctly 1`] = `
     class="buttons_f1dxplrk"
   >
     <button
-      class="button_fjoq4c1 installButton_f1wgjmrm"
+      class="button_f1h07t4x installButton_f1wgjmrm"
     >
       Install
     </button>
     <button
-      class="button_fjoq4c1"
+      class="button_f1h07t4x"
     >
       Close
     </button>
@@ -41,12 +41,12 @@ exports[`Prompt test suite not natively supported should render correctly 1`] = 
     class="buttons_f1dxplrk"
   >
     <button
-      class="button_fjoq4c1 installButton_f1wgjmrm"
+      class="button_f1h07t4x installButton_f1wgjmrm"
     >
       Install
     </button>
     <button
-      class="button_fjoq4c1"
+      class="button_f1h07t4x"
     >
       Close
     </button>
@@ -108,7 +108,7 @@ exports[`Prompt test suite not natively supported should show instructions when 
           className="buttons_f1dxplrk"
         >
           <button
-            className="button_fjoq4c1"
+            className="button_f1h07t4x"
             onClick={[MockFunction]}
           >
             Close

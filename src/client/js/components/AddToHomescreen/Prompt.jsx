@@ -39,6 +39,7 @@ const styles = stylesheet({
     background: colors.NEARFORM_BRAND_MAIN,
     color: 'white',
     fontSize: '1.1em',
+    cursor: 'pointer',
   },
   installButton: {
     marginBottom: '.8em',
