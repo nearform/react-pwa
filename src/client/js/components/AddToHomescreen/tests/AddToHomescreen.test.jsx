@@ -14,6 +14,7 @@ const setup = () => {
   const cleanup = () => {
     test.unmount()
     Object.defineProperty(navigator, 'userAgent', { value: originalUserAgent, writable: true })
+    Object.defineProperty(navigator, 'standalone', { value: undefined, writable: true })
   }
 
   return { test, event, cleanup }
@@ -50,6 +51,23 @@ describe('AddToHomescreen', () => {
     test.update()
 
     expect(test.find('Prompt').props()).toMatchObject({ display: true })
+
+    cleanup()
+  })
+
+  it('shouldnt display prompt when native event is unsupported, but the app was already installed and we are in standalone mode', () => {
+    Object.defineProperty(navigator, 'standalone', { value: true, writable: true })
+    Object.defineProperty(navigator, 'userAgent', {
+      value: `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X)
+    AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1`,
+      writable: true,
+    })
+
+    const { test, cleanup } = setup()
+    flushEffects()
+    test.update()
+
+    expect(test.find('Prompt').props()).toMatchObject({ display: false })
 
     cleanup()
   })

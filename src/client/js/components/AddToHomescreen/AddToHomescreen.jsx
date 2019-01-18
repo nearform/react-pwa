@@ -19,7 +19,7 @@ function AddToHomescreen() {
 
   useEffect(
     () => {
-      if (prompt || (!nativeSupport && isMobile)) {
+      if (prompt || (!nativeSupport && isMobile && !navigator.standalone)) {
         return setDisplayPrompt(true)
       }
     },
