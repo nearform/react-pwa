@@ -3,15 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 import FocusLock from 'react-focus-lock'
 import { Transition } from 'react-transition-group'
 import { media, stylesheet } from 'typestyle'
-import { colors, ergonomics } from '../../styles/common'
+import { colors, ergonomics, buttonReset } from '../../styles/common'
 import { Logo } from '../Logo'
 import { NearFormLogo, HumburgerIcon, CloseIcon } from '../Glyphs'
-
-const buttonReset = {
-  border: 'none',
-  background: 'none',
-  padding: 0,
-}
 
 const navigationTransition = {
   entering: { visibility: 'visible', transform: 'translateX(0)' },

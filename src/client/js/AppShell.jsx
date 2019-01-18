@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from 'react'
 import { Router as ServerRouter, Switch } from 'react-router'
 import { BrowserRouter, Route } from 'react-router-dom'
+import env from 'exenv'
 import routes from '../routes'
 import SkipLinks from './components/SkipLinks'
 import Header from './components/Header'
+import AddToHomescreen from './components/AddToHomescreen'
 
 export function AppShell({ history, ssrPreloading }) {
   const [navigationVisible, setNavigationVisible] = useState(false)
@@ -16,7 +18,7 @@ export function AppShell({ history, ssrPreloading }) {
     )
   }, [])
 
-  const SelectedRouter = typeof window === 'undefined' ? ServerRouter : BrowserRouter
+  const SelectedRouter = env.canUseDOM ? BrowserRouter : ServerRouter
 
   return (
     <SelectedRouter history={history}>
@@ -34,6 +36,7 @@ export function AppShell({ history, ssrPreloading }) {
             />
           ))}
         </Switch>
+        <AddToHomescreen />
       </>
     </SelectedRouter>
   )
