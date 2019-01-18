@@ -57,7 +57,7 @@ describe('useBeforeInstallPrompt hook', () => {
     cleanup()
   })
 
-  it('should call preventDefault on the event to prevent Chrome < 72 to automatically show dialog', () => {
+  it('should call preventDefault on the event to prevent Chrome < 68 to automatically show dialog', () => {
     const { test, cleanup } = setup()
     const testProps = test.find('TestComponent').props()
 
