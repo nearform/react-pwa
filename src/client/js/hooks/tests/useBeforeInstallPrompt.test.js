@@ -46,14 +46,14 @@ const setup = () => {
 }
 
 describe('useBeforeInstallPrompt hook', () => {
-  it('should give us prompt, promptToInstall and promptSupported', () => {
+  it('should give us prompt, promptToInstall and nativeSupport', () => {
     const { test, cleanup } = setup()
     const testProps = test.find('TestComponent').props()
 
     expect(testProps.prompt).toBeDefined()
     expect(testProps.promptToInstall).toBeDefined()
-    expect(testProps.promptSupported).toBeDefined()
-    expect(testProps.promptSupported).toEqual(true)
+    expect(testProps.nativeSupport).toBeDefined()
+    expect(testProps.nativeSupport).toEqual(true)
     cleanup()
   })
 

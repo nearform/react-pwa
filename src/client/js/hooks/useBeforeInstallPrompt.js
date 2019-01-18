@@ -24,6 +24,6 @@ export default function useBeforeInstallPrompt() {
   return {
     prompt,
     promptToInstall,
-    promptSupported: env.canUseDOM && !!window.BeforeInstallPromptEvent,
+    nativeSupport: env.canUseDOM && !!window.BeforeInstallPromptEvent,
   }
 }

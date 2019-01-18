@@ -1,1 +1,1 @@
-export { default } from './useBeforeInstallPrompt'
+export { default as useBeforeInstallPrompt } from './useBeforeInstallPrompt'
