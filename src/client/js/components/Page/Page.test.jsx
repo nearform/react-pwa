@@ -3,11 +3,7 @@ import { mount } from 'enzyme'
 import { MemoryRouter, Route } from 'react-router-dom'
 import pageFactory from './Page'
 import { flushEffects, flushAllPromises, createTouchEventObject } from '../../utils/testUtils'
-import * as PageUtils from '../../utils/page'
-
-jest.mock('../../utils/page', () => ({
-  buildLinks: jest.fn(() => ({})),
-}))
+import * as pageUtils from '../../utils/page'
 
 function mockListenerSetup(el) {
   // track eventListener adds to trigger later
@@ -102,7 +98,10 @@ describe('Page test suite', () => {
   })
 
   it('should call swipe right callbacks when swiped right', () => {
-    PageUtils.buildLinks.mockImplementation(() => ({
+    const buildLinksMock = jest.spyOn(pageUtils, 'buildLinks')
+    buildLinksMock.mockImplementation(() => ({
+      prevLinkEnabled: true,
+      prevLink: 'prevLink',
       nextLinkEnabled: true,
       nextLink: 'nextLink',
     }))
@@ -123,12 +122,17 @@ describe('Page test suite', () => {
 
     expect(historyPushMock).toHaveBeenCalledTimes(1)
     expect(historyPushMock).toHaveBeenCalledWith('nextLink')
+
+    buildLinksMock.mockRestore()
   })
 
   it('should call swipe left callbacks when swiped left', () => {
-    PageUtils.buildLinks.mockImplementation(() => ({
+    const buildLinksMock = jest.spyOn(pageUtils, 'buildLinks')
+    buildLinksMock.mockImplementation(() => ({
       prevLinkEnabled: true,
       prevLink: 'prevLink',
+      nextLinkEnabled: true,
+      nextLink: 'prevLink',
     }))
 
     const historyPushMock = jest.fn()
@@ -147,5 +151,7 @@ describe('Page test suite', () => {
 
     expect(historyPushMock).toHaveBeenCalledTimes(1)
     expect(historyPushMock).toHaveBeenCalledWith('prevLink')
+
+    buildLinksMock.mockRestore()
   })
 })
