@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { media, classes, stylesheet } from 'typestyle'
 import { colors, loadingAnimation, placeholder, ergonomics } from '../../styles/common'
 
@@ -93,6 +93,8 @@ const styles = stylesheet({
 })
 
 export function Stories({ data: stories, location }) {
+  useEffect(() => window.scrollTo(0, 0), [location.pathname])
+
   if (stories) {
     if (stories.length === 0) {
       return <div className={styles.noStories}>No further items to display.</div>
