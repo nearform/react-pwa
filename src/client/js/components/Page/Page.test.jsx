@@ -2,12 +2,40 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { MemoryRouter, Route } from 'react-router-dom'
 import pageFactory from './Page'
-import { flushEffects, flushAllPromises } from '../../utils/testUtils'
+import { flushEffects, flushAllPromises, createTouchEventObject } from '../../utils/testUtils'
+import * as pageUtils from '../../utils/page'
+
+function mockListenerSetup(el) {
+  // track eventListener adds to trigger later
+  // idea from - https://github.com/airbnb/enzyme/issues/426#issuecomment-228601631
+  const eventListenerMap = {}
+  el.addEventListener = jest.fn((event, cb) => {
+    // eslint-disable-line no-param-reassign
+    eventListenerMap[event] = cb
+  })
+  el.removeEventListener = jest.fn((event, cb) => {
+    // eslint-disable-line no-param-reassign
+    if (eventListenerMap[event] === cb) delete eventListenerMap[event]
+  })
+  return eventListenerMap
+}
 
 describe('Page test suite', () => {
   let Wrapper, Page
+  let origAddEventListener
+  let origRemoveEventListener
+  let eventListenerMap
+
+  beforeAll(() => {
+    origAddEventListener = document.addEventListener
+    origRemoveEventListener = document.removeEventListener
+  })
 
   beforeEach(() => {
+    // track eventListener adds to trigger later
+    // idea from - https://github.com/airbnb/enzyme/issues/426#issuecomment-228601631
+    eventListenerMap = mockListenerSetup(document)
+
     Page = pageFactory('top')
     Page.fetchData = jest.fn().mockImplementation(() => {
       return Promise.resolve([])
@@ -19,6 +47,11 @@ describe('Page test suite', () => {
         <Route component={children} />
       </MemoryRouter>
     )
+  })
+
+  afterAll(() => {
+    document.eventListener = origAddEventListener
+    document.removeEventListener = origRemoveEventListener
   })
 
   it('should render with ssr data', () => {
@@ -62,5 +95,63 @@ describe('Page test suite', () => {
     expect(test.find('OfflinePage').length).toEqual(1)
 
     Object.defineProperty(window.navigator, 'onLine', { value: onLine })
+  })
+
+  it('should call swipe right callbacks when swiped right', () => {
+    const buildLinksMock = jest.spyOn(pageUtils, 'buildLinks')
+    buildLinksMock.mockImplementation(() => ({
+      prevLinkEnabled: true,
+      prevLink: 'prevLink',
+      nextLinkEnabled: true,
+      nextLink: 'nextLink',
+    }))
+
+    const historyPushMock = jest.fn()
+    const props = {
+      ssrPreloading: {},
+      history: { push: historyPushMock },
+    }
+    const component = mount(<Wrapper>{routeProps => <Page {...routeProps} {...props} />}</Wrapper>)
+
+    component.simulate('touchStart', createTouchEventObject({ x: 100, y: 100, timeStamp: 8077.299999946263 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 125, y: 100, timeStamp: 8100.999999966007 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 150, y: 100, timeStamp: 8116.899999964517 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 175, y: 100, timeStamp: 8122.799999953713 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 200, y: 100, timeStamp: 8130.199999955433 }))
+    eventListenerMap.touchend(createTouchEventObject({}))
+
+    expect(historyPushMock).toHaveBeenCalledTimes(1)
+    expect(historyPushMock).toHaveBeenCalledWith('nextLink')
+
+    buildLinksMock.mockRestore()
+  })
+
+  it('should call swipe left callbacks when swiped left', () => {
+    const buildLinksMock = jest.spyOn(pageUtils, 'buildLinks')
+    buildLinksMock.mockImplementation(() => ({
+      prevLinkEnabled: true,
+      prevLink: 'prevLink',
+      nextLinkEnabled: true,
+      nextLink: 'prevLink',
+    }))
+
+    const historyPushMock = jest.fn()
+    const props = {
+      ssrPreloading: {},
+      history: { push: historyPushMock },
+    }
+    const component = mount(<Wrapper>{routeProps => <Page {...routeProps} {...props} />}</Wrapper>)
+
+    component.simulate('touchStart', createTouchEventObject({ x: 200, y: 100, timeStamp: 8077.299999946263 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 175, y: 100, timeStamp: 8100.999999966007 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 150, y: 100, timeStamp: 8116.899999964517 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 125, y: 100, timeStamp: 8122.799999953713 }))
+    eventListenerMap.touchmove(createTouchEventObject({ x: 100, y: 100, timeStamp: 8130.199999955433 }))
+    eventListenerMap.touchend(createTouchEventObject({}))
+
+    expect(historyPushMock).toHaveBeenCalledTimes(1)
+    expect(historyPushMock).toHaveBeenCalledWith('prevLink')
+
+    buildLinksMock.mockRestore()
   })
 })

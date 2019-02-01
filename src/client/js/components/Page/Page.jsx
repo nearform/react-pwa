@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import { style } from 'typestyle'
 import { More } from '../More'
 import { Stories } from '../Stories'
@@ -6,6 +7,7 @@ import { Comments } from '../Comments'
 import { fetchData } from '../../data/fetching'
 import { ErrorPage } from '../../pages/ErrorPage'
 import { OfflinePage } from '../../pages/OfflinePage'
+import { buildLinks } from '../../utils/page'
 
 const initialState = {
   data: null,
@@ -45,6 +47,14 @@ function pageFactory(type) {
       [url]
     )
 
+    const { history, location } = props
+    const currentCount = state.data ? state.data.length : 0
+    const { prevLink, nextLink, prevLinkEnabled, nextLinkEnabled } = buildLinks(location.pathname, currentCount)
+    const handlers = useSwipeable({
+      onSwipedRight: () => nextLinkEnabled && history.push(nextLink),
+      onSwipedLeft: () => prevLinkEnabled && history.push(prevLink),
+    })
+
     return state.error ? (
       <>
         {window.navigator.onLine && <ErrorPage {...props} error={state.error} />}
@@ -52,6 +62,7 @@ function pageFactory(type) {
       </>
     ) : (
       <main
+        {...handlers}
         role="main"
         id="content"
         tabIndex="-1"
