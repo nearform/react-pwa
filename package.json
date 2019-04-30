@@ -59,10 +59,10 @@
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-focus-lock": "^1.17.6",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-timeago": "^4.1.9",
-    "react-transition-group": "^2.5.2",
+    "react-transition-group": "^4.0.0",
     "rss-parser": "^3.6.1",
     "sanitize-html": "^1.20.0",
     "typestyle": "^2.0.1"
